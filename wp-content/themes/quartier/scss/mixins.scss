@@ -1,0 +1,258 @@
+// width responsive detection
+$widthMobileDevice : 480px; 
+$widthMobile : 768px;
+$widthTabletPortrait : 1150px;
+$widthDesktopTable : 1205px;
+$widthDesktopOptimize: 1310px;
+$widthDesktopLargest: 1500px;
+
+@mixin mbDevice() {
+  @media (max-width: #{$widthMobileDevice - 1px}) {
+    @content;
+  }
+}
+
+@mixin inter() {
+	@media (max-width: #{$widthDesktopOptimize - 1px}) {
+	  @content;
+	}
+  }
+@mixin mb() {
+  @media (max-width: #{$widthMobile - 1px}) {
+    @content;
+  }
+}
+@mixin mbLarge() {
+  @media (max-width: #{$widthTabletPortrait - 1px}) {
+    @content;
+  }
+}
+@mixin tb() {
+  @media (min-width: #{$widthMobile - 1px}) and (max-width: #{$widthTabletPortrait - 1px}) {
+    @content;
+  }
+}
+@mixin dsk() {
+  @media (min-width: #{$widthTabletPortrait}) and (max-width: #{$widthDesktopOptimize}) {
+    @content;
+  }
+}
+@mixin dskLargest() {
+  @media (min-width: #{$widthTabletPortrait}) and (max-width: #{$widthDesktopLargest}) {
+    @content;
+  }
+}
+@mixin tableResponsive() {
+  @media (min-width: #{$widthTabletPortrait}) and (max-width: #{$widthDesktopTable  - 1px}) {
+    @content;
+  }
+}
+@mixin minTab() {
+  @media (min-width: #{$widthTabletPortrait}) {
+    @content;
+  }
+}
+@mixin minMbLarge() {
+  @media (min-width: #{$widthMobile}) {
+    @content;
+  }
+}
+@mixin animationMedia(){
+	-webkit-transition: 0.5s width ease-in-out;
+	transition: 0.5s width ease-in-out;
+}
+@mixin focusGroup(){
+	background:$bgFormActive;
+	height:74px;
+	width:116%;
+	display:block;
+	position:absolute;
+	transform:translateX(-50%);
+	-webkit-transform:translateX(-50%);
+	left:50%;
+	top:-20px;
+}
+@mixin focusGroupError(){
+	background:$bgErrorForm;
+	height:74px;
+	width:116%;
+	display:block;
+	position:absolute;
+	transform:translateX(-50%);
+	-webkit-transform:translateX(-50%);
+	left:50%;
+	top:-20px;
+}
+@mixin defaultInput(){
+	box-shadow:none;
+	outline:0 none;
+	border-radius:0;
+	border:0 none;
+	padding:0;
+	margin:0 0 30px 0;
+	font-size:13px;
+	color:#262626;
+	background:transparent;
+	-webkit-appearance:none;
+	&[disabled]{
+		color:$txtGrey !important;
+		-webkit-text-fill-color:$txtGrey !important; /* Override iOS / Android font color change */
+		-webkit-opacity:1; /* Override iOS opacity change affecting text & background color */
+		color:$txtGrey !important; /* Override IE font color change */
+		opacity:1 !important;
+	}
+	&::-ms-clear {
+	    display: none;
+	}
+	&::-ms-reveal {
+	   display: none;
+	}
+}
+@mixin defaultLabel(){
+	font-size:11px;						
+	font-family:$mBold;
+	color:$blueLabel;
+	z-index:1;
+	position:relative;
+	text-transform:uppercase;
+}
+
+@mixin defaultButton(){
+	font-size:11px;						
+	font-weight:initial;
+	color:$colorWhite;
+	background:$blueButton;
+	text-align:center;
+	height:44px;
+	padding:0 30px;
+	border-radius:4px;
+	border:0 none;
+	display:block;
+	margin:0 auto;
+	text-transform:uppercase;
+	-webkit-appearance:none;
+	font-family:$mBold;
+	text-shadow:none;
+	&:hover {
+		color:$colorWhite;
+		background:$blueButton;
+	}
+	@include mb{
+		margin-top:36px;
+	}
+}
+
+@mixin defaultButtonCustom($customColor, $textColor){
+	font-size:11px;						
+	font-weight:initial;
+	color:$textColor;
+	background:$customColor;
+	text-align:center;
+	padding:0 30px;
+	border-radius:4px;
+	border:0 none;
+	display:block;
+	margin:0 auto;
+	text-transform:uppercase;
+	-webkit-appearance:none;
+	text-decoration:none;
+	font-family:$mBold;
+	text-shadow:none;
+	&:hover {
+		//color:$colorWhite;
+		//background:$blueButton;
+	}
+	@include mb{
+		margin-top:36px;
+	}
+}
+@mixin defaultButton2(){
+	font-size:11px;						
+	font-weight:initial;
+	font-family:$mBold;
+	color:$colorWhite;
+	background:$bgGrey;
+	text-align:center;
+	height:44px;
+	padding:0 30px;
+	border-radius:4px;
+	border:0 none;
+	display:inline-block;
+	text-transform:uppercase;
+	vertical-align:top;
+	margin-right:15px;
+	-webkit-appearance:none;
+	text-shadow:none;
+	@include mb{
+		margin-top:36px;
+	}
+}
+@mixin transY(){
+	transform:translateY(-50%);
+	-webkit-transform:translateY(-50%);
+}
+
+@mixin transX(){
+	transform:translateX(-50%);
+	-webkit-transform:translateX(-50%);
+}
+@mixin transYrotate(){
+		transform:translateY(-50%) rotate(-90deg);
+	-webkit-transform:translateY(-50%) rotate(-90deg);	
+}
+@mixin transYRotateCustom($other){
+		transform:translateY(-50%) $other;
+	-webkit-transform:translateY(-50%) $other;	
+}
+@mixin transXRotateCustom($other){
+		transform:translateY(-50%) $other;
+	-webkit-transform:translateY(-50%) $other;	
+}
+@mixin transCustom($other){
+		transform:$other;
+	-webkit-transform:$other;	
+}
+@mixin translateCenter(){
+	transform:translate(-50%, -50%);
+	-webkit-transform:translate(-50%, -50%);
+	left:50%;
+	top:50%;
+	position:absolute;
+}
+@mixin translateCenterCustom($other){
+	transform:translate(-50%, -50%) $other;
+	-webkit-transform:translate(-50%, -50%) $other;
+	left:50%;
+	top:50%;
+	position:absolute;
+}
+@mixin translateInitial(){
+	transform:none !important;
+	-webkit-transform:none !important;
+}
+@mixin anim(){
+	transition : 0.5s all ease-in-out;
+	-webkit-transition : 0.5s all ease-in-out;
+}
+
+@mixin mscEllipsis(){
+	overflow: hidden;
+    white-space: nowrap;
+	text-overflow: ellipsis;
+}
+@mixin mscEllipsisCancel(){
+	overflow: hidden;
+    white-space: initial;
+	text-overflow: initial;
+}
+@mixin transition(){
+	-webkit-transition:all 0.5s ease;
+	transition:all 0.5s ease;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
