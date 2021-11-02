@@ -1,0 +1,415 @@
+/* all bigger than a tablet */
+/* large screen */
+/*desktop and tablet landscape */
+/* mobile */
+/* specifi mobile landscape */
+/* specific portrait */
+/* specific landscape*/
+/* specifi mobile landscape */
+#quartier {
+  width: 100%;
+}
+
+.site-content-contain .site-content {
+  padding: 0 0 0 0 !important;
+}
+
+.site-content-contain .main-slider {
+  padding-bottom: 40px !important;
+}
+
+footer .wpcf7 p {
+  margin: 0;
+}
+
+.main-footer {
+  clear: both !important;
+}
+
+.single #primary {
+  width: 100% !important;
+  max-width: 100%;
+  clear: both;
+}
+
+.sidebar-page .search-form label {
+  display: none;
+}
+
+.parent.comment {
+  padding-left: 0px !important;
+}
+
+.comment-reply-link, .comment-reply-link:hover {
+  text-decoration: none;
+  box-shadow: none;
+  color: #fff;
+}
+
+.page #content .wpcf7-form .wpcf7-form-control-wrap {
+  float: left;
+}
+
+@media (max-width: 767px) {
+  .page #content .wpcf7-form .wpcf7-form-control-wrap {
+    float: left;
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.page #content .wpcf7-form .wpcf7-form-control-wrap input, .page #content .wpcf7-form .wpcf7-form-control-wrap textarea {
+  position: relative;
+  display: block;
+  line-height: 30px;
+  padding: 10px 20px;
+  color: #555555;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  -webkit-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.page #content .wpcf7-form .wpcf7-form-control-wrap textarea {
+  height: 300px;
+}
+
+.page #content .wpcf7-form input[type="submit"] {
+  max-width: 300px;
+  float: right;
+}
+
+@media (max-width: 767px) {
+  .page #content .wpcf7-form input[type="submit"] {
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+.other-info .contact-sp-form input[type="submit"] {
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.other-info .contact-sp-form input[type="submit"]:hover {
+  border: 2px solid #f14b05;
+  box-sizing: border-box;
+}
+
+.other-info .contact-sp-form .wpcf7-not-valid {
+  border: 1px solid #f00 !important;
+}
+
+.other-info .contact-sp-form .wpcf7-not-valid-tip {
+  padding-bottom: 12px;
+}
+
+.other-info .contact-sp-form .wpcf7-validation-errors {
+  display: block !important;
+  clear: both !important;
+  border: 2px solid #f00;
+  color: #f00;
+  padding-left: 0;
+  padding-right: 0;
+  text-indent: 8px;
+}
+
+.other-info .contact-sp-form label.error {
+  color: #f00;
+}
+
+.footer-upper .wpcf7-form-control-wrap {
+  width: 100% !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.contact-section h2 {
+  padding-left: 13px;
+  margin: 0;
+  padding-top: 0;
+}
+
+.default-featured-column .image-box, .category .blog-news-column .image-box {
+  height: 216px;
+}
+
+.default-featured-column .image-box img, .category .blog-news-column .image-box img {
+  width: 100%;
+  height: auto !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vertical-links-outer.events-post .default .image-thumb {
+  overflow: hidden;
+}
+
+@media all and (max-width: 1023px) {
+  .vertical-links-outer.events-post .default .image-thumb {
+    position: static;
+  }
+}
+
+.vertical-links-outer.events-post .default .image-thumb img {
+  height: 100%;
+  max-width: initial !important;
+  width: auto;
+}
+
+@media (max-width: 1149px) {
+  html body {
+    padding-top: 30px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    left: 0;
+    position: relative;
+  }
+  html body.single, html body.page {
+    padding-top: 30px;
+  }
+  html body.open-nav {
+    overflow: hidden;
+    left: 100%;
+  }
+  html body.open-nav:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: block;
+  }
+  html body.open-nav .main-menu .navbar-toggle {
+    left: 22px;
+    background-color: #a91916;
+  }
+  html body.open-nav .main-menu .navbar-toggle span {
+    background-color: #fff !important;
+  }
+  html body.open-nav .header-style-two {
+    left: 100%;
+  }
+  html body.open-nav .header-style-two .navbar-header {
+    left: 80%;
+    top: 18px;
+    position: fixed;
+  }
+  html body.open-nav .header-style-two .navbar-header .navbar-toggle {
+    background: #a91916 !important;
+  }
+  html body.open-nav .header-style-two .btn-box {
+    display: none;
+  }
+}
+
+@media (max-width: 1149px) {
+  html .main-menu {
+    padding: 0;
+    width: 85%;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 10000000;
+    background: rgba(49, 49, 49, 0.9) !important;
+  }
+  html .main-menu .navbar-header {
+    position: absolute;
+    top: 2px;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    width: 30px;
+    left: 0;
+  }
+  html .main-menu .navbar-header:before, html .main-menu .navbar-header:after {
+    display: block !important;
+  }
+  html .main-menu .navbar-header .nav-bar {
+    position: absolute !important;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  html .main-menu .navbar-header .navbar-toggle {
+    background: transparent;
+    border: 0 none;
+    left: initial;
+    right: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 46px;
+  }
+  html .main-menu .navbar-header .navbar-toggle.active {
+    background: transparent;
+    border-radius: 5px;
+  }
+  html .main-menu .navbar-header .navbar-toggle span {
+    background: #a91916 !important;
+    height: 3px;
+    border-radius: 10px;
+    width: 33px;
+  }
+  html .main-menu .navbar-header .navbar-toggle span:first-child {
+    width: 90%;
+  }
+  html .main-menu .navbar-header .navbar-toggle span:last-child {
+    width: 80%;
+  }
+  html .main-menu .collapse, html .main-menu .collapsing {
+    position: fixed !important;
+    top: 0 !important;
+    left: -100% !important;
+    height: 100% !important;
+    width: 85% !important;
+    max-height: initial !important;
+    background: #fff !important;
+    display: block !important;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    box-shadow: -16px 0 20px #000;
+  }
+  html .main-menu .collapse.in, html .main-menu .collapsing.in {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    max-height: initial;
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    background: #fff !important;
+    border: 0 none !important;
+    padding: 40px !important;
+  }
+  html .main-menu .collapse .navigation, html .main-menu .collapsing .navigation {
+    border: 0 none !important;
+    padding: 0;
+    background-color: transparent;
+  }
+  html .main-menu .collapse .navigation li, html .main-menu .collapsing .navigation li {
+    border: 0 none !important;
+    line-height: 50px !important;
+    padding: 0 !important;
+    text-indent: 15px;
+    position: relative;
+    background: transparent !important;
+  }
+  html .main-menu .collapse .navigation li.current-menu-item a, html .main-menu .collapse .navigation li.current a, html .main-menu .collapsing .navigation li.current-menu-item a, html .main-menu .collapsing .navigation li.current a {
+    color: #a91916 !important;
+  }
+  html .main-menu .collapse .navigation li .icon, html .main-menu .collapsing .navigation li .icon {
+    height: 25px;
+    width: 25px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 6px;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+  }
+  html .main-menu .collapse .navigation li .dropdown-btn, html .main-menu .collapsing .navigation li .dropdown-btn {
+    height: 50px !important;
+    width: 50px !important;
+    line-height: 50px !important;
+    text-align: center !important;
+    font-size: 13px;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: initial !important;
+    display: block !important;
+  }
+  html .main-menu .collapse .navigation li.dropdown a:before, html .main-menu .collapsing .navigation li.dropdown a:before {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+  }
+  html .main-menu .collapse .navigation li.dropdown .sub-menu li, html .main-menu .collapsing .navigation li.dropdown .sub-menu li {
+    background: #fff !important;
+  }
+  html .main-menu .collapse .navigation li.dropdown .sub-menu li.current a, html .main-menu .collapsing .navigation li.dropdown .sub-menu li.current a {
+    color: #a91916 !important;
+    background: #fff !important;
+  }
+  html .main-menu .collapse .navigation li.dropdown .sub-menu li.current a:after, html .main-menu .collapsing .navigation li.dropdown .sub-menu li.current a:after {
+    top: 12px;
+    color: #a91916 !important;
+  }
+  html .main-menu .collapse .navigation li.dropdown .sub-menu li + li, html .main-menu .collapsing .navigation li.dropdown .sub-menu li + li {
+    border-top: 0 none !important;
+  }
+  html .main-menu .collapse .navigation li a, html .main-menu .collapsing .navigation li a {
+    padding: 0 !important;
+    color: #141625;
+    line-height: 50px;
+    background: transparent !important;
+    font-size: 20px;
+  }
+  html .main-menu .collapse .navigation li + li, html .main-menu .collapsing .navigation li + li {
+    border-top: 0 none !important;
+    margin-top: 11px !important;
+  }
+}
+
+html .header-style-two .lower-part {
+  height: auto !important;
+}
+
+@media all and (max-width: 767px) {
+  html .header-style-two .lower-part .outer-box {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1149px) {
+  html .header-style-two .lower-part .outer-box .btn-box {
+    width: 100%;
+    clear: both;
+    position: fixed;
+    bottom: 0 !important;
+    top: initial !important;
+    left: 0;
+    height: auto;
+  }
+}
+
+@media all and (max-width: 1023px) {
+  html .header-style-two .header-top .logo img {
+    max-width: 130px !important;
+  }
+}
+
+html .sec-title {
+  position: relative;
+  margin-bottom: 50px;
+  font-family: arial;
+}
+
+html .sec-title h2 span {
+  font-weight: bold;
+}
+
+html .sec-title .text {
+  color: #000 !important;
+}
+
+@media all and (max-width: 1023px) {
+  html .vertical-links-outer.events-post .default {
+    padding: 15px 70px 20px 20px;
+  }
+}
+
+/*# sourceMappingURL=maps/theme.css.map */
