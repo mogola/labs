@@ -1,0 +1,37 @@
+{
+  "name": "kenzo",
+  "version": "1.0.0",
+  "description": "configuration of gulp",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-sass": "^3.0.0",
+    "merge-stream": "1.0.1"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "uglify-js": "^2.4.13"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mogola sangare",
+  "license": "ISC",
+  "keywords": [
+    "sass",
+    "gulp"
+  ],
+  "path": {
+    "local_desktop": "./../cartridges/app_kenzo_site/cartridge/static/default/css",
+    "sass_desktop": "./../cartridges/app_kenzo_site/cartridge/static/default/scss/**/*.scss",
+    "outputCssMinifyDesktop": "./../cartridges/app_kenzo_site/cartridge/static/default/scss/main.scss",
+    "local_mobile": "./../cartridges/app_kenzo_site/cartridge/static/default/mobile/css",
+    "sass_mobile": "./../cartridges/app_kenzo_site/cartridge/static/default/mobile/scss/**/*.scss",
+    "outputCssMinifyMobile": "./../cartridges/app_kenzo_site/cartridge/static/default/mobile/kenzo_checkout.scss"
+  }
+}
