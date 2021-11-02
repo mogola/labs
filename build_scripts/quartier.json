@@ -1,0 +1,11 @@
+{
+	"path" : {
+		"quartier" : "./../wp-content/themes/quartier" 
+	},
+	"local_desktop" : "/css",
+	"sass_desktop" : "/scss/**/*.scss",
+	"outputCssMinifyDesktop" : "/scss/style.scss",
+	"js_desktop" : "/js/**/*.js",
+	"js_vendor" : "/lib/**/*.js",
+	"dist" : "/dist/js"
+}
