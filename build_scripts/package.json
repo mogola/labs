@@ -6,8 +6,9 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-concat-css": "^2.3.0",
-    "gulp-sourcemaps": "^1.9.1",
     "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglifyjs": "^0.6.2",
     "merge-stream": "1.0.1"
   },
   "devDependencies": {

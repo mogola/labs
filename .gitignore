@@ -1,7 +1,8 @@
 # ignore everything in the root except the "wp-content" directory.
 !wp-content/
 wp-admin
-
+wp-config.php
+.htaccess
 # ignore everything in the "wp-content" directory, except:
 # "mu-plugins", "plugins", "themes" directory
 wp-content/*
