@@ -1,0 +1,95 @@
+.wrapper-services {
+    display: flex;
+    flex-wrap: wrap;
+    .services {
+        width: 33.33%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        justify-content: end;
+        @include mbLarge {
+            width: 100%;
+        }
+        .containers-services {
+            width: 100%;
+        }
+
+        .ct-title {
+            font-weight: bold;
+            color: #000;
+            font-size: 20px;
+            padding-bottom: 30px;
+            display: inline-block;
+            font-family: 'Futura-medium';
+            letter-spacing: 1px;
+            text-transform:uppercase;
+            padding: 0 0 18px 0;
+
+            &.wt{
+                color:#fff;
+            }
+        }
+
+        .cta-benefit {
+            font-size:16px;
+            align-self: flex-end;
+            margin-right:0;
+            font-weight:bold;
+            background: #fff;
+            color:#d7a802;
+            display:flex;
+            margin-bottom: 40px;
+            margin-right: 40px;
+            span {
+                + span {
+                    padding-left: 10px;
+                    display: inline-block;
+                }
+            }
+            &.wt {
+                background:#d7a802;
+                color: #fff;
+            }
+        }
+        .ct {
+            &-left {
+                &.wt {
+                    padding: 40px;
+                }
+            }
+
+            &-right {
+                padding: 40px;
+                font-size: 17px;
+                line-height: 24px;
+                &.wt {
+                    color: #fff;
+                }
+            }
+        }
+        &:nth-child(odd) {
+            background: #fcfcfc;
+        }
+        &:nth-child(even) {
+            background: #fdfdfd;
+        }
+        // &:nth-child(1){
+        //     background: #e6b300;
+        // }
+        // &:nth-child(2){
+        //     background: #FFCE1F;
+        // }
+        // &:nth-child(3){
+        //     background: #e6b300;
+        // }
+        // &:nth-child(4){
+        //     background: #E0B000;
+        // }
+        // &:nth-child(5){
+        //     background: #A38000;
+        // }
+        &:nth-child(6){
+            background: #141000;
+        }
+    }
+}

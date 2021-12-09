@@ -671,6 +671,13 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'id_setting'
 		);
 		add_settings_field(
+			'imageDevis', 
+			'ImageDevis', 
+			array($this,'devisImage_callback'), 
+			'page_config', 
+			'id_setting'
+		);
+		add_settings_field(
 			'Gallery', 
 			'Gallery', 
 			array($this,'gallery_callback'), 
@@ -681,6 +688,13 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'Testimonial', 
 			'Testimonial', 
 			array($this,'testimonial_callback'), 
+			'page_config', 
+			'id_setting'
+		);
+		add_settings_field(
+			'Devis', 
+			'Devis', 
+			array($this,'devis_callback'), 
 			'page_config', 
 			'id_setting'
 		);
@@ -742,9 +756,9 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 	        if( isset( $input['upload_image'] ) )
 	            $new_input['upload_image'] = sanitize_text_field( $input['upload_image'] );
-
-			if( isset( $input['upload_imageFooter'] ) )
-	            $new_input['upload_imageFooter'] = sanitize_text_field( $input['upload_imageFooter'] );
+			
+			if( isset( $input['upload_imageDevis'] ) )
+	            $new_input['upload_imageDevis'] = sanitize_text_field( $input['upload_imageDevis'] );
 
 			if( isset( $input['title_gallery'] ) )
 	            $new_input['title_gallery'] = sanitize_text_field( $input['title_gallery'] );
@@ -758,6 +772,21 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	        if( isset( $input['resume_testimonial'] ) )
 	            $new_input['resume_testimonial'] = sanitize_text_field( $input['resume_testimonial'] );
 
+			if( isset( $input['title_devis'] ) )
+	            $new_input['title_devis'] = sanitize_text_field( $input['title_devis'] );
+
+	        if( isset( $input['resume_devis'] ) )
+	            $new_input['resume_devis'] = sanitize_text_field( $input['resume_devis'] );
+			
+			if( isset( $input['cta_devis'] ) )
+	            $new_input['cta_devis'] = sanitize_text_field( $input['cta_devis'] );
+
+			if( isset( $input['cta_devis'] ) )
+	            $new_input['cta_devis'] = sanitize_text_field( $input['cta_devis'] );
+			
+			if( isset( $input['upload_imageFooter'] ) )
+	            $new_input['upload_imageFooter'] = sanitize_text_field( $input['upload_imageFooter'] );
+				
 			if( isset( $input['title_generic'] ) )
 	            $new_input['title_generic'] = sanitize_text_field( $input['title_generic'] );
 
@@ -882,7 +911,19 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 				<input type="button" class="button-secondary" id="upload_image_button" value="Ajouter une image" />',
 				isset( $this->options['upload_imageFooter'] ) ? esc_attr( $this->options['upload_imageFooter']) : ''
 			);
-	}
+		}
+
+
+		public function devisImage_callback(){ 
+			printf('<img style="max-width:200px;" src = "'.$this->options['upload_imageDevis'].'" >
+					<br />
+				<label style="display:block;">Url de l\'image</label>
+				<input id="upload_image" name="id_config_animate[upload_imageDevis]" value="%s" size="40" />
+				<br />
+				<input type="button" class="button-secondary" id="upload_image_button" value="Ajouter une image" />',
+				isset( $this->options['upload_imageDevis'] ) ? esc_attr( $this->options['upload_imageDevis']) : ''
+			);
+		}
 
 		
 
@@ -904,6 +945,23 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 					isset( $this->options['resume_testimonial'] ) ? esc_attr( $this->options['resume_testimonial']) : ''
 		    	);
 	    }
+
+		public function devis_callback(){ 
+
+			printf('<label>Title</label><input type="text" id="title_devis" name="id_config_animate[title_devis]" value="%s" />',
+				isset( $this->options['title_devis'] ) ? esc_attr( $this->options['title_devis']) : ''
+			);
+			printf('<label>Resume</label><input type="text" id="resume_devis" name="id_config_animate[resume_devis]" value="%s" />',
+				isset( $this->options['resume_devis'] ) ? esc_attr( $this->options['resume_devis']) : ''
+			);
+			printf('<label>TextButton</label><input type="text" id="cta_devis" name="id_config_animate[cta_devis]" value="%s" />',
+				isset( $this->options['cta_devis'] ) ? esc_attr( $this->options['cta_devis']) : ''
+			);
+			printf('<label>url de redirection</label><input type="text" id="url_devis" name="id_config_animate[url_devis]" value="%s" />',
+				isset( $this->options['url_devis'] ) ? esc_attr( $this->options['url_devis']) : ''
+			);
+	}
+
 
 		public function content_callback(){ 
 

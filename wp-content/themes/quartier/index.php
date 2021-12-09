@@ -16,7 +16,10 @@
  */
 
 get_header(); ?>
-<?php include 'include/landing-home.php' ?>
+<?php include 'include/landing-full.php' ?>
+<?php include 'include/banner-offer.php' ?>
+<?php/* include 'include/landing-home.php' */ ?>
 <?php /* include 'include/slider/home.php' */?>
 <?php include 'template-parts/page/content-front-home-events.php' ?>
+<?php include 'include/banner-offer.php' ?>
 <?php get_footer(); ?>

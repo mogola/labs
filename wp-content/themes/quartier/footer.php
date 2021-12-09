@@ -54,13 +54,14 @@
                     <div class="col-lg-2 col-sm-6 col-xs-12 column">
                         <h2><?php echo option_get_config_value('link_quick') ?></h2>
                         <div class="footer-widget links-widget">
-                           <?php
-                           $args = array(
-                           	'title_li' => ''
-                           	);
-								wp_list_pages($args); 
-							?>
-
+                            <ul>
+                            <?php
+                            $args = array(
+                                'title_li' => ''
+                                );
+                                    wp_list_pages($args); 
+                                ?>
+                            </ul>
                         </div>
                     </div>
                     

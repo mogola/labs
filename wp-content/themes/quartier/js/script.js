@@ -581,6 +581,8 @@
 	isRedirectContact();
 	// scroll to page 
 	scrollToFormContact();
+	// scrollDown 
+	scrollDownStep();
 })(window.jQuery);
 
 function scrollBtnContact() {
@@ -651,4 +653,18 @@ function scrollToFormContact() {
 	else {
 		return false; 
 	}
+}
+
+function scrollDownStep() {
+	var arrowScrollDown = '.scrollDown';
+	var IML = '.imagefull-mya-landing';
+	
+	$(document).on('click', arrowScrollDown, function(e){
+		e.preventDefault();
+		var topLanding =  $(this).closest(IML);
+		window.scrollTo({
+			top: topLanding.height(),
+			behavior: 'smooth'
+		});
+	});
 }

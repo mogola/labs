@@ -29,10 +29,20 @@
 
 add_filter( 'nav_menu_css_class', 'custom_item', 10, 3 ); 
 ?>
-	<?php wp_nav_menu( array(
+	<?php 
+	
+	$whiteItem;
+
+	if(option_get_config_value('boolean_rd') === 'true') {
+		$whiteItem = 'navigation whiteFixed';
+	} else {
+		$whiteItem = 'navigation';
+	}
+
+	wp_nav_menu( array(
 		'theme_location' => 'top',
 		'menu_id'        => 'quartier',
-		'menu_class'	=> 'navigation',
+		'menu_class'	=> $whiteItem,
 		'container'		=> 'ul'
 	) ); ?>
 <!-- #site-navigation -->

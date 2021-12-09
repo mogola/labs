@@ -1,15 +1,16 @@
 .container-mya {
     &:nth-child(even){
-        background-color:#fbfbfb;
-        padding: 60px;
+        background-color:#e6b300;
+        padding: 0;
         @include mbLarge {
             padding: 40px 0 0; 
         }
         .default {
             &.text-mya {
                 order: 1;
-                padding-right:40px;
+                padding-right:0;
                 padding-left:0;
+                text-align: center;
 
                 @include mbLarge {
                     padding: 20px 40px 60px;
@@ -34,23 +35,49 @@
     }
 
     &:nth-child(odd){
-        padding: 60px;
+        padding: 0  ;
 
         @include mbLarge {
-            padding: 40px 0; 
+            padding: 0;
+        }
+
+        .title-h-mya {
+            color: #000;
+            text-align: center;
         }
         .text-mya {
+            order: 1;
+            padding-right:0;
+            padding-left:0;
+            text-align: center;
+            
+            @include mbLarge {
+                order: 1;
+            }
             .default {
                 &.text-mya {
                     padding-left:20px;
 
                     @include mbLarge {
-                        padding: 60px 40px 20px;
                     }
+                }
+            }
+
+            .theme-btn {
+                background-color: #e6b300;
+                color: #fff !important;
+                border: 1px solid  #e6b300 !important;
+                &:hover {
+                    background-color:#fff;
+                    color: #e6b300 !important;
+                    border: 1px solid #fff;
                 }
             }
         }
         .img-mya {
+            @include mbLarge {
+                order: 2;
+            }
             &:before {
                 @include mbLarge {
                     left: 12px;
@@ -64,16 +91,17 @@
 .link-block-mya {
     display: flex;
     align-items: center;
-    max-width: $widthDesktopOptimize;
-    margin: 0 auto 126px;
+    // max-width: $widthDesktopOptimize;
+    max-width: 100%;
+    margin: 0;
 
     .theme-btn {
-        display: none;
+        display: inline-block;
     }
 
     @include mbLarge {
         flex-direction:  column;
-        margin: 0 auto 45px;
+        margin: 0 auto;
     }
     + .link-block-mya  {
         margin: 126px auto;
@@ -132,20 +160,27 @@ html {
     .title-h-mya {
         font-weight: normal;
         font-size: 40px;
-        color: #000;
+        color: #fff;
         padding-bottom: 32px;
         font-family: $futuraMedium;
+        letter-spacing: 3px;
 
         @include mbLarge {
-            font-size: 28px;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
     }
     .desc-mya {
-        line-height: normal;
-        font-size: 25px;
+        line-height: 36px;
+        font-size: 19px;
         padding-bottom: 32px;
         font-family: $futuraMedium;
         position: relative;
+        max-width: 56%;
+        margin: auto;
+        font-weight: bold;
+        letter-spacing: 2px;
 
         @include mbLarge {
             font-size: 19px;
@@ -158,6 +193,7 @@ html {
             position:absolute;
             bottom: -30px;
             right:-30px;
+            display:none;
             
             @include mbLarge {
                 bottom: -4px;
@@ -173,6 +209,7 @@ html {
             position:absolute;
             bottom: -30px;
             right: -30px;
+            display: none;
             @include mbLarge {
                 bottom: -7px;
                 right: -7px;
@@ -184,7 +221,7 @@ html {
         position: relative;
         &:before {
             content: "";
-            display: block;
+            display: none;
             position: absolute; 
             width: 90%;
             height: 97%;
@@ -252,19 +289,25 @@ html {
     }
 
     .head-home{
-            max-width: $widthDesktopOptimize;
-            margin: 60px auto 60px;
+        max-width: $widthDesktopOptimize;
+        margin: 82px auto;
+
+        @include mbLarge {
+            padding: 0 40px;
+            margin: 35px 0;
+        }
+        h3 {
+            font-size: 24px;
+            text-align: center;
+            font-family: 'Futura-medium';
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
 
             @include mbLarge {
-                padding: 0 40px;
-                margin-top: 20px;
+                font-size: 16px;
             }
-            h3 {
-            font-size: 55px;
-            @include mbLarge {
-                font-size: 30px;
-            }
-            span{
+            span {
                 font-weight: bold;
             }
         }
@@ -279,16 +322,74 @@ html {
         background-size: cover;
         
         &-landing {
-            height: 100vh;
+            height: 100vh !important;
             display: flex; 
             align-items: center;
-            background-attachment:fixed;
-            background-size: 100%;
+            background-size: 128%;
             background-repeat: no-repeat;
+            background-attachment: initial;
+            justify-content: start;
+            position: relative;
+            background-position: top center;
+
+            @include mbLarge {
+                justify-content:center;
+            }
+            &:before {
+                position: absolute;
+                content: ""; 
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+            }
             @include mbLarge {
                 height: auto;
                 flex-direction: column;
                 background-size: auto 100%;
+            }
+
+            .txt-full {
+                margin-left: 250px;
+                text-align: left;
+                position: relative;
+
+                @include mbLarge {
+                    margin-left: 40px;
+                }
+                h1 {
+                    color: #fff;
+                    font-family: 'Futura-medium';
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    font-size: 22px;
+                    @include mbLarge {
+                        font-size: 14px;
+                        padding: 0 60px 0 0;
+                    }
+                }
+                p {
+                    text-align: left;
+                    @include mbLarge {
+                        font-size: 16px;
+                        padding: 0 60px 0 0;
+                    }
+                }
+
+                .ct-landing {
+                    padding: 15px 40px;
+                    background: $scd;
+                    color: #fff;
+                    display: inline-block;
+                    border-radius: 44px;
+                    font-size: 18px;
+                    letter-spacing: 1px;
+                    margin-top: 40px;
+
+                    @include mbLarge {
+                        font-size: 14px;
+                    }
+                }
             }
         }
 
@@ -303,6 +404,8 @@ html {
             background: rgba(0, 0, 0, 0.3);
         }
         .full-desc-mya {
+            color: #fff;
+
             @include mbLarge {
                 width: 90%;
             }
@@ -323,6 +426,10 @@ html {
             transform: translate(-50%, -50%);
             left: 50%;
             top:50%;
+            font-family: $futuraMedium;
+            letter-spacing: 1px;
+            font-size: 24px;
+            line-height: 40px;
             .entry-title {
                 a {
                     box-shadow: none;
@@ -558,7 +665,7 @@ html {
                 padding:50px;
                 max-width: $widthDesktopOptimize;
                 margin: 0 auto;
-
+                justify-content: center;
                 &-padd {
                     @include mbLarge () {
                         padding: 0;
@@ -634,10 +741,22 @@ html {
         justify-content: center;
         align-items: center;
         min-width: $widthDesktopOptimize;
+        flex-wrap: wrap;
+        width: 100%;
+        position: relative;
+        height: 80px;
 
         @include inter() {
             max-width: 100%;
             min-width: 100%;
+        }
+    }
+
+    .fixed-header {
+        .wrap-head-flex {
+            &.whiteFixed {
+                background: rgba(0, 0, 0, 0.9);
+            }
         }
     }
 
@@ -811,6 +930,26 @@ html {
                             font-size: 20px;
                         }
                     }
+
+                    ul {
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding-left: 0;
+
+                        @include mbLarge {
+                            width: 100%;
+                        }
+                    }
+
+                    li{
+                        list-style: none;
+                        flex: 0 0 33.333333%;
+
+                        @include mbLarge {
+                            width: 100%;
+                            flex: none;
+                        }
+                    }
                 }
             }
         }
@@ -861,7 +1000,7 @@ html {
         }
 
         img {
-            max-width: 200px;
+            max-width: 230px;
         }
     }
 
@@ -881,9 +1020,11 @@ html {
                     align-items: center;
                 }
                 img {
+                    max-width: 100px;
+
                     @include mbLarge() {
                         width: 100%;
-                        max-width: initial;
+                        max-width: 90px;
                         height: auto;
                         margin:0;
                     }
@@ -1145,5 +1286,94 @@ html {
         @include mbLarge {
             padding: 0 30px;
         }
+    }
+
+    .btn-contact-link {
+        position: fixed;
+        top: 8px;
+        right: 0;
+        background: #e6b300;
+        color: #fff;
+        height: 64px;
+        line-height: 64px;
+        padding: 0 20px;
+        border-radius: 20px 0 0 20px;
+
+        @include mbLarge {
+            top: initial;
+            bottom: 60px;
+        }
+        a {
+            color: #fff;
+            font-family: 'Raleway';
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+
+    .post-thumbnail {
+        margin-bottom: 0;
+    }
+}
+
+.txt-full {
+    max-width: 700px; 
+    text-align: center;
+    h2 {
+        p{
+            color: #fff;
+            font-family: 'roboto';
+            text-transform: uppercase;
+            font-weight:bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            font-size: 34px;
+        }
+    }
+}
+@keyframes balance {
+    0% {
+        bottom: 30px;
+    }
+    50% {
+        bottom: 20px
+    }
+    100% {
+        bottom: 30px;
+    }
+}
+.scrollDown {
+    position: absolute;
+    bottom: 30px;
+    color: #fff;
+    z-index: 20;
+    font-size: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include transition();
+    display: block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    &:hover {
+        color: #fff;
+        animation: 1s balance ease;
+        animation-iteration-count: infinite;
+    }
+}
+
+.cta-landing {
+    font-size: 22px;
+    color: #fff;
+    background: #d7a802;
+    display: inline-block;
+    border-radius: 44px;
+    padding: 15px 40px;
+    margin-top: 40px;
+    letter-spacing: 1px;
+    font-family: 'Futura-medium';
+
+    &:hover {
+        color: #d7a802;
+        background: #fff;
     }
 }
