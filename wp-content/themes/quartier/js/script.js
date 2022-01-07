@@ -581,6 +581,8 @@
 	isRedirectContact();
 	// scroll to page 
 	scrollToFormContact();
+	// scrollDown 
+	scrollDownStep();
 })(window.jQuery);
 
 function scrollBtnContact() {
@@ -630,7 +632,7 @@ function scrollToFormContact() {
 	var classContact = '.contact-form';
 	var urlContactForm;
 	try {
-		if($(classContact).length) {
+		if($(classContact).length && window.location.href.indexOf('?') !== -1) {
 			urlContactForm = window.location.href.split('?')[1];
 			urlContactForm = urlContactForm.split('=')[1];
 		}
@@ -651,4 +653,18 @@ function scrollToFormContact() {
 	else {
 		return false; 
 	}
+}
+
+function scrollDownStep() {
+	var arrowScrollDown = '.scrollDown';
+	var IML = '.imagefull-mya-landing';
+	
+	$(document).on('click', arrowScrollDown, function(e){
+		e.preventDefault();
+		var topLanding =  $(this).closest(IML);
+		window.scrollTo({
+			top: topLanding.height(),
+			behavior: 'smooth'
+		});
+	});
 }

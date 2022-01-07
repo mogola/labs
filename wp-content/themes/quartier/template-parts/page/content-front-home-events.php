@@ -1,7 +1,7 @@
 
 <div class="wrapper_mya">
     <div class="head-home">
-        <h3>Notre <span>Vision</span></h3>
+        <h3><?php echo option_get_config_value('title_events') ?></h3>
     </div>
 <?php
     $args = array(
@@ -50,7 +50,40 @@
 
     endif;
 ?>
-</div>                         
+</div> 
+<div class="wrapper-services">
+    <?php
+        $args = array(
+            'posts_per_page' => 5,
+            'tag' => 'services'
+        );
+        $query = new WP_Query($args);
+        if ( $query->have_posts() ) :
+
+            /* Start the Loop */
+            while ( $query->have_posts() ) : $query->the_post();
+            get_template_part( 'template-parts/post/content', 'service'); 
+
+            endwhile;
+
+        endif;
+    ?>
+    <div class="services services-offer wt">
+        <div class="containers containers-services">
+            <div class="ct ct-left wt">
+                <img src=<?php echo option_get_config_value('upload_imageDevis') ?> />
+            </div>
+            <div class="ct ct-right wt">
+                <span class="ct-title wt"><?php echo option_get_config_value('title_devis') ?></span>
+                <p><?php echo option_get_config_value('resume_devis') ?> </p>
+            </div>
+        </div>
+        <a class="cta-benefit wt" href=<?php echo option_get_config_value('url_devis') ?>>
+            <span><?php echo option_get_config_value('cta_devis') ?></span>
+            <span class="flaticon-arrows-8"></span>
+        </a>
+    </div>
+</div>
      <!--Testimonials-->
     <section class="testimonials-section" data-bac="#f5f5f5">
         <div class="auto-container">
@@ -93,6 +126,7 @@
 
                     endif;
                 ?>
+
             </div>
             
         </div>    

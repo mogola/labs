@@ -1,0 +1,108 @@
+.banner {
+    position:relative;
+    font-family: 'Roboto';
+    &-offer {
+    //    background: linear-gradient(90deg, #ccc 0%, #222 100%);
+        background: $scd;
+        height: 236px;
+        width: 100%;
+        display: flex;
+        margin-top: -10px;
+        @include mbLarge() {
+            height: 126px;
+        }
+    }
+
+    .containers {
+        max-width: $widthDesktopOptimize;
+        margin: 0 auto;
+        &-offer {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
+    
+    .ct {
+        width: 50%;
+        color: #fff;
+        font-family: 'Roboto';
+        font-weight: bold;
+        &-title {
+            font-size: 24px;
+            display: inline-block;
+            max-width: 380px;
+        }
+        &-right {
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            width:100%;
+            @include mbLarge(){
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                text-align: center; 
+            }
+
+            p {
+                @include mbLarge() {
+                    font-size: 12px;
+                }
+            }
+        }
+        &-left {
+            height: 150px;
+            display:flex;
+            align-items: center;
+            width: 100%;
+
+            @include mbLarge() {
+                justify-content: center;
+                flex-wrap: wrap;           
+            }
+            p {
+                padding:0 50px;
+                font-size: 21px;
+                line-height: 30px;
+
+                @include mbLarge(){
+                    padding: 0 20px;
+                    font-size: 16px;
+                    line-height: 18px;
+                    position: relative;
+                    top: -27px;
+                }
+            }
+            img {
+                height: 100%;
+                width: auto;
+
+                @include mbLarge() {
+                    height: 89%;
+                }
+            }
+        }
+    }
+}
+
+.cta-benefit {
+    padding: 15px 40px;
+    background: #d7a802;
+    color: #fff;
+    display: inline-block;
+    border-radius: 44px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-left: 50px;
+
+    @include mbLarge() {
+        padding: 6px 23px;
+        font-size: 15px;
+        margin-left: 0;
+    }
+    &:hover {
+        color: #fff;
+    }
+}
