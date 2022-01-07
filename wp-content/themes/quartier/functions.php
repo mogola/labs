@@ -699,6 +699,13 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'id_setting'
 		);
 		add_settings_field(
+			'Reinsurance', 
+			'Reinsurance', 
+			array($this,'reinsurance_callback'), 
+			'page_config', 
+			'id_setting'
+		);
+		add_settings_field(
 			'content', 
 			'content', 
 			array($this,'content_callback'), 
@@ -783,6 +790,18 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 			if( isset( $input['cta_devis'] ) )
 	            $new_input['cta_devis'] = sanitize_text_field( $input['cta_devis'] );
+			
+			if( isset( $input['title_reinsurance'] ) )
+	            $new_input['title_reinsurance'] = sanitize_text_field( $input['title_reinsurance'] );
+			
+			if( isset( $input['content_one_reinsurance'] ) )
+	            $new_input['content_one_reinsurance'] = sanitize_text_field( $input['content_one_reinsurance'] );
+			
+			if( isset( $input['content_three_reinsurance'] ) )
+	            $new_input['content_three_reinsurance'] = sanitize_text_field( $input['content_three_reinsurance'] );
+			
+			if( isset( $input['content_two_reinsurance'] ) )
+	            $new_input['content_two_reinsurance'] = sanitize_text_field( $input['content_two_reinsurance'] );
 			
 			if( isset( $input['upload_imageFooter'] ) )
 	            $new_input['upload_imageFooter'] = sanitize_text_field( $input['upload_imageFooter'] );
@@ -960,8 +979,23 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			printf('<label>url de redirection</label><input type="text" id="url_devis" name="id_config_animate[url_devis]" value="%s" />',
 				isset( $this->options['url_devis'] ) ? esc_attr( $this->options['url_devis']) : ''
 			);
-	}
+		}
 
+		public function reinsurance_callback(){ 
+
+			printf('<label>Title</label><input type="text" id="title_reinsurance" name="id_config_animate[title_reinsurance]" value="%s" />',
+				isset( $this->options['title_reinsurance'] ) ? esc_attr( $this->options['title_reinsurance']) : ''
+			);
+			printf('<label>content one</label><input type="text" id="content_one_reinsurance" name="id_config_animate[content_one_reinsurance]" value="%s" />',
+				isset( $this->options['content_one_reinsurance'] ) ? esc_attr( $this->options['content_one_reinsurance']) : ''
+			);
+			printf('<label>content two</label><input type="text" id="content_two_reinsurance" name="id_config_animate[content_two_reinsurance]" value="%s" />',
+				isset( $this->options['content_two_reinsurance'] ) ? esc_attr( $this->options['content_two_reinsurance']) : ''
+			);
+			printf('<label>content three</label><input type="text" id="content_three_reinsurance" name="id_config_animate[content_three_reinsurance]" value="%s" />',
+				isset( $this->options['content_three_reinsurance'] ) ? esc_attr( $this->options['content_three_reinsurance']) : ''
+			);
+		}
 
 		public function content_callback(){ 
 
@@ -1051,18 +1085,17 @@ $i = 0; foreach ( $_FILES as $image ) {
 }
 
 add_action('wp_insert_post', 'wpc_champs_personnalises_defaut');
- function wpc_champs_personnalises_defaut($post_id)
-	{
-	
-	if ( $_GET['post_type'] != 'page' ) {
-		add_post_meta($post_id, 'hour_begin', '00:00', true);
-		add_post_meta($post_id, 'hour_end', '00:00', true);
-		add_post_meta($post_id, 'addresse', '93250 villemomble', true);
-		add_post_meta($post_id, 'bodyclass', 'test', true);
-	}
+
+function wpc_champs_personnalises_defaut($post_id)
+{
+	add_post_meta($post_id, 'hour_begin', '00:00', true);
+	add_post_meta($post_id, 'hour_end', '00:00', true);
+	add_post_meta($post_id, 'addresse', '93250 villemomble', true);
+	add_post_meta($post_id, 'bodyclass', 'test', true);
+	add_post_meta($post_id, 'categorypage', '', true);
 
 	return true;
- }
+}
 
  //var_dump(get_the_category(the_ID())); 
 function getCat($PID)
@@ -1155,17 +1188,15 @@ function listaddress($atts, $content = null){
 	return '<div class="col-lg-'.esc_attr($a['col']).' col-md-6 col-xs-12">
 		<'.esc_attr($a['type']).'>
 			<article class="inner-box">
-				<h3 class="margin-bott-20">'.esc_attr($a['title']).'</h3>
-				<p>'.$content.'</p>
 				<ul class="info-box">
 					<li class="list-adr">
 						<span class="icon flaticon-location"></span>
-						<span><strong>Address</strong></span>
+						<span><strong>Notre Addresse</strong></span>
 						<span class="labelling">'.esc_attr($a['myaddress']).'</span> 
 					</li>
 					<li class="list-adr">
 						<span class="icon flaticon-technology-5"></span>
-						<span><strong>Phone</strong></span>
+						<span><strong>Numéro de téléphone</strong></span>
 						<span class="labelling">'.esc_attr($a['phone']).'</span> 
 					</li>
 					<li class="list-adr">
@@ -1240,7 +1271,7 @@ function column_single($atts, $content = null){
 	$New = array( '','' );
 	$content = str_replace( $Old, $New, $content );
 
-	return '<div class="col-lg-'.esc_attr($a['col']).' '. esc_attr($a['class']). ' col-md-6 col-xs-12">
+	return '<div class="col-lg-'.esc_attr($a['col']).' '. esc_attr($a['class']). ' col-md-'.esc_attr($a['col']).' col-xs-12">
 	<h2 class="title-colsingle">'.esc_attr($a['title']).'</h2>
 		<'.esc_attr($a['type']).'>'.do_shortcode($content).'</'.esc_attr($a['type']).'>
 		</div>';
@@ -1253,7 +1284,8 @@ function maps_google($atts, $content = null){
 	$a = shortcode_atts(array(
 			'type' => 'div',
 			'class' => '', 
-			'address' => $address
+			'address' => $address,
+			'title' => 'Google default'
 		), $atts);
 	return '
 	<div class="column map-column col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1265,7 +1297,7 @@ function maps_google($atts, $content = null){
                     data-lng="2.488239300000032"			  
                     data-type="roadmap"
                     data-hue="#ffc400"
-                    data-title="Quartiers libres"
+                    data-title="'.$a['title'].'"
                     data-content="'.$a['address'].'"							
                     style="height: 380px;">
                 </div>

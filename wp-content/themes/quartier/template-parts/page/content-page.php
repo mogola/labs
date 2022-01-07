@@ -13,10 +13,13 @@
 ?>
 <!--Page Title-->
 <?php 
- $getPostMetaBodyClass = get_post_meta($post->ID);
+$getPostMetaBodyClass = get_post_meta($post->ID);
+$classContentPage = $getPostMetaBodyClass['bodyclass'][0] == "engagement" ? "" : "defaultContent";
 
 $thumpage = '';
-
+$categorypage = get_post_meta($post->ID)['categorypage'][0];
+// $content = the_content();
+// var_dump($categorypage);
 if(has_post_thumbnail()){
 	$thumpage = wp_make_link_relative(get_the_post_thumbnail_url());
 }else{
@@ -36,10 +39,26 @@ has_post_thumbnail()
         </div>
     </div>
 </section>
+<?php 
+    if($getPostMetaBodyClass['bodyclass'][0] == "contactPage") {
+?>
+    <div class="contact-view">
+    <div class="map-canvas"
+        data-zoom="12"
+        data-lat="48.8876729"
+        data-lng="2.488239300000032"			  
+        data-type="roadmap"
+        data-hue="#ffc400"
+        data-title="title default"
+        data-content="address">
+    </div>
+<?php 
+    } 
+?>
 <section class="default-section other-info">
     	<div class="auto-container">
         
-        	<div class="row clearfix">
+        	<div class="row clearfix page-services">
 				<?php 
 					if(is_page('faq')){ 
 						$titleFaq = option_get_config_value('faq_title');
@@ -54,13 +73,49 @@ has_post_thumbnail()
 				?>
 
             <?php 
-           
                 if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
                     get_template_part( 'template-parts/components/content', 'engage' );
                 }    
             ?>
+                <?php 
+                    if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
+                ?>  
+                <div class="form_devis">
+                
+                    <h2 class="title_devis"> Réaliser votre devis</h2>
+
+                   <div class="form"> <?php the_content(); ?> </div>
+                   
+                </div>
+                <?php } ?>
+                <div class="content-ms ">
+                    <?php
+                        $args = array(
+                            'posts_per_page' => 4,
+                            'category_name' => $categorypage
+                        );
+                        $queryPush = new WP_Query($args);
+                        if ( $queryPush->have_posts() && $getPostMetaBodyClass['bodyclass'][0] == "engagement" ) :
+
+                            /* Start the Loop */
+                            while ( $queryPush->have_posts() ) : $queryPush->the_post();
+
+                                /*
+                                    * Include the Post-Format-specific template for the content.
+                                    * If you want to override this in a child theme, then include a file
+                                    * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                                    */
+                                get_template_part( 'template-parts/post/content', 'page' );
+
+                            endwhile;
+                            else : 
+                                // get_template_part( 'template-parts/post/content', 'none' );
+                            endif;
+                    ?>
+                </div>
+                
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<div class="entry-content <?php addClassFaq('accordion-box') ?>">
+					<div class="entry-content <?php addClassFaq('accordion-box'); echo $classContentPage; ?>">
 						<?php
 							the_content();
 
@@ -72,6 +127,9 @@ has_post_thumbnail()
 					</div><!-- .entry-content -->
 				</article><!-- #post-## -->
 		</section>
+        <?php if($getPostMetaBodyClass['bodyclass'][0] == "contactPage") { ?>
+            </div>
+        <?php } ?>
         <?php 
            
             if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
@@ -79,6 +137,7 @@ has_post_thumbnail()
             }    
         ?>
 		 <!--Sponsors Section-->
+         <?php get_template_part( 'include/banner', 'offer' ); ?>
     <section class="sponsors-section">
         <div class="auto-container">
             <div class="slider-outer">

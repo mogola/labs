@@ -74,8 +74,50 @@ footer{
 .page{
 #content{
 	.wpcf7-form{
-		.wpcf7-form-control-wrap{
-			float:left;
+		h4 {
+			font-family: 'Raleway';
+			font-size: 15px;
+			font-weight: bold;	
+			padding: 16px 0 0 0;
+		}
+		label {
+			width: 100%;
+			display: block;
+		}
+
+		select{
+			padding-left: 16px;
+		}
+		.wpcf7-form-control-wrap, select{
+			float:none;
+			display: block;
+			width: 100%;
+			padding-top:0;
+			
+			&.travaux {
+				.wpcf7-form-control {
+					display: flex;
+					@include mbLarge {
+						flex-wrap: wrap;
+					}
+				}
+			}
+			.wpcf7-list-item {
+				width: 200px;
+				label {
+					display: flex;
+					align-items: center; 
+
+					input[type="checkbox"]{
+						width: auto;
+						min-width: 16px;
+						margin-right: 11px;
+						padding: 0;
+						margin: 0 8px 0 0;
+					}
+				}
+			}
+			
 			@include mb{
 			    float: left;
 			    display: block;
@@ -86,7 +128,8 @@ footer{
 				position: relative;
 			    display: block;
 			    line-height: 30px;
-			    padding: 10px 20px;
+				height: 40px;
+			    padding: 0 20px;
 			    color: #555555;
 			    background: #ffffff;
 			    border: 1px solid #e0e0e0;
@@ -96,19 +139,26 @@ footer{
 			    transition: all 500ms ease;
 			}
 			textarea{
-				height:300px;
+				height:80px;
+				width: 100%;
 			}
 
 		}
 		input{
 			&[type="submit"]{
 				max-width:300px;
-				float:right;
+				float:none;
+				margin: 0 auto;
+				display: block;
 				@include mb{
 					max-width:100%;
 					margin-right:0;
 				}
 			}
+		}
+
+		.wpcf7-not-valid-tip {
+			font-weight: bold;
 		}
 	}
 }
@@ -153,11 +203,19 @@ footer{
 		padding-right:0;
 	}
 }
-.contact-section h2{
-	padding-left:13px;
-	margin:0;
-	padding-top:0;
-}
+.contact-section {
+	h2{
+		padding-left:13px;
+		margin:0;
+		padding-top:0;
+	}
+
+	.title-sct {
+		color: $primarymya;
+		font-size: 30px;
+		letter-spacing: 2px;
+	}
+} 
 
 .default-featured-column, .category .blog-news-column{
 	.image-box{
@@ -195,7 +253,7 @@ html{
 			left: 0;
 			position:relative;
 			&.single, &.page {
-				padding-top: 30px;
+				padding-top: 0;
 			}
 			&.open-nav{
 				overflow:hidden;
@@ -451,7 +509,7 @@ html{
 	} 
 	.header-style-two .header-top .logo img{
 		@media #{$mediaMobile}{
-			max-width:130px !important;
+			max-width:185px !important;
 		}
 	}
 } 
@@ -489,5 +547,107 @@ html {
 				}
 			}
 		}
+	}
+}
+
+.defaultContent {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	h1 {
+		font-size: 30px;
+		color: $primarymya;
+		font-weight: bold;
+		padding-bottom: 24px;
+	}
+	p {
+		font-size: 19px;
+		line-height: 38px;
+		font-weight: normal;
+		color: rgb(7, 7, 7);
+	}
+}
+
+.contact-view {
+	display: flex;
+    flex-wrap: wrap;
+
+	@include mbLarge {
+		flex-wrap: wrap;
+	}
+	.map-canvas{
+		position: relative;
+    	overflow: hidden;
+    	width: 50%;
+		height: auto !important;
+
+		@include mbLarge {
+			width: 100%;
+			height: 450px !important;
+			order: 2;
+		}
+	}
+
+	.default-section{
+		width: 50%;
+		padding-top: 0;
+		position: relative;
+		left: -130px;
+		background: #fff;
+		top: 57px;
+		border-top: 10px solid $primarymya;
+
+		@include mbLarge {
+			width: 100%;
+			order: 1;
+			position: static;
+			border-top: 0 none;
+		}
+
+		.defaultContent {
+			padding-top: 0;
+
+			.row {
+				margin: 0;
+				> div {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+
+		.other-info {
+			padding: 20px 50px !important;
+			margin:0;
+			
+			@include mbLarge {
+				padding: 20px 0 !important;
+			}
+
+			.info-box {
+				padding: 0 0 30px;
+			}
+		}
+	}
+
+	.title-colsingle {
+		font-family: 'Raleway', sans-serif;
+		font-size: 30px;
+		font-weight: bold; 
+		padding: 30px 0;
+	}
+	.contact-section {
+		padding: 0 30px 30px;
+
+		.title-colsingle {
+			color: $primarymya;
+		}
+
+		.contact-form {
+			width: 100%;
+		}
+	}
+	
+	.wpcf7-response-output {
+		border-color: #e00002;
 	}
 }

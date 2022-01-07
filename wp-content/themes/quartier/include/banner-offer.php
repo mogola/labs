@@ -4,12 +4,12 @@
      'tag' => 'banneroffer'
 );
 
-$query = new WP_Query($args);
+$queryBanner = new WP_Query($args);
 // var_dump($query);
-     if ( $query->have_posts() ) :
+     if ( $queryBanner->have_posts() ) :
 
           /* Start the Loop */
-          while ( $query->have_posts() ) : $query->the_post();
+          while ( $queryBanner->have_posts() ) : $queryBanner->the_post();
 
                /*
                     * Include the Post-Format-specific template for the content.

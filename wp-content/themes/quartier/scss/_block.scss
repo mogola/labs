@@ -542,6 +542,7 @@ html {
         max-width: 100%;
         margin: 0 auto;
         font-family: $futuraMedium;
+        color: $primarymya;
 
         @include mbLarge {
             padding: 25px 0;
@@ -1059,7 +1060,46 @@ html {
             line-height: 26px !important;
         }
     }
+    .page-services {
+        .wp-block-columns {
+            margin: 40px auto;
+            display: block;
+            position: relative;
 
+            @include mbLarge {
+                position: initial;
+            }
+            .wp-block-column {
+                padding: 24px;
+
+                + .wp-block-column {
+                    top: 20px;
+                    left: 537px;
+                    width: 50%;
+                    position: absolute;
+                    overflow: scroll;
+                    height: 95%;
+                    overflow-x: hidden;
+
+                    @include mbLarge {
+                        position: static;
+                        width: 100%;
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute; 
+                        bottom: 0;
+                        left: 0;
+                        height: 40px;
+                        display: none;
+                        width: 100%;
+                        box-shadow: inset 0 20px -33px rgba(0,0,0,0.8);
+                    }
+                }
+            }
+        }     
+    }
     .wp-block-columns {
         max-width: $widthDesktopOptimize;
         margin: 190px auto;
@@ -1089,6 +1129,7 @@ html {
                     @include mbLarge {
                         top: -15px;
                         bottom: initial; 
+                        display: none;
                     }
                 }
             }
@@ -1135,7 +1176,7 @@ html #wpadminbar {
 html {
     .engagement {
         @include mbLarge {
-            padding-top: 30px !important;
+            padding-top: 0 !important;
         }
 
         .default-section {
@@ -1152,7 +1193,7 @@ html {
             width: 100%;
             clear: both;
             max-width: $widthDesktopOptimize;
-            margin: 30px auto;
+            margin: 0 auto 30px;
             
             .title-mya {
                 @include mbLarge {
@@ -1166,17 +1207,17 @@ html {
             }
             
             @include mbLarge {
-                padding: 30px;
+                padding: 0;
                 margin:0;
 
-                border-top: 1px solid #CCC; 
+                border-top:0 none; 
             }
 
             .lh-30 {
                 padding: 0;
                 font-size: 25px ​!important;
                 @include mbLarge {
-                    padding-bottom: 45px;
+                    padding-bottom: 15px;
                 }
             }
 
@@ -1209,7 +1250,7 @@ html {
                         display: flex;
 
                         + .icon-box {
-                            margin-top: 45px;
+                            margin-top: 15px;
                         }
                     }
 

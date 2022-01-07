@@ -20,6 +20,7 @@
 @import "_block.scss";
 @import "_banner.scss";
 @import "_services.scss";
+@import "_push.scss";
 
 * {
   margin: 0px;
@@ -3496,6 +3497,11 @@ $colormenu : #313131;
   background-repeat: no-repeat;
   background-position: center center;
   color: #ffffff;
+  
+  @include minMbLarge {
+    min-height: 400px; 
+  }
+
   @include mbLarge{
     .single &{
       padding:20px 0 10px;
@@ -4600,7 +4606,7 @@ li.col-xs-12:before {
       color: #8d8d8d;
       min-height: 50px;
       font-size: 15px;
-      margin-bottom: 25px;
+      margin-bottom: 62px;
       &:last-child {
         margin-bottom: 0px;
       }
@@ -4608,8 +4614,13 @@ li.col-xs-12:before {
         display: block;
         color: #000000;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 23px;
         font-family: 'Raleway',sans-serif;
+      }
+      .labelling {
+        font-size: 18px;
+        padding-top: 9px;
+        display: inline-block;
       }
       .icon {
         position: absolute;
@@ -4618,7 +4629,7 @@ li.col-xs-12:before {
         margin-top: -25px;
         height: 50px;
         line-height: 50px;
-        color: #dee1e3;
+        color: $primarymya;
         font-size: 36px;
       }
     }
@@ -4656,6 +4667,8 @@ li.col-xs-12:before {
       color: #2e2e2e;
     }
   }
+
+  height: 750px;
 }
 
 /*** 
