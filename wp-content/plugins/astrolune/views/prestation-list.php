@@ -17,7 +17,8 @@
                     <th>Title</th>
                     <th>Price</th>
                     <th>Publié</th>
-                    <th>Mise à jour</th>    
+                    <th>Mise à jour</th>
+                    <th>Action</th>    
                 </tr>
             </thead>
             <tbody id="the-list">
@@ -28,7 +29,8 @@
                     <th><?php echo $prestation->Title ?></th>
                     <th><?php echo $prestation->Price ?></th>
                     <th><?php echo $prestation->Published ? "Publié" : "Non publié" ?></th>
-                    <th><?php echo $prestation->UpdatedDate ?></th>
+                    <th><?php echo $prestation->UpdatedDate->format('Y-m-d H:i:s') ?></th>
+                    <th><a href="<?php echo add_query_arg(array('prestationid' => $prestation->Id), menu_page_url(AstroLune_Admin::$addPrestationSlug, false)) ?>">Editer</a></th>
                 </tr>
 
                 <?php //Akismet::view( 'notice', $notice ); ?>

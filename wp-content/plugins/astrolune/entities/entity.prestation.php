@@ -6,7 +6,7 @@ class PrestationEntity {
     public string $Title;
     public string $Description;
     public float $Price;
-    public bool $Pusblished;
+    public bool $Published;
     public DateTime $CreatedDate;
     public DateTime $UpdatedDate;
 }

@@ -24,12 +24,12 @@ class InstallRepository {
 
         $script = "CREATE TABLE $table_name (
                     id int(11) NOT NULL AUTO_INCREMENT,
-                    title varchar(200) DEFAULT '' NOT NULL,
+                    title varchar(200) NOT NULL,
                     description longtext NULL,
                     price decimal(10,2) NOT NULL,
-                    pusblished tinyint(1),
-                    created_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-                    updated_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+                    published tinyint(1),
+                    created_date datetime NOT NULL,
+                    updated_date datetime NOT NULL,
                     PRIMARY KEY  (id)
                    ) $charset_collate;";
 

@@ -51,7 +51,7 @@ class AstroLune_Admin {
             __('Ajouter', 'astrolune-prestation-plugin'),
             'manage_options',
             self::$addPrestationSlug,
-            array( 'AstroLune_Admin', 'display_add_page' )
+            array( 'AstroLune_Admin', 'display_add_or_edit_page' )
         );
 
 		// if ( class_exists( 'Jetpack' ) ) {
@@ -74,28 +74,80 @@ class AstroLune_Admin {
         AstroLune::view('prestation-list', compact('prestations'));
     }
 
+    public static function display_add_or_edit_page() {
+
+        if(isset($_GET["prestationid"]) && $_GET["prestationid"] != '') {
+            self::display_edit_page();
+        }
+        else {
+            self::display_add_page();
+        }
+    }
+
     public static function display_add_page() {
-		AstroLune::view('prestation-edit');
+		AstroLune::view('prestation-add');
 	}
+
+    public static function display_edit_page() {
+
+        $editPrestation = PrestationRepository::getById($_GET['prestationid']);
+        $_POST["prestation_id"] = $editPrestation->Id;
+        $_POST["title"] = $editPrestation->Title;
+        $_POST["description"] = $editPrestation->Description;
+        $_POST["price"] = $editPrestation->Price;
+        $_POST["published"] = $editPrestation->Published;
+
+        AstroLune::view('prestation-edit');
+    }
 
     public static function check_post_form() {
 
         if ( isset( $_POST['action'] ) && $_POST['action'] == 'createpestation' ) {
 			self::addPrestation();
 		}
+        else if( isset( $_POST['action'] ) && $_POST['action'] == 'updatepestation' ) {
+            self::updatePrestation();
+        }
     }
 
     private static function addPrestation() {
 
         $newPrestation = new PrestationEntity();
+        $newPrestation->CreatedDate = new DateTime("now");
+        $newPrestation->UpdatedDate = new DateTime("now");
         $hasError = false;
 
-        if( isset( $_POST['id_test'] ) &&  $_POST['id_test'] != '') {
+        // Check title
+        if( isset( $_POST['title'] ) &&  $_POST['title'] != '') {
 
-            $newPrestation->IdTest = intval($_POST['id_test']);
+            $newPrestation->Title = $_POST['title'];
         }
         else {
+            $_POST['title_error'] = "Le titre est obligatoire.";
             $hasError = true;
+        }
+
+        // Check Description
+        if( isset( $_POST['description'] )) {
+            $newPrestation->Description = $_POST['description'];
+        }
+
+        // Check title
+        if( isset( $_POST['price'] ) && $_POST['price'] != '' && is_numeric($_POST['price'])) {
+
+            $newPrestation->Price = floatval($_POST['price']);
+        }
+        else {
+            $_POST['price_error'] = "Le prix est obligatoire.";
+            $hasError = true;
+        }
+
+        // Check Description
+        if( isset( $_POST['published'] )) {
+            $newPrestation->Published = true;
+        }
+        else {
+            $newPrestation->Published = false;
         }
 
         if( !$hasError ) {
@@ -105,6 +157,59 @@ class AstroLune_Admin {
         else {
 
             $_POST['has_error'] = 'Oui';
+
+            print_r($_POST);
+        }
+    }
+
+    private static function updatePrestation() {
+
+        $editPrestation = PrestationRepository::getById($_POST['prestation_id']);
+        $editPrestation->UpdatedDate = new DateTime("now");
+        $hasError = false;
+
+        // Check title
+        if( isset( $_POST['title'] ) &&  $_POST['title'] != '') {
+
+            $editPrestation->Title = $_POST['title'];
+        }
+        else {
+            $_POST['title_error'] = "Le titre est obligatoire.";
+            $hasError = true;
+        }
+
+        // Check Description
+        if( isset( $_POST['description'] )) {
+            $editPrestation->Description = $_POST['description'];
+        }
+
+        // Check title
+        if( isset( $_POST['price'] ) && $_POST['price'] != '' && is_numeric($_POST['price'])) {
+
+            $editPrestation->Price = floatval($_POST['price']);
+        }
+        else {
+            $_POST['price_error'] = "Le prix est obligatoire.";
+            $hasError = true;
+        }
+
+        // Check Description
+        if( isset( $_POST['published'] )) {
+            $editPrestation->Published = true;
+        }
+        else {
+            $editPrestation->Published = false;
+        }
+
+        if( !$hasError ) {
+
+            PrestationRepository::update($editPrestation);
+        }
+        else {
+
+            $_POST['has_error'] = 'Oui';
+
+            print_r($_POST);
         }
     }
 }
