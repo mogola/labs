@@ -1,0 +1,47 @@
+.summary-error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-left: 15px;
+}
+
+.line {
+    margin-bottom: 20px;
+}
+
+.line .form-line {
+    /*display: inline-block;*/
+}
+
+.line .form-line .label {
+    display: inline-block;
+    width: 12%;
+    vertical-align: top;
+}
+
+.line .form-line .label label {
+    line-height: 1.3;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.line .form-line .input {
+    display: inline-block;
+    width: 30%;
+}
+
+.line .form-line .input input {
+    width: 100%;
+    display: block;
+}
+
+.line .form-line .input .error {
+    width: 100%;
+    display: block;
+    color: red;
+    font-size: 11px;
+}
+
+.line .form-line .input.checkbox input {
+    width: auto;
+}

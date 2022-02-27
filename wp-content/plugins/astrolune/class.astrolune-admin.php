@@ -29,6 +29,12 @@ class AstroLune_Admin {
 		self::$initiated = true;
 
         add_action( 'admin_menu', array( 'AstroLune_Admin', 'admin_menu' ), 5 );
+        add_action( 'admin_enqueue_scripts', array( 'AstroLune_Admin', 'load_resources' ) );
+    }
+
+    public static function load_resources() {
+        wp_register_style( 'astrolune.css', plugin_dir_url( __FILE__ ) . '_inc/astrolune.css', array(), ASTROLUNE_VERSION );
+		wp_enqueue_style( 'astrolune.css');
     }
 
     public static function admin_menu() {
