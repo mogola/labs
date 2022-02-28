@@ -28,6 +28,7 @@ class InstallRepository {
                     description longtext NULL,
                     price decimal(10,2) NOT NULL,
                     published tinyint(1),
+                    page_id bigint(20),
                     created_date datetime NOT NULL,
                     updated_date datetime NOT NULL,
                     PRIMARY KEY  (id)

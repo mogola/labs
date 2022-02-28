@@ -2,6 +2,7 @@
 
 require_once(ASTROLUNE__PLUGIN_DIR.'entities/entity.prestation.php');
 require_once(ASTROLUNE__PLUGIN_DIR.'repositories/repository.prestation.php');
+require_once(ASTROLUNE__PLUGIN_DIR.'repositories/repository.post.php');
 
 class AstroLune_Admin {
 
@@ -76,8 +77,9 @@ class AstroLune_Admin {
         // Akismet::view( 'config', compact( 'api_key', 'akismet_user', 'stat_totals', 'notices' ) );
         
         $prestations = PrestationRepository::get_all();
+        $pages = PostRepository::get_all_pages();
 
-        AstroLune::view('prestation-list', compact('prestations'));
+        AstroLune::view('prestation-list', compact('prestations', 'pages'));
     }
 
     public static function display_add_or_edit_page() {
@@ -91,10 +93,15 @@ class AstroLune_Admin {
     }
 
     public static function display_add_page() {
-		AstroLune::view('prestation-add');
+
+        $pages = PostRepository::get_all_pages();
+
+		AstroLune::view('prestation-add', compact('pages'));
 	}
 
     public static function display_edit_page() {
+
+        $pages = PostRepository::get_all_pages();
 
         $editPrestation = PrestationRepository::getById($_GET['prestationid']);
         $_POST["prestation_id"] = $editPrestation->Id;
@@ -102,8 +109,9 @@ class AstroLune_Admin {
         $_POST["description"] = $editPrestation->Description;
         $_POST["price"] = $editPrestation->Price;
         $_POST["published"] = $editPrestation->Published;
+        $_POST["pageid"] = $editPrestation->PageId;
 
-        AstroLune::view('prestation-edit');
+        AstroLune::view('prestation-edit', compact('pages'));
     }
 
     public static function check_post_form() {
@@ -154,6 +162,13 @@ class AstroLune_Admin {
         }
         else {
             $newPrestation->Published = false;
+        }
+
+        if ( isset ($_POST['pageid']) ) {
+            $newPrestation->PageId = intval($_POST['pageid']);
+        }
+        else {
+            $newPrestation->PageId = null;
         }
 
         if( !$hasError ) {
@@ -207,6 +222,13 @@ class AstroLune_Admin {
             $editPrestation->Published = false;
         }
 
+        if ( isset ($_POST['pageid']) ) {
+            $editPrestation->PageId = intval($_POST['pageid']);
+        }
+        else {
+            $editPrestation->PageId = null;
+        }
+
         if( !$hasError ) {
 
             PrestationRepository::update($editPrestation);
@@ -217,6 +239,12 @@ class AstroLune_Admin {
 
             print_r($_POST);
         }
+    }
+
+    public static function page_exist($pages, $pageid) {
+
+        $found = false;
+        while()
     }
 }
 

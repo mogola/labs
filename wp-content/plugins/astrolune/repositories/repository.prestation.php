@@ -22,6 +22,7 @@ class PrestationRepository {
             $prestation->Description = $row->description;
             $prestation->Price = $row->price;
             $prestation->Published = $row->published;
+            $prestation->PageId = $row->page_id;
             $prestation->CreatedDate = new DateTime($row->created_date);
             $prestation->UpdatedDate = new DateTime($row->updated_date);
 
@@ -43,6 +44,7 @@ class PrestationRepository {
         $prestation->Description = $result->description;
         $prestation->Price = $result->price;
         $prestation->Published = $result->published;
+        $prestation->PageId = $result->page_id;
         $prestation->CreatedDate = new DateTime($result->created_date);
         $prestation->UpdatedDate = new DateTime($result->updated_date);
 
@@ -59,6 +61,7 @@ class PrestationRepository {
             'description' => $prestation->Description,
             'price' => $prestation->Price,
             'published' => $prestation->Published ? 1 : 0,
+            'page_id' => $prestation->PageId,
             'created_date' => $prestation->CreatedDate->format('Y-m-d H:i:s'),
             'updated_date' => $prestation->UpdatedDate->format('Y-m-d H:i:s')
         ));
@@ -74,6 +77,7 @@ class PrestationRepository {
             'description' => $prestation->Description,
             'price' => $prestation->Price,
             'published' => $prestation->Published ? 1 : 0,
+            'page_id' => $prestation->PageId,
             'updated_date' => $prestation->UpdatedDate->format('Y-m-d H:i:s')
         ), array(
             "id" => $prestation->Id

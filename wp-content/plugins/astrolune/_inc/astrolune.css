@@ -35,10 +35,22 @@
     display: block;
 }
 
+.line .form-line .input select {
+    width: 100%;
+    display: block;
+}
+
 .line .form-line .input .error {
     width: 100%;
     display: block;
     color: red;
+    font-size: 11px;
+}
+
+.line .form-line .input .warn {
+    width: 100%;
+    display: block;
+    color: darkgoldenrod;
     font-size: 11px;
 }
 

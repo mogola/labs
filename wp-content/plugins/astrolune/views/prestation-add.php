@@ -52,6 +52,25 @@
                 </div>
             </div>
         </div>
+        
+        <div class="line">
+            <div class="form-line">
+                <div class="label">
+                    <label for="pageid">Page</label>
+                </div>
+                <div class="input">
+                    <select name="pageid">
+                        <option value="">-- Choisir la page --</option>
+                        <?php
+                            foreach($pages as $page) {
+                                echo '<option value="'. $page->Id .'">'. $page->PostTitle .'</option>';
+                            }
+                        ?>
+                    </select>
+                    <span class="warn">La prestation ne sera visible sur la page que si elle est renseigné</span>
+                </div>
+            </div>
+        </div>
 
         <div class="line">
             <div class="form-line">

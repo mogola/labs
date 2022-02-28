@@ -49,11 +49,41 @@
                     <label for="published">Publié</label>
                 </div>
                 <div class="input checkbox">
-                    <input name="published" type="checkbox" value="<?php echo $_POST['published'] ?>" />
+                    <?php if (isset($_POST['published']) && $_POST['published'] == 1) {
+                        echo '<input name="published" type="checkbox" checked />';
+                    }
+                    else {
+                        echo '<input name="published" type="checkbox" />';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
         
+        <div class="line">
+            <div class="form-line">
+                <div class="label">
+                    <label for="pageid">Page</label>
+                </div>
+                <div class="input">
+                    <select name="pageid">
+                        <option value="">-- Choisir la page --</option>
+                        <?php
+                            foreach($pages as $page) {
+                                if ($page->Id == $_POST['pageid']) {
+                                    echo '<option value="'. $page->Id .'" selected>'. $page->PostTitle .'</option>';
+                                }
+                                else {
+                                    echo '<option value="'. $page->Id .'">'. $page->PostTitle .'</option>';
+                                }
+                            }
+                        ?>
+                    </select>
+                    <span class="warn">La prestation ne sera visible sur la page que si elle est renseigné</span>
+                </div>
+            </div>
+        </div>
+
         <div class="line">
             <div class="form-line">
                 <div class="label">
