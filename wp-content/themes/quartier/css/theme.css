@@ -22,6 +22,7 @@
 
 .site-content-contain .site-content {
   padding: 0 0 0 0 !important;
+  background: #FCF3E4;
 }
 
 .site-content-contain .main-slider {
@@ -61,15 +62,18 @@ footer .wpcf7 p {
   font-size: 15px;
   font-weight: bold;
   padding: 16px 0 0 0;
+  color: #303353;
 }
 
 .page #content .wpcf7-form label {
   width: 100%;
   display: block;
+  margin-top: 15px;
 }
 
 .page #content .wpcf7-form select {
   padding-left: 16px;
+  display: block;
 }
 
 .page #content .wpcf7-form .wpcf7-form-control-wrap, .page #content .wpcf7-form select {
@@ -108,7 +112,7 @@ footer .wpcf7 p {
 
 @media (max-width: 767px) {
   .page #content .wpcf7-form .wpcf7-form-control-wrap, .page #content .wpcf7-form select {
-    float: left;
+    float: none;
     display: block;
     width: 100%;
     padding: 0;
@@ -133,6 +137,7 @@ footer .wpcf7 p {
 .page #content .wpcf7-form .wpcf7-form-control-wrap textarea, .page #content .wpcf7-form select textarea {
   height: 80px;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .page #content .wpcf7-form input[type="submit"] {
@@ -140,6 +145,7 @@ footer .wpcf7 p {
   float: none;
   margin: 0 auto;
   display: block;
+  background: #EF7D5B;
 }
 
 @media (max-width: 767px) {
@@ -198,7 +204,7 @@ footer .wpcf7 p {
 }
 
 .contact-section .title-sct {
-  color: #e6b300;
+  color: #e5aee1;
   font-size: 30px;
   letter-spacing: 2px;
 }
@@ -264,11 +270,38 @@ footer .wpcf7 p {
   }
   html body.open-nav .main-menu .navbar-toggle {
     left: 20px;
-    background-color: #e6b300;
+    background-color: #e5aee1;
     border-radius: 0 5px 5px 0;
   }
+}
+
+@media (max-width: 1149px) and (max-width: 1149px) {
+  html body.open-nav .main-menu .navbar-toggle {
+    min-width: 50px;
+  }
+}
+
+@media (max-width: 1149px) {
   html body.open-nav .main-menu .navbar-toggle span {
     background-color: #fff !important;
+    width: 100%;
+  }
+  html body.open-nav .main-menu .navbar-toggle span:nth-child(1) {
+    transform: rotate(-45deg);
+    width: 80%;
+    position: absolute;
+    left: 6px;
+    top: 20px;
+  }
+  html body.open-nav .main-menu .navbar-toggle span:nth-child(3) {
+    transform: rotate(45deg);
+    width: 80%;
+    position: absolute;
+    left: 6px;
+    top: 17px;
+  }
+  html body.open-nav .main-menu .navbar-toggle span:nth-child(2) {
+    display: none;
   }
   html body.open-nav .header-style-two {
     left: 100%;
@@ -279,7 +312,7 @@ footer .wpcf7 p {
     position: fixed;
   }
   html body.open-nav .header-style-two .navbar-header .navbar-toggle {
-    background: #e6b300 !important;
+    background: #e5aee1 !important;
   }
   html body.open-nav .header-style-two .btn-box {
     display: none;
@@ -330,7 +363,7 @@ footer .wpcf7 p {
     border-radius: 5px;
   }
   html .main-menu .navbar-header .navbar-toggle span {
-    background: #e6b300 !important;
+    background: #fff !important;
     height: 3px;
     border-radius: 10px;
     width: 33px;
@@ -363,7 +396,7 @@ footer .wpcf7 p {
     top: 0 !important;
     left: 0 !important;
     background: #fff !important;
-    border: 1px solid #e6b300 !important;
+    border: 1px solid #e5aee1 !important;
     padding: 40px !important;
     border-radius: 0;
   }
@@ -371,7 +404,7 @@ footer .wpcf7 p {
 
 @media (max-width: 1149px) and (max-width: 1149px) {
   html .main-menu .collapse.in, html .main-menu .collapsing.in {
-    background: rgba(0, 0, 0, 0.8) !important;
+    background: #e5aee1 !important;
   }
 }
 
@@ -390,8 +423,19 @@ footer .wpcf7 p {
     background: transparent !important;
   }
   html .main-menu .collapse .navigation li.current-menu-item a, html .main-menu .collapse .navigation li.current a, html .main-menu .collapsing .navigation li.current-menu-item a, html .main-menu .collapsing .navigation li.current a {
-    color: #e6b300 !important;
+    color: #e5aee1 !important;
   }
+}
+
+@media (max-width: 1149px) and (max-width: 1149px) {
+  html .main-menu .collapse .navigation li.current-menu-item a, html .main-menu .collapse .navigation li.current a, html .main-menu .collapsing .navigation li.current-menu-item a, html .main-menu .collapsing .navigation li.current a {
+    background: #fff !important;
+    border-radius: 35px;
+    padding: 0 8px !important;
+  }
+}
+
+@media (max-width: 1149px) {
   html .main-menu .collapse .navigation li .icon, html .main-menu .collapsing .navigation li .icon {
     height: 25px;
     width: 25px;
@@ -426,12 +470,12 @@ footer .wpcf7 p {
     background: #fff !important;
   }
   html .main-menu .collapse .navigation li.dropdown .sub-menu li.current a, html .main-menu .collapsing .navigation li.dropdown .sub-menu li.current a {
-    color: #e6b300 !important;
+    color: #e5aee1 !important;
     background: #fff !important;
   }
   html .main-menu .collapse .navigation li.dropdown .sub-menu li.current a:after, html .main-menu .collapsing .navigation li.dropdown .sub-menu li.current a:after {
     top: 12px;
-    color: #e6b300 !important;
+    color: #e5aee1 !important;
   }
   html .main-menu .collapse .navigation li.dropdown .sub-menu li + li, html .main-menu .collapsing .navigation li.dropdown .sub-menu li + li {
     border-top: 0 none !important;
@@ -490,6 +534,7 @@ html .sec-title {
   position: relative;
   margin-bottom: 50px;
   font-family: arial;
+  margin-top: 95px;
 }
 
 html .sec-title h2 span {
@@ -515,9 +560,9 @@ html .main-menu .whiteFixed li a {
   padding-bottom: 50px;
 }
 
-.defaultContent h1 {
+.defaultContent h1, .defaultContent h4 {
   font-size: 30px;
-  color: #e6b300;
+  color: #303353;
   font-weight: bold;
   padding-bottom: 24px;
 }
@@ -562,7 +607,7 @@ html .main-menu .whiteFixed li a {
   left: -130px;
   background: #fff;
   top: 57px;
-  border-top: 10px solid #e6b300;
+  border-top: 10px solid #e5aee1;
 }
 
 @media (max-width: 1149px) {
@@ -590,6 +635,7 @@ html .main-menu .whiteFixed li a {
 .contact-view .default-section .other-info {
   padding: 20px 50px !important;
   margin: 0;
+  background: #fff;
 }
 
 @media (max-width: 1149px) {
@@ -614,7 +660,7 @@ html .main-menu .whiteFixed li a {
 }
 
 .contact-view .contact-section .title-colsingle {
-  color: #e6b300;
+  color: #e5aee1;
 }
 
 .contact-view .contact-section .contact-form {
@@ -623,6 +669,19 @@ html .main-menu .whiteFixed li a {
 
 .contact-view .wpcf7-response-output {
   border-color: #e00002;
+}
+
+@media (max-width: 1149px) {
+  html #page .default-section {
+    width: 100%;
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 1149px) {
+  html #page .default-section .title_devis {
+    padding: 0 40px;
+  }
 }
 
 /*# sourceMappingURL=maps/theme.css.map */

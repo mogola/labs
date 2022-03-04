@@ -725,7 +725,15 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			array($this,'boolean_habillage'), 
 			'page_config', 
 			'id_setting'
-		);        
+		);
+		add_settings_field(
+			'title content page', 
+			'title content page', 
+			array($this,'title_page_callback'), 
+			'page_config', 
+			'id_setting'
+		);  
+		      
 	   }
 	   /**
      * Sanitize each setting field as needed
@@ -775,6 +783,9 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 	        if( isset( $input['title_testimonial'] ) )
 	            $new_input['title_testimonial'] = sanitize_text_field( $input['title_testimonial'] );
+			
+			if( isset( $input['title_page'] ) )
+	            $new_input['title_page'] = sanitize_text_field( $input['title_page'] );
 
 	        if( isset( $input['resume_testimonial'] ) )
 	            $new_input['resume_testimonial'] = sanitize_text_field( $input['resume_testimonial'] );
@@ -948,21 +959,22 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 	    public function gallery_callback(){ 
 
-		    	printf('<input type="text" id="title_gallery" name="id_config_animate[title_gallery]" value="%s" />',
-					isset( $this->options['title_gallery'] ) ? esc_attr( $this->options['title_gallery']) : ''
-		    	);
-		    	printf('<input type="text" id="resume_gallery" name="id_config_animate[resume_gallery]" value="%s" />',
-					isset( $this->options['resume_gallery'] ) ? esc_attr( $this->options['resume_gallery']) : ''
-		    	);
+			printf('<input type="text" id="title_gallery" name="id_config_animate[title_gallery]" value="%s" />',
+				isset( $this->options['title_gallery'] ) ? esc_attr( $this->options['title_gallery']) : ''
+			);
+			printf('<input type="text" id="resume_gallery" name="id_config_animate[resume_gallery]" value="%s" />',
+				isset( $this->options['resume_gallery'] ) ? esc_attr( $this->options['resume_gallery']) : ''
+			);
 	    }
+
 	    public function testimonial_callback(){ 
 
-		    	printf('<input type="text" id="title_testimonial" name="id_config_animate[title_testimonial]" value="%s" />',
-					isset( $this->options['title_testimonial'] ) ? esc_attr( $this->options['title_testimonial']) : ''
-		    	);
-		    	printf('<input type="text" id="resume_testimonial" name="id_config_animate[resume_testimonial]" value="%s" />',
-					isset( $this->options['resume_testimonial'] ) ? esc_attr( $this->options['resume_testimonial']) : ''
-		    	);
+			printf('<input type="text" id="title_testimonial" name="id_config_animate[title_testimonial]" value="%s" />',
+				isset( $this->options['title_testimonial'] ) ? esc_attr( $this->options['title_testimonial']) : ''
+			);
+			printf('<input type="text" id="resume_testimonial" name="id_config_animate[resume_testimonial]" value="%s" />',
+				isset( $this->options['resume_testimonial'] ) ? esc_attr( $this->options['resume_testimonial']) : ''
+			);
 	    }
 
 		public function devis_callback(){ 
@@ -1040,6 +1052,12 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	            isset( $this->options['boolean_rd_sm'] ) ? esc_attr( $this->options['boolean_rd_sm']) : ''
 	        );
 	     }
+
+		 public function title_page_callback(){ 
+			printf('<input type="text" id="title_page" name="id_config_animate[title_page]" value="%s" />',
+				isset( $this->options['title_page'] ) ? esc_attr( $this->options['title_page']) : ''
+			);
+		}
 	}
     
     $my_settings_page = new MySettingsPage();
@@ -1623,4 +1641,4 @@ add_filter( 'body_class', function( $classes ) {
     return array_merge( $classes, array( $pageClassCustom ) );
 } );
 
-
+add_post_type_support( 'page', 'excerpt' );

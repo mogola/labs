@@ -31,6 +31,7 @@
 .site-content-contain{
 	.site-content{
 		padding:0  0 0 0!important;
+		background: $bgSite;
 	}
 	.main-slider{
 		padding-bottom:40px !important;
@@ -79,14 +80,17 @@ footer{
 			font-size: 15px;
 			font-weight: bold;	
 			padding: 16px 0 0 0;
+			color: $primarymya2;
 		}
 		label {
 			width: 100%;
 			display: block;
+			margin-top: 15px;
 		}
 
 		select{
 			padding-left: 16px;
+			display: block;
 		}
 		.wpcf7-form-control-wrap, select{
 			float:none;
@@ -119,7 +123,7 @@ footer{
 			}
 			
 			@include mb{
-			    float: left;
+			    float: none;
 			    display: block;
 			    width: 100%;
 			    padding:0;
@@ -141,6 +145,7 @@ footer{
 			textarea{
 				height:80px;
 				width: 100%;
+				margin-bottom: 30px;
 			}
 
 		}
@@ -150,6 +155,7 @@ footer{
 				float:none;
 				margin: 0 auto;
 				display: block;
+				background: $astColor1;
 				@include mb{
 					max-width:100%;
 					margin-right:0;
@@ -280,8 +286,29 @@ html{
 						left:20px;
 						background-color: $primarymya;
 						border-radius: 0 5px 5px 0;
+						@include mbLarge {
+							min-width: 50px;
+						}
 						span {
 							background-color: $white !important;
+							width: 100%;
+							&:nth-child(1) {
+								transform: rotate(-45deg);
+								width: 80%;
+								position: absolute;
+								left: 6px;
+								top: 20px;
+							}
+							&:nth-child(3){
+								transform: rotate(45deg);
+								width: 80%;
+								position: absolute;
+								left: 6px;
+								top: 17px;
+							}
+							&:nth-child(2) {
+								display: none;
+							}
 						}
 					}
 				}
@@ -347,7 +374,7 @@ html{
 						border-radius:5px,
 					}
 					span{
-						background:$primarymya !important;
+						background:$white !important;
 						height: 3px; 
 						border-radius: 10px;
 						width: 33px;
@@ -386,7 +413,7 @@ html{
 					padding:40px !important;
 					border-radius: 0;
 					@include mbLarge {
-						background: rgba(0,0,0,0.8) !important;
+						background: $primarymya !important;
 					}
 				}
 				.navigation{
@@ -404,6 +431,12 @@ html{
 						&.current-menu-item, &.current{
 							a {
 								color: $primarymya !important;
+								
+								@include mbLarge {
+									background: $white !important;
+									border-radius: 35px;
+									padding: 0 8px !important;
+								}
 							}
 						}
 						.icon{
@@ -518,6 +551,7 @@ html{
 	  position: relative;
 	  margin-bottom: 50px;
 	  font-family:arial;
+	  margin-top: 95px;
 	  h2{
 	  	span{
 			 font-weight:bold;
@@ -553,9 +587,9 @@ html {
 .defaultContent {
 	padding-top: 50px;
 	padding-bottom: 50px;
-	h1 {
+	h1, h4 {
 		font-size: 30px;
-		color: $primarymya;
+		color: $primarymya2;
 		font-weight: bold;
 		padding-bottom: 24px;
 	}
@@ -618,7 +652,8 @@ html {
 		.other-info {
 			padding: 20px 50px !important;
 			margin:0;
-			
+			background: $white;
+
 			@include mbLarge {
 				padding: 20px 0 !important;
 			}
@@ -649,5 +684,22 @@ html {
 	
 	.wpcf7-response-output {
 		border-color: #e00002;
+	}
+}
+
+html {
+	#page {
+		.default-section {
+			@include mbLarge {
+				width: 100%;
+				padding: 40px 0;
+			}
+
+			.title_devis {
+				@include mbLarge {
+					padding: 0 40px;
+				}
+			}
+		}
 	}
 }

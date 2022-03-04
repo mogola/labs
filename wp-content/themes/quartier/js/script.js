@@ -583,6 +583,10 @@
 	scrollToFormContact();
 	// scrollDown 
 	scrollDownStep();
+
+	// hzande controle of tab
+	handleTabContent();
+
 })(window.jQuery);
 
 function scrollBtnContact() {
@@ -666,5 +670,22 @@ function scrollDownStep() {
 			top: topLanding.height(),
 			behavior: 'smooth'
 		});
+	});
+}
+
+function handleTabContent() {
+	var tabHead = $('.info-tab-head--list').find('a');
+
+	$('.info-tab-head--list').find('li').first().addClass('active');
+
+	tabHead.on('click', function(e){
+		e.preventDefault();
+		var $this = $(this);
+		$this.closest('li').addClass('active').siblings('li').removeClass('active');
+		var $valueDataServices = $this.data('service');
+
+		$('.info-block[data-content="'+ $valueDataServices + '"').css('display', 'flex')
+		.siblings('.info-block').hide();
+
 	});
 }

@@ -21,7 +21,9 @@
 @import "_banner.scss";
 @import "_services.scss";
 @import "_push.scss";
-
+@import "_tarif.scss";
+@import "_popinae.scss";
+@import "_pdp.scss";
 * {
   margin: 0px;
   padding: 0px;
@@ -735,7 +737,7 @@ html{
   background-color: #ffffff;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(../images/icons/mestalogo_single.png);
+  background-image: url(../images/icons/logo_astrolune_2.png);
   background-size: 320px auto;
 }
 
@@ -1246,7 +1248,7 @@ $colormenu : #313131;
   position: fixed;
   left: 0px;
   top: 0px;
-  background:none;
+  background: $bgHeader3;
   z-index: 999;
   width: 100%;
   display: flex;
@@ -1374,7 +1376,7 @@ $colormenu : #313131;
     position: relative;
     float: left;
     img {
-      max-width: 226px;
+      max-width: 136px;
       display: inline-block;
     }
     @include mbLarge{
@@ -2621,11 +2623,21 @@ $colormenu : #313131;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-color: rgba(0,0,0,1) !important;
+  background:url(../images/background/zodiaque_transparent.png);
+  min-height: 485px;
+
+  @include mbLarge {
+    min-height: initial;
+  }
   &.style-two {
     background-size: auto;
     background-attachment: scroll;
     background-repeat: repeat;
     text-align: center;
+  }
+  .text {
+    color: $white !important;
   }
   .auto-container {
     position: relative;
@@ -2634,7 +2646,7 @@ $colormenu : #313131;
   .sec-title {
     margin-bottom: 60px;
     h2, .text {
-      color: #ffffff;
+      color: #ffffff !important;
     }
   }
   .testimonials-slider {
@@ -3048,7 +3060,8 @@ $colormenu : #313131;
 .sponsors-section {
   position: relative;
   padding: 35px 0;
-  background: #fff;
+  background: $sponsor;
+  display: none;
   .slider-outer {
     margin: 0px;
   }

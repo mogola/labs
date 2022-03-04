@@ -3,23 +3,28 @@
     font-family: 'Roboto';
     &-offer {
     //    background: linear-gradient(90deg, #ccc 0%, #222 100%);
-        background: $scd;
-        height: 236px;
+        background: $bgBanner;
         width: 100%;
         display: flex;
         margin-top: -10px;
+        max-width: $widthDesktopOptimize;
+        margin: -45px auto 0;
         @include mbLarge() {
-            height: 126px;
+            height: auto;
+            overflow: hidden;
         }
     }
 
     .containers {
-        max-width: $widthDesktopOptimize;
+        // max-width: $widthDesktopOptimize;
         margin: 0 auto;
         &-offer {
             width: 100%;
             display: flex;
             align-items: center;
+            @include mbLarge {
+                flex-wrap: wrap;
+            }
         }
     }
     
@@ -29,9 +34,13 @@
         font-family: 'Roboto';
         font-weight: bold;
         &-title {
-            font-size: 24px;
+            font-size: 15px;
             display: inline-block;
-            max-width: 380px;
+            max-width: 200px;
+
+            @include mbLarge {
+                text-align: left;
+            }
         }
         &-right {
             justify-self: end;
@@ -39,40 +48,54 @@
             align-items: center;
             justify-content: end;
             width:100%;
+            padding: 20px 50px;
             @include mbLarge(){
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                text-align: center; 
+                text-align: center;
+                width: 80%;
+                margin: 0 auto;
+                top: -10%;
+                position: relative;
+                background: $astColor1; 
             }
 
             p {
                 @include mbLarge() {
                     font-size: 12px;
+                    text-transform:uppercase;
                 }
             }
         }
         &-left {
-            height: 150px;
+            height: 307px;
             display:flex;
             align-items: center;
             width: 100%;
+            padding: 20px 50px;
+            background: $white;
 
             @include mbLarge() {
                 justify-content: center;
-                flex-wrap: wrap;           
+                flex-wrap: wrap;    
+                height: 150px;
+                overflow: hidden;
+                background: $colorDevis;       
             }
             p {
                 padding:0 50px;
                 font-size: 21px;
                 line-height: 30px;
+                color: $scd;
 
                 @include mbLarge(){
                     padding: 0 20px;
-                    font-size: 16px;
+                    font-size: 23px;
                     line-height: 18px;
                     position: relative;
-                    top: -27px;
+                    top: 0;
+                    color: $white;
                 }
             }
             img {
@@ -81,6 +104,7 @@
 
                 @include mbLarge() {
                     height: 89%;
+                    position: absolute;
                 }
             }
         }
@@ -101,6 +125,9 @@
         padding: 6px 23px;
         font-size: 15px;
         margin-left: 0;
+        background: transparent;
+        color: $white;
+        border: 1px solid $white;
     }
     &:hover {
         color: #fff;
