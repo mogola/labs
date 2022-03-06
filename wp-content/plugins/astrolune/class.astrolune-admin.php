@@ -174,12 +174,18 @@ class AstroLune_Admin {
         if( !$hasError ) {
 
             PrestationRepository::insert($newPrestation);
+
+            $_POST['success'] = 'Oui';
+
+            unset($_POST['title']);
+            unset($_POST['description']);
+            unset($_POST['price']);
+            unset($_POST['published']);
+            unset($_POST['pageid']);
         }
         else {
 
             $_POST['has_error'] = 'Oui';
-
-            print_r($_POST);
         }
     }
 
@@ -232,19 +238,36 @@ class AstroLune_Admin {
         if( !$hasError ) {
 
             PrestationRepository::update($editPrestation);
+
+            $_POST['success'] = 'Oui';
         }
         else {
 
             $_POST['has_error'] = 'Oui';
-
-            print_r($_POST);
         }
     }
 
     public static function page_exist($pages, $pageid) {
+        
+        if (is_null($pageid)) {
+            return -1;
+        }
 
-        $found = false;
-        while()
+        $found = -1;
+        $nbElement = count($pages);
+        $index = 0;
+
+        while( $found == -1 && $index < $nbElement ) {
+            $page = $pages[$index];
+            if( $page->Id == $pageid ) {
+                $found = $index;  
+            }
+            else {
+                $index++;
+            }
+        }
+
+        return $found;
     }
 }
 

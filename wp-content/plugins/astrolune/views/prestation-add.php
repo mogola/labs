@@ -4,6 +4,12 @@
 
     <p>Créer une nouvelle prestation</p>
 
+    <?php if( isset($_POST['success']) ) { ?>
+        <div class="success">
+            L'ajout est un succès
+        </div>
+    <?php } ?>
+
     <form method="post" name="createpestation">
 
         <input name="action" type="hidden" value="createpestation">
@@ -94,9 +100,3 @@
         </div>
     </form>
 </div>
-
-<?php
-
-    print_r($_POST);
-
-?>

@@ -4,6 +4,12 @@
 
     <p>Mise à jour de la prestation</p>
 
+    <?php if( isset($_POST['success']) ) { ?>
+        <div class="success">
+            La mise à jour est un succès
+        </div>
+    <?php } ?>
+
     <form method="post" name="updateprestation">
 
         <input name="action" type="hidden" value="updatepestation">
@@ -105,11 +111,4 @@
             <input type="submit" name="updatepestation" id="updatepestationsub" class="button button-primary" value="Mettre à jour">
         </div>
     </form>
-</div>
-
-<div>
-<?php
-
-    print_r($_POST);
-?>
 </div>
