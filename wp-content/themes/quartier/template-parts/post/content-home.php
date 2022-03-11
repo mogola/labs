@@ -19,9 +19,11 @@
             </figure>
         </div>
         <div class="default inner text-mya">
-            <h4 class="title title-h-mya"><?php echo mb_strimwidth(get_the_title(), 0, 60, "..."); ?></h4>
-            <p class="desc desc-mya"><?php echo mb_strimwidth(get_the_excerpt(), 0, 200, "...") ?></p>
-            <a class="theme-btn btn-style-two btn-xs mr-10" href="<?php the_permalink(); ?>">En savoir plus</a>
+            <div class="content-mya">
+                <h4 class="title title-h-mya"><?php echo mb_strimwidth(get_the_title(), 0, 60, "..."); ?></h4>
+                <p class="desc desc-mya"><?php echo mb_strimwidth(get_the_excerpt(), 0, 200, "...") ?></p>
+                <a class="theme-btn btn-style-two btn-xs mr-10" href="<?php the_permalink(); ?>">En savoir plus</a>
+            </div>
         </div>
     </div>
 </div>

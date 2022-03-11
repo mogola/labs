@@ -18,7 +18,12 @@
 @import url('theme.css');
 @import url('responsive.css');
 @import "_block.scss";
-
+@import "_banner.scss";
+@import "_services.scss";
+@import "_push.scss";
+@import "_tarif.scss";
+@import "_popinae.scss";
+@import "_pdp.scss";
 * {
   margin: 0px;
   padding: 0px;
@@ -34,6 +39,7 @@
 
  ***/
 html{
+  margin-top: 0 !important;
   @include mbLarge{
     margin-top:0 !important;
   }
@@ -49,7 +55,7 @@ body {
   background-repeat: no-repeat;
   background-position: center top;
   -webkit-font-smoothing: antialiased;
-  padding-top:67px;
+  padding-top:0;
 }
 
 a {
@@ -182,14 +188,12 @@ html{
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    background: $primarymya;
-    color: #ffffff !important;
-    border: 2px solid $primarymya !important;
-    border-radius: 3px;
+    background: #fff;
+    color: $primarymya !important;
+    border-radius: 60px;
     &:hover {
-      background: #ffffff;
-      color: $primarymya !important;
-      border-color: $primarymya;
+      background: $primarymya;
+      color: #fff!important;
     }
   }
 }
@@ -733,8 +737,8 @@ html{
   background-color: #ffffff;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(../images/icons/mayega_logo2.png);
-  background-size: auto 12%;
+  background-image: url(../images/icons/logo_astrolune_2.png);
+  background-size: 320px auto;
 }
 
 /*** 
@@ -1028,18 +1032,19 @@ html{
 $colormenu : #313131;
 .main-menu {
   position: relative;
-  float: left;
+  float: none;
+  width: 100%;
   padding: 0px 0px;
   .navbar-collapse {
-    padding: 0px 50px 0 0 !important;
+    padding: 0 !important;
   }
   .navigation {
     position: relative;
-    float: right;
+    float: none;
     margin: 0px;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
-    padding-left: 25px;
+    padding-left: 0;
     > li {
       position: relative;
       float: left;
@@ -1243,12 +1248,11 @@ $colormenu : #313131;
   position: fixed;
   left: 0px;
   top: 0px;
-  background: #fff;
+  background: $bgHeader3;
   z-index: 999;
   width: 100%;
   display: flex;
   align-items: center;
-  box-shadow:2px -6px 16px #000;
   z-index: 99999999;
   justify-content: center;
 
@@ -1268,9 +1272,16 @@ $colormenu : #313131;
   }
 
   .header-top {
-    position: relative;
+    position: absolute; 
     color: #fff;;
     padding: 20px 0px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @include mbLarge {
+      transform: translate(-50%, -50%);
+      left: 50%;
+    }
     .info-outer {
       position: relative;
       float: right;
@@ -1365,7 +1376,7 @@ $colormenu : #313131;
     position: relative;
     float: left;
     img {
-      max-width: 226px;
+      max-width: 136px;
       display: inline-block;
     }
     @include mbLarge{
@@ -1396,7 +1407,7 @@ $colormenu : #313131;
 
 .fixed-header .lower-part {
   position: relative;
-  background: #25292f;
+  background: none;
   padding: 0px !important;
 }
 
@@ -1412,7 +1423,7 @@ $colormenu : #313131;
     top: 0px;
     width: 100%;
     padding: 0;
-    background: #fff;
+    background: none;
     @include mbLarge{
       padding-top: 0;
       padding-bottom: 0;
@@ -1768,8 +1779,9 @@ $colormenu : #313131;
     line-height: 1.2em;
   }
   .text {
-    font-size: 16px;
-    line-height: 2em;
+    font-size: 31px;
+    line-height: 47px;
+    font-family: 'Futura-medium';
   }
 }
 
@@ -2611,11 +2623,21 @@ $colormenu : #313131;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-color: rgba(0,0,0,1) !important;
+  background:url(../images/background/zodiaque_transparent.png);
+  min-height: 485px;
+
+  @include mbLarge {
+    min-height: initial;
+  }
   &.style-two {
     background-size: auto;
     background-attachment: scroll;
     background-repeat: repeat;
     text-align: center;
+  }
+  .text {
+    color: $white !important;
   }
   .auto-container {
     position: relative;
@@ -2624,7 +2646,7 @@ $colormenu : #313131;
   .sec-title {
     margin-bottom: 60px;
     h2, .text {
-      color: #ffffff;
+      color: #ffffff !important;
     }
   }
   .testimonials-slider {
@@ -3038,7 +3060,8 @@ $colormenu : #313131;
 .sponsors-section {
   position: relative;
   padding: 35px 0;
-  background: #fff;
+  background: $sponsor;
+  display: none;
   .slider-outer {
     margin: 0px;
   }
@@ -3487,6 +3510,11 @@ $colormenu : #313131;
   background-repeat: no-repeat;
   background-position: center center;
   color: #ffffff;
+  
+  @include minMbLarge {
+    min-height: 400px; 
+  }
+
   @include mbLarge{
     .single &{
       padding:20px 0 10px;
@@ -4591,7 +4619,7 @@ li.col-xs-12:before {
       color: #8d8d8d;
       min-height: 50px;
       font-size: 15px;
-      margin-bottom: 25px;
+      margin-bottom: 62px;
       &:last-child {
         margin-bottom: 0px;
       }
@@ -4599,8 +4627,13 @@ li.col-xs-12:before {
         display: block;
         color: #000000;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 23px;
         font-family: 'Raleway',sans-serif;
+      }
+      .labelling {
+        font-size: 18px;
+        padding-top: 9px;
+        display: inline-block;
       }
       .icon {
         position: absolute;
@@ -4609,7 +4642,7 @@ li.col-xs-12:before {
         margin-top: -25px;
         height: 50px;
         line-height: 50px;
-        color: #dee1e3;
+        color: $primarymya;
         font-size: 36px;
       }
     }
@@ -4647,6 +4680,8 @@ li.col-xs-12:before {
       color: #2e2e2e;
     }
   }
+
+  height: 750px;
 }
 
 /*** 
@@ -5143,5 +5178,11 @@ html{
   @include transCustom(scale(1.2));
   *{
     display:inline-block;
+  }
+}
+
+.fixed-header {
+  .wrap-head-flex {
+    flex-wrap: nowrap;
   }
 }

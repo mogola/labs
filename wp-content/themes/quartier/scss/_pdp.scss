@@ -1,0 +1,36 @@
+.pdp_service {
+    display: flex;
+    padding: 60px 0 30px;
+    @include mbLarge {
+        flex-wrap: wrap;
+    }
+}
+
+.ct_pd {
+    width: 50%;
+    padding: 0 40px;
+
+    @include mbLarge {
+        width: 100%;
+    }
+   &.ct_pdp_img {
+    img {
+        width: 100%;
+    }
+   }
+   &.ct_pdp_txt {
+       @include mbLarge {
+           padding-top: 30px;
+       }
+    p {
+        color: $txtScd;
+        font-size: 20px;
+    }
+   }
+
+   .ttl_ct_pd {
+       padding-bottom: 30px;
+       color: $primarymya2;
+       font-size: 30px;
+   }
+}

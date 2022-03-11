@@ -24,8 +24,10 @@
 	<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 		<div class="post-thumbnail">
 			<div class="full-desc-mya">
-				<h4 class="ttl-full-mya"><span>Mayega</span> international</h4>
-				<?php the_title('<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+				<h4 class="ttl-full-mya"><span><?php echo option_get_config_value('title_devis') ?></span></h4>
+				<p><?php echo option_get_config_value('resume_devis') ?></p>
+				<a class="cta-landing" href=<?php echo option_get_config_value('url_devis') ?>><?php echo option_get_config_value('cta_devis') ?></a>
+				<!-- <?php the_title('<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?> -->
 			</div>
 			<a href="<?php the_permalink(); ?>">
 				<!-- <?php the_post_thumbnail( 'twentyseventeen-featured-image' ); ?> -->
