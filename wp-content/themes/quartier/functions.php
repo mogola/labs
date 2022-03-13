@@ -1106,11 +1106,12 @@ add_action('wp_insert_post', 'wpc_champs_personnalises_defaut');
 
 function wpc_champs_personnalises_defaut($post_id)
 {
-	add_post_meta($post_id, 'hour_begin', '00:00', true);
-	add_post_meta($post_id, 'hour_end', '00:00', true);
-	add_post_meta($post_id, 'addresse', '93250 villemomble', true);
-	add_post_meta($post_id, 'bodyclass', 'test', true);
-	add_post_meta($post_id, 'categorypage', '', true);
+	//add_post_meta($post_id, 'hour_begin', '00:00', true);
+	//add_post_meta($post_id, 'hour_end', '00:00', true);
+	//add_post_meta($post_id, 'addresse', '93250 villemomble', true);
+	//add_post_meta($post_id, 'bodyclass', 'test', true);
+	//add_post_meta($post_id, 'categorypage', '', true);
+	add_post_meta($post_id, 'prestations', 'Non', true);
 
 	return true;
 }

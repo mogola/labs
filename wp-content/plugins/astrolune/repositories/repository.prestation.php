@@ -83,6 +83,32 @@ class PrestationRepository {
             "id" => $prestation->Id
         ));
     }
+
+    public static function getByPageId(int $pageId) {
+
+        global $wpdb;
+        $tableName = $wpdb->prefix . self::$prestationTableName;
+        $result = $wpdb->get_results("SELECT * FROM $tableName WHERE page_id = $pageId AND published = 1");
+
+        $prestations = array();
+
+        foreach($result as $key => $row) {
+
+            $prestation = new PrestationEntity();
+            $prestation->Id = $row->id;
+            $prestation->Title = $row->title;
+            $prestation->Description = $row->description;
+            $prestation->Price = $row->price;
+            $prestation->Published = $row->published;
+            $prestation->PageId = $row->page_id;
+            $prestation->CreatedDate = new DateTime($row->created_date);
+            $prestation->UpdatedDate = new DateTime($row->updated_date);
+
+            array_push($prestations, $prestation);
+        }
+
+        return $prestations;
+    }
 }
 
 ?>
