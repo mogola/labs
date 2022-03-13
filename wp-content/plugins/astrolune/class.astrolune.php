@@ -1,6 +1,7 @@
 <?php
 
 require_once(ASTROLUNE__PLUGIN_DIR.'repositories/repository.install.php');
+require_once(ASTROLUNE__PLUGIN_DIR.'repositories/repository.prestation.php');
 
 class AstroLune {
 
@@ -75,6 +76,11 @@ class AstroLune {
 		$file = ASTROLUNE__PLUGIN_DIR . 'views/'. $name . '.php';
 
 		include( $file );
+	}
+
+	public static function getPagePrestations($pageId)
+	{
+		return PrestationRepository::getByPageId($pageId);
 	}
 }
 

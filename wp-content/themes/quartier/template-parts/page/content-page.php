@@ -14,6 +14,7 @@
 <!--Page Title-->
 <?php 
     $getPostMetaBodyClass = get_post_meta($post->ID);
+
     $classContentPage = $getPostMetaBodyClass['bodyclass'][0] == "engagement" ? "" : "defaultContent";
 
     $thumpage = '';
@@ -186,3 +187,9 @@
         </section> 
 	</div>
 </div>
+
+<?php
+    if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
+        get_template_part( 'template-parts/components/content', 'pageprestation' );
+    }
+?>
