@@ -78,21 +78,28 @@
         <?php 
             if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
         ?>  
+        
         <div class="form_devis">
-            <div class="pdp_service">
-                <div class="ct_pd ct_pdp_img">
-                    <?php the_post_thumbnail('large') ?>
-                </div>
-                <div class="ct_pd ct_pdp_txt">
-                    <h3 class="ttl_ct_pd"><?php the_title(); ?></h3>
-                    <?php the_excerpt(); ?>
+            <?php
+                if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
+                    get_template_part( 'template-parts/components/content', 'pageprestation' );
+                }else {
+                   ?>
+                   <div class="pdp_service">
+                        <div class="ct_pd ct_pdp_img">
+                            <?php the_post_thumbnail('large') ?>
+                        </div>
+                        <div class="ct_pd ct_pdp_txt">
+                            <h3 class="ttl_ct_pd"><?php the_title(); ?></h3>
+                            <?php the_excerpt(); ?>
+                        </div>
+                    </div>
+                <?php } ?>
+                <h2 class="title_devis"><?php echo option_get_config_value('title_page'); ?></h2>
+                <div class="form"> 
+                    <?php the_content(); ?> 
                 </div>
             </div>
-            <h2 class="title_devis"><?php echo option_get_config_value('title_page'); ?></h2>
-            <div class="form"> 
-                <?php the_content(); ?> 
-            </div>
-        </div>
 
             <?php 
             } 
@@ -187,9 +194,3 @@
         </section> 
 	</div>
 </div>
-
-<?php
-    if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
-        get_template_part( 'template-parts/components/content', 'pageprestation' );
-    }
-?>

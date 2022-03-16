@@ -47,7 +47,7 @@
   position: absolute;
   width: 50%;
   height: 50%;
-  background: #EF7D5B;
+  background: #2098d1;
   right: 0;
   top: 43%;
   transform: translateY(-50%);
@@ -285,7 +285,7 @@
 
 .link-block-mya .default.text-mya {
   padding: 0;
-  background: #EF7D5B;
+  background: #2098d1;
 }
 
 @media (max-width: 1149px) {
@@ -486,14 +486,14 @@ html .head-home h3 {
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #EF7D5B;
+  color: #2098d1;
 }
 
 @media (max-width: 1149px) {
   html .head-home h3 {
     font-size: 24px;
     font-weight: bold;
-    color: #EF7D5B;
+    color: #2098d1;
     text-align: center;
     padding: 0 40px;
     text-transform: initial;
@@ -602,7 +602,7 @@ html .imagefull-mya-landing .txt-full p {
 
 html .imagefull-mya-landing .txt-full .ct-landing {
   padding: 15px 40px;
-  background: #F2B705;
+  background: #ca77c4;
   color: #fff;
   display: inline-block;
   border-radius: 44px;
@@ -1610,15 +1610,15 @@ html #qlwapp.qlwapp-bottom-right .qlwapp-text {
   display: none !important;
 }
 
-html #quartier .subDropDown.active a svg {
+html .navigation .subDropDown.active a svg {
   transform: rotate(180deg);
 }
 
-html #quartier .subDropDown a {
+html .navigation .subDropDown a {
   padding-right: 24px;
 }
 
-html #quartier .subDropDown a svg {
+html .navigation .subDropDown a svg {
   margin-left: 12px;
   height: 46px;
   position: absolute;
@@ -1627,7 +1627,7 @@ html #quartier .subDropDown a svg {
 }
 
 @media (max-width: 1149px) {
-  html #quartier .subDropDown a svg {
+  html .navigation .subDropDown a svg {
     top: 2px;
   }
 }
@@ -1724,7 +1724,7 @@ html .post-thumbnail {
 .cta-landing {
   font-size: 22px;
   color: #fff;
-  background: #d7a802;
+  background: #2098d1;
   display: inline-block;
   border-radius: 44px;
   padding: 15px 40px;
@@ -1734,7 +1734,7 @@ html .post-thumbnail {
 }
 
 .cta-landing:hover {
-  color: #d7a802;
+  color: #2098d1;
   background: #fff;
 }
 
@@ -1813,7 +1813,7 @@ html .post-thumbnail {
     margin: 0 auto;
     top: -10%;
     position: relative;
-    background: #EF7D5B;
+    background: #2098d1;
   }
 }
 
@@ -1875,7 +1875,7 @@ html .post-thumbnail {
 
 .cta-benefit {
   padding: 15px 40px;
-  background: #d7a802;
+  background: #2098d1;
   color: #fff;
   display: inline-block;
   border-radius: 44px;
@@ -1967,7 +1967,7 @@ html .post-thumbnail {
 }
 
 .wrapper-services .services .cta-benefit.wt {
-  background: #d7a802;
+  background: #2098d1;
   color: #fff;
   border: 0 none;
 }
@@ -2019,7 +2019,7 @@ html .post-thumbnail {
 
 .info-services--title h3 {
   font-weight: bold;
-  color: #EF7D5B;
+  color: #2098d1;
 }
 
 .info-services .info-tab-head {
@@ -2065,7 +2065,7 @@ html .post-thumbnail {
 
 @media (max-width: 1149px) {
   .info-services .info-tab-head ul li {
-    border: 3px solid #EF7D5B;
+    border: 3px solid #2098d1;
   }
 }
 
@@ -2076,7 +2076,7 @@ html .post-thumbnail {
 @media (max-width: 1149px) {
   .info-services .info-tab-head ul li.active {
     border: 0 none;
-    background: #EF7D5B;
+    background: #2098d1;
   }
 }
 
@@ -2089,7 +2089,7 @@ html .post-thumbnail {
     background: none;
     border-radius: 10px;
     margin: 10px;
-    border: 3px solid #EF7D5B;
+    border: 3px solid #2098d1;
   }
 }
 
@@ -2640,7 +2640,7 @@ html .post-thumbnail {
 
 .pdp_service {
   display: flex;
-  padding: 60px 0 30px;
+  padding: 0 0 30px;
 }
 
 @media (max-width: 1149px) {
@@ -2672,12 +2672,20 @@ html .post-thumbnail {
 
 .ct_pd.ct_pdp_txt p {
   color: #1C1C1C;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .ct_pd .ttl_ct_pd {
-  padding-bottom: 30px;
+  padding-bottom: 24px;
   color: #303353;
+  font-size: 30px !important;
+}
+
+.ct_pd .ttl_price_pd {
+  font-weight: bold;
+  color: #2098d1;
+  padding: 0 0 24px 0;
+  margin: 0;
   font-size: 30px;
 }
 
@@ -5952,7 +5960,7 @@ html .btn-style-two:hover {
 .sponsors-section {
   position: relative;
   padding: 35px 0;
-  background: #F2B705;
+  background: #ca77c4;
   display: none;
 }
 
@@ -6255,7 +6263,7 @@ html .btn-style-two:hover {
 
 .footer-widget.contact-widget button:hover, .footer-widget.contact-widget input[type="submit"]:hover, .wpcf7 button:hover, .wpcf7 input[type="submit"]:hover {
   background: #fff;
-  color: #f14b05;
+  color: #fff;
 }
 
 .main-footer .social-links a {

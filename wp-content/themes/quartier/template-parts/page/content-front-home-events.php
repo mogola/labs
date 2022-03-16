@@ -300,7 +300,7 @@
                 <p><?php echo option_get_config_value('resume_devis') ?> </p>
             </div>
         </div>
-        <a class="cta-benefit wt" href=<?php echo option_get_config_value('url_devis') ?>>
+        <a class="cta-benefit wt" href=<?php echo option_get_config_value('url_devis'); ?>>
             <span><?php echo option_get_config_value('cta_devis') ?></span>
             <span class="flaticon-arrows-8"></span>
         </a>

@@ -16,6 +16,7 @@
  <!--Main Footer-->
  <?php
   $thumbFooter = wp_upload_dir()['baseurl'].'/default.jpg';
+  $baseline = '';
 ?>
     <footer class="main-footer" <?php echo 'style="background-image:url('. $thumbFooter .')"'?>>
     	
@@ -35,7 +36,7 @@
                     <div class="col-lg-3 col-sm-6 col-xs-12 column mb-xs-50">
                         <div class="footer-widget about-widget">
                             <div class="text">
-                                <p><?php echo $baseline ?></p>
+                                <p><?php echo $baseline;?></p>
                             </div>
                             <ul class="contact-info">
                             	<li><span class="icon fa fa-map-marker"></span> <?php echo option_get_config_value('address') ?></li>

@@ -576,7 +576,7 @@
 
 	dropdownMD();
 	// set name of main menu
-	isSubMenuExist('#quartier');
+	isSubMenuExist('.navigation');
 	// redirect contact
 	isRedirectContact();
 	// scroll to page 

@@ -6,7 +6,7 @@
 /* specific portrait */
 /* specific landscape*/
 /* specifi mobile landscape */
-#quartier {
+.navigation {
   width: 100%;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@
 }
 
 @media (max-width: 1149px) {
-  #quartier {
+  .navigation {
     justify-content: left;
     flex-wrap: wrap;
   }
@@ -145,7 +145,7 @@ footer .wpcf7 p {
   float: none;
   margin: 0 auto;
   display: block;
-  background: #EF7D5B;
+  background: #2098d1;
 }
 
 @media (max-width: 767px) {
