@@ -684,4 +684,8 @@ html .main-menu .whiteFixed li a {
   }
 }
 
+.paypal_container {
+  display: none;
+}
+
 /*# sourceMappingURL=maps/theme.css.map */

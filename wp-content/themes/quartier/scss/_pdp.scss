@@ -41,4 +41,28 @@
         margin: 0;
         font-size: 30px;
    }
+
+   .ttl-cta-payment {
+       display: inline-block; 
+       min-width: 350px; 
+       padding: 15px 0;
+       background-color: $ctaSubmit;
+       color: $white;
+       border-radius: 5px;
+       text-align: center;
+       font-weight: bold;
+       text-transform: uppercase;
+       font-size: 22px;
+       letter-spacing: 1px;
+       margin-top: 30px;
+       &:hover {
+           background: $hoverCtaSubmit;
+       }
+   }
+
+   .container-ttl {
+       @include mbLarge {
+           text-align: center;
+       }
+   }
 }

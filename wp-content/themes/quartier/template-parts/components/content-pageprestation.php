@@ -18,7 +18,12 @@
             <h3 class="ttl_ct_pd"><?php echo $prestation->Title ?></h3>
             <h4 class="ttl_price_pd"><?php echo $prestation->Price ?> &euro;</h4>
             <?php the_excerpt(); ?>
-            <?php echo do_shortcode("[wpecpp name='".$prestation->Title." price='". $prestation->Price. "']"); ?>
+            <div class="paypal_container">
+                <?php echo do_shortcode("[wpecpp name='".$prestation->Title." price='". $prestation->Price. "']"); ?>
+            </div>
+            <div class="container-ttl">
+                <a class="ttl-cta-payment">Réservez</a> 
+            </div>
         <?php
             }
         }
