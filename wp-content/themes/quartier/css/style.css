@@ -1168,23 +1168,23 @@ html .team-member p {
   line-height: 26px !important;
 }
 
-html .page-services .wp-block-columns {
+.body:not(.reference) html .page-services .wp-block-columns {
   margin: 40px auto;
   display: block;
   position: relative;
 }
 
 @media (max-width: 1149px) {
-  html .page-services .wp-block-columns {
+  .body:not(.reference) html .page-services .wp-block-columns {
     position: initial;
   }
 }
 
-html .page-services .wp-block-columns .wp-block-column {
+.body:not(.reference) html .page-services .wp-block-columns .wp-block-column {
   padding: 24px;
 }
 
-html .page-services .wp-block-columns .wp-block-column + .wp-block-column {
+.body:not(.reference) html .page-services .wp-block-columns .wp-block-column + .wp-block-column {
   top: 20px;
   left: 537px;
   width: 50%;
@@ -1195,13 +1195,13 @@ html .page-services .wp-block-columns .wp-block-column + .wp-block-column {
 }
 
 @media (max-width: 1149px) {
-  html .page-services .wp-block-columns .wp-block-column + .wp-block-column {
+  .body:not(.reference) html .page-services .wp-block-columns .wp-block-column + .wp-block-column {
     position: static;
     width: 100%;
   }
 }
 
-html .page-services .wp-block-columns .wp-block-column + .wp-block-column:after {
+.body:not(.reference) html .page-services .wp-block-columns .wp-block-column + .wp-block-column:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -2566,7 +2566,7 @@ html .btn-style-two:hover {
   background-color: #ffffff;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(../images/icons/mestalogo_single.png);
+  background-image: url(../images/mesta-securite-logo.png);
   background-size: 320px auto;
 }
 
