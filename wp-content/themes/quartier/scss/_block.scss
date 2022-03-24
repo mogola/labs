@@ -1061,7 +1061,7 @@ html {
         }
     }
     .page-services {
-        .body:not(.reference) & {
+        body:not(.reference) & {
             .wp-block-columns {
                 margin: 40px auto;
                 display: block;
@@ -1102,11 +1102,42 @@ html {
             }   
         }  
     }
+
+    .reference  {
+        .wp-block-columns {
+            padding: 0;
+            margin: 0;
+            background: $white;
+
+            @include mbLarge {
+                text-align: center;
+            }
+            .wp-block-column {
+                position: relative;
+                padding: 0;
+                background:  #fff;
+
+                &:before {
+                    display: none;
+                }
+                
+                &:nth-child(even){
+                    background: $white;
+                }
+                + .wp-block-column {
+                    margin-left:0;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
     .wp-block-columns {
         max-width: $widthDesktopOptimize;
         margin: 190px auto;
         background:#272727;
         padding: 72px;
+
+        
 
         @include mbLarge {
             margin: 30px auto;

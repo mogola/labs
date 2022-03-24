@@ -130,6 +130,13 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width:767px) {
+      min-height: 100px;
+    }
     img {
       display: block;
       width: 100%;
