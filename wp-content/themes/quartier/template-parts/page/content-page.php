@@ -57,7 +57,18 @@
 
 <section class="default-section other-info">
     <div class="auto-container">
-        <div class="row clearfix page-services">
+        <?php 
+        
+        $getMeta = get_post_meta(get_the_ID(), 'categorypage', true); 
+
+        if($getMeta == 'default'){
+            $classContainer = 'row clearfix default'; 
+        } else {
+            $classContainer = 'row clearfix page-services';
+        } 
+        ?>
+        
+        <div class="<?php echo $classContainer ?> ">
             <?php 
                 if(is_page('faq')){ 
                     $titleFaq = option_get_config_value('faq_title');
@@ -70,62 +81,40 @@
                         </div>';
                 }
             ?>
-        <?php 
-            if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
-                get_template_part( 'template-parts/components/content', 'engage' );
-            }    
-        ?>
-        <?php 
-            if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
-        ?>  
-        <div class="form_devis">
-            <div class="pdp_service">
-                <div class="ct_pd ct_pdp_img">
-                    <?php the_post_thumbnail('large') ?>
-                </div>
-                <div class="ct_pd ct_pdp_txt">
-                    <h3 class="ttl_ct_pd"><?php the_title(); ?></h3>
-                    <?php the_excerpt(); ?>
-                </div>
-            </div>
-            <h2 class="title_devis"><?php echo option_get_config_value('title_page'); ?></h2>
-            <div class="form"> 
-                <?php the_content(); ?> 
-            </div>
-        </div>
-
             <?php 
-            } 
-            else 
-            { ?>
-                <div class="content-ms">
-                    <?php
-                        $args = array(
-                            'posts_per_page' => 4,
-                            'category_name' => $categorypage
-                        );
-                        $queryPush = new WP_Query($args);
-                        if ( $queryPush->have_posts() && $getPostMetaBodyClass['bodyclass'][0] == "engagement" ) :
-
-                            /* Start the Loop */
-                            while ( $queryPush->have_posts() ) : $queryPush->the_post();
-
-                                /*
-                                    * Include the Post-Format-specific template for the content.
-                                    * If you want to override this in a child theme, then include a file
-                                    * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                                    */
-                                get_template_part( 'template-parts/post/content', 'page' );
-
-                            endwhile;
-                            else : 
-                                // get_template_part( 'template-parts/post/content', 'none' );
-                            endif;
-                    ?>
-                </div>
-            <?php 
-            } 
+                if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
+                    get_template_part( 'template-parts/components/content', 'engage' );
+                }    
             ?>
+            <?php 
+                if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
+            ?>  
+        
+        <div class="form_devis">
+            <?php
+                if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
+                    get_template_part( 'template-parts/components/content', 'pageprestation' );
+                } 
+                else 
+                { ?>
+                   <div class="pdp_service">
+                        <div class="ct_pd ct_pdp_img">
+                            <?php the_post_thumbnail('large') ?>
+                        </div>
+                        <div class="ct_pd ct_pdp_txt">
+                            <h3 class="ttl_ct_pd"><?php the_title(); ?></h3>
+                            <?php the_excerpt(); ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <h2 class="title_devis"><?php echo option_get_config_value('title_page'); ?></h2>
+                    <div class="form"> 
+                        <?php the_content(); ?> 
+                    </div>
+                </div>
+            <?php } else if ($getPostMetaBodyClass['bodyclass'][0] != "engagement" && $getPostMetaBodyClass['bodyclass'][0] != "contactPage") {?>
+                <?php the_content(); ?>
+            <?php }?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <div class="entry-content <?php addClassFaq('accordion-box'); echo $classContentPage; ?>">
                     <?php
@@ -187,9 +176,3 @@
         </section> 
 	</div>
 </div>
-
-<?php
-    if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
-        get_template_part( 'template-parts/components/content', 'pageprestation' );
-    }
-?>

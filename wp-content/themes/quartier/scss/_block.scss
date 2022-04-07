@@ -423,7 +423,7 @@ html {
             @include mbLarge {
                 font-size: 24px;
                 font-weight: bold;
-                color: #EF7D5B;
+                color: $ctaSubmit;
                 text-align: center;
                 padding: 0 40px;
                 text-transform: initial;
@@ -1234,67 +1234,70 @@ html {
             }
         }     
     }
-    .wp-block-columns {
-        max-width: $widthDesktopOptimize;
-        margin: 190px auto;
-        background:$primarymya2;
-        padding: 72px;
+    
+    .page-services {
+        .wp-block-columns {
+            max-width: $widthDesktopOptimize;
+            margin: 190px auto;
+            background:$primarymya2;
+            padding: 72px;
 
-        @include mbLarge {
-            margin: 30px auto;
-            padding: 68px 35px;
-        }
-        .wp-block-column {
-            position: relative;
-            padding: 40px;
-            background:  #fff;
-            
-            + .wp-block-column {
-                @include mbLarge {
-                    margin-top: 60px;
-                }
+            @include mbLarge {
+                margin: 30px auto;
+                padding: 68px 35px;
             }
-            &:nth-child(even){
-                background: #fbfbfb;
-                &:before {
-                    top: initial;
-                    bottom: -15px;
-                    
+            .wp-block-column {
+                position: relative;
+                padding: 40px;
+                background:  #fff;
+                
+                + .wp-block-column {
                     @include mbLarge {
-                        top: -15px;
-                        bottom: initial; 
-                        display: none;
+                        margin-top: 60px;
                     }
                 }
-            }
-            &:before {
-                content:"";
-                display: block;
-                height: 5px;
-                width: 70%;
-                position: absolute;
-                top: -15px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: $primarymya;
-            }
-
-            h2 {
-                font-family:$futuraMedium;
-                font-size: 30px;
-                padding-bottom: 40px;
-                @include mbLarge{
-                    font-size: 22px;
+                &:nth-child(even){
+                    background: #fbfbfb;
+                    &:before {
+                        top: initial;
+                        bottom: -15px;
+                        
+                        @include mbLarge {
+                            top: -15px;
+                            bottom: initial; 
+                            display: none;
+                        }
+                    }
                 }
-            }
-            p {
-                color: #333;
-            }
-            ul {
-                li {
-                    font-size: 18px;
-                    + li {
-                        padding-top: 10px;
+                &:before {
+                    content:"";
+                    display: block;
+                    height: 5px;
+                    width: 70%;
+                    position: absolute;
+                    top: -15px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: $primarymya;
+                }
+
+                h2 {
+                    font-family:$futuraMedium;
+                    font-size: 30px;
+                    padding-bottom: 40px;
+                    @include mbLarge{
+                        font-size: 22px;
+                    }
+                }
+                p {
+                    color: #333;
+                }
+                ul {
+                    li {
+                        font-size: 18px;
+                        + li {
+                            padding-top: 10px;
+                        }
                     }
                 }
             }
@@ -1466,7 +1469,7 @@ html {
 }
 
 html {
-    #quartier {
+    .navigation {
         .subDropDown {
             &.active {
                 a {
@@ -1576,7 +1579,7 @@ html {
 .cta-landing {
     font-size: 22px;
     color: #fff;
-    background: #d7a802;
+    background: $ctaSubmit;
     display: inline-block;
     border-radius: 44px;
     padding: 15px 40px;
@@ -1585,7 +1588,34 @@ html {
     font-family: 'Futura-medium';
 
     &:hover {
-        color: #d7a802;
+        color: $ctaSubmit;
         background: #fff;
+    }
+}
+
+html {
+    .page {
+        .default {
+            padding: 50px 40px;
+            h2 {
+                font-weight: bold;
+            }
+
+            p + p {
+                padding-top: 40px;
+            }
+
+            blockquote {
+                color: $scd;
+                font-weight: bold;
+                font-size: 30px;
+                border: 0 none;
+                padding-top: 50px;
+            }
+            
+            @include mbLarge {
+                padding: 0 40px;
+            }
+        }
     }
 }

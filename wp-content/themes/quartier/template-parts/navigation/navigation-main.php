@@ -15,12 +15,16 @@
     if ( 'top' === $args->theme_location ) {
         // Make these items 3-columns wide in Bootstrap
 		$deleteClass = count($classes);
-		for ($j=0; $j<$deleteClass; $j++) {
-			if($classes[$j] != 'current-menu-item'){
-		    	$classes[$j] = '';
-		    }else{
-		    	 $classes[] = 'current dropdown';
-		    }
+		// var_dump($deleteClass, $classes);
+		for ($j=1; $j<$deleteClass; $j++) {
+			// var_dump(is_null($classes[0]));
+			if(is_null($classes[$j]) != 0) {
+				if($classes[$j] != 'current-menu-item'){
+					$classes[$j] = '';
+				}else{
+					$classes[$j] = 'current dropdown';
+				}
+			}
 		}
     }
 

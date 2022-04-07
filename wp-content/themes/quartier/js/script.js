@@ -40,7 +40,7 @@
 	}
 	
 	scrollTopStyletwo();
-	
+	paypalSubmitTrigger();
 	
 	//Submenu Dropdown Toggle
 	if($('.main-menu .navigation > li').find('ul').length){
@@ -576,7 +576,7 @@
 
 	dropdownMD();
 	// set name of main menu
-	isSubMenuExist('#quartier');
+	isSubMenuExist('.navigation');
 	// redirect contact
 	isRedirectContact();
 	// scroll to page 
@@ -687,5 +687,12 @@ function handleTabContent() {
 		$('.info-block[data-content="'+ $valueDataServices + '"').css('display', 'flex')
 		.siblings('.info-block').hide();
 
+	});
+}
+
+function paypalSubmitTrigger(){
+	$(document).on('click', '.ttl-cta-payment', function(e){
+		e.preventDefault();
+		$('.paypal_container').find('form').submit();
 	});
 }
