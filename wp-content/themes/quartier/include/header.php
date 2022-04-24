@@ -31,7 +31,7 @@ if(option_get_config_value('boolean_rd') === 'true') {
                 
                     <!--Btn Box-->
                     <div class="btn-contact-link">
-                        <a href="/nous-contacter" class="theme-btn donate-btn">
+                        <a href="<?php echo home_url( '/nous-contacter' ) ?>" class="theme-btn donate-btn">
                         <?php echo option_get_config_value('title_contact') ?></a>
                     </div>
                     
