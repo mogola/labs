@@ -54,8 +54,14 @@
     </div>
 <?php } ?>
 <!-- specific contact view -->
-
-<section class="default-section other-info">
+<?php if(array_key_exists('prestations', $getPostMetaBodyClass) 
+     && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
+        $prestaClass = 'presta-content';
+    } else { 
+        $prestaClass = '';
+    }
+?>
+<section class="default-section other-info <?php echo $prestaClass; ?>">
     <div class="auto-container">
         <?php 
         
@@ -177,8 +183,8 @@
 	</div>
 </div>
 
-<?php
-    if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
-        get_template_part( 'template-parts/components/content', 'pageprestation' );
-    }
-?>
+<!-- <?php
+    // if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
+    //     get_template_part( 'template-parts/components/content', 'pageprestation' );
+    // }
+?> -->

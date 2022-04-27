@@ -1278,6 +1278,7 @@ $colormenu : #313131;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 4;
     @include mbLarge {
       transform: translate(-50%, -50%);
       left: 50%;
