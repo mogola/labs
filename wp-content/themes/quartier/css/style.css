@@ -1465,6 +1465,7 @@ html .engagement .block-engage {
   clear: both;
   max-width: 1310px;
   margin: 0 auto 30px;
+  padding: 0 75px;
 }
 
 @media (max-width: 1149px) {
@@ -5862,7 +5863,7 @@ html .btn-style-two:hover {
 }
 
 .blog-news-column .news-date {
-  background: #eb5310 none repeat scroll 0 0;
+  background: #e5aee1 none repeat scroll 0 0;
   top: 18px;
   color: #ffffff;
   font-size: 32px;
@@ -5894,7 +5895,7 @@ html .btn-style-two:hover {
 }
 
 .blog-news-column .image-box .news-date, .blog-news-column .news-date {
-  background: #eb5310 none repeat scroll 0 0;
+  background: #e5aee1 none repeat scroll 0 0;
   bottom: 25px;
   color: #ffffff;
   font-size: 32px;
