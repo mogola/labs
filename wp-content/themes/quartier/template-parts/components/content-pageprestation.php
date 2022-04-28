@@ -12,7 +12,8 @@
             foreach($prestations as $prestation) {
         ?>
         <div class="ct_pd ct_pdp_img">
-           <?php echo html_entity_decode(str_replace('\"', '"', $prestation->Description )) ?>
+            <img src="<?php echo $prestation->ImageUrl ?>" />
+            <?php echo html_entity_decode(str_replace('\"', '"', $prestation->Description )) ?>
         </div>
         <div class="ct_pd ct_pdp_txt">
             <h3 class="ttl_ct_pd"><?php echo $prestation->Title ?></h3>

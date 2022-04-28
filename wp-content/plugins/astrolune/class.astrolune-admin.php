@@ -36,6 +36,14 @@ class AstroLune_Admin {
     public static function load_resources() {
         wp_register_style( 'astrolune.css', plugin_dir_url( __FILE__ ) . '_inc/astrolune.css', array(), ASTROLUNE_VERSION );
 		wp_enqueue_style( 'astrolune.css');
+
+        // To upload Media Image
+        wp_enqueue_script('media-upload');
+        wp_enqueue_script('thickbox');
+        wp_register_script('my-upload', plugin_dir_url( __FILE__ ).'_inc/astrolune.js', array('jquery','media-upload','thickbox'));
+        wp_enqueue_script('my-upload');
+
+        wp_enqueue_style('thickbox');
     }
 
     public static function admin_menu() {
@@ -106,6 +114,7 @@ class AstroLune_Admin {
         $editPrestation = PrestationRepository::getById($_GET['prestationid']);
         $_POST["prestation_id"] = $editPrestation->Id;
         $_POST["title"] = $editPrestation->Title;
+        $_POST["imageUrl"] = $editPrestation->ImageUrl;
         $_POST["description"] = $editPrestation->Description;
         $_POST["price"] = $editPrestation->Price;
         $_POST["published"] = $editPrestation->Published;
@@ -139,6 +148,11 @@ class AstroLune_Admin {
         else {
             $_POST['title_error'] = "Le titre est obligatoire.";
             $hasError = true;
+        }
+        
+        // Check ImageUrl
+        if( isset( $_POST['imageUrl'] )) {
+            $newPrestation->ImageUrl = $_POST['imageUrl'];
         }
 
         // Check Description
@@ -178,6 +192,7 @@ class AstroLune_Admin {
             $_POST['success'] = 'Oui';
 
             unset($_POST['title']);
+            unset($_POST['imageUrl']);
             unset($_POST['description']);
             unset($_POST['price']);
             unset($_POST['published']);
@@ -203,6 +218,11 @@ class AstroLune_Admin {
         else {
             $_POST['title_error'] = "Le titre est obligatoire.";
             $hasError = true;
+        }
+        
+        // Check Description
+        if( isset( $_POST['imageUrl'] )) {
+            $editPrestation->ImageUrl = $_POST['imageUrl'];
         }
 
         // Check Description

@@ -25,6 +25,7 @@ class InstallRepository {
         $script = "CREATE TABLE $table_name (
                     id int(11) NOT NULL AUTO_INCREMENT,
                     title varchar(200) NOT NULL,
+                    imageUrl varchar(500) NOT NULL,
                     description longtext NULL,
                     price decimal(10,2) NOT NULL,
                     published tinyint(1),
