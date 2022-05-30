@@ -72,3 +72,7 @@
 .line .form-line .input.checkbox input {
     width: auto;
 }
+
+.line .form-line .input.image input {
+    width: initial;
+}

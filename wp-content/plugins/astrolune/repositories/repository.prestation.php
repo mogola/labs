@@ -19,6 +19,7 @@ class PrestationRepository {
             $prestation = new PrestationEntity();
             $prestation->Id = $row->id;
             $prestation->Title = $row->title;
+            $prestation->ImageUrl = $row->imageUrl;
             $prestation->Description = $row->description;
             $prestation->Price = $row->price;
             $prestation->Published = $row->published;
@@ -41,6 +42,7 @@ class PrestationRepository {
         $prestation = new PrestationEntity();
         $prestation->Id = $result->id;
         $prestation->Title = $result->title;
+        $prestation->ImageUrl = $result->imageUrl;
         $prestation->Description = $result->description;
         $prestation->Price = $result->price;
         $prestation->Published = $result->published;
@@ -58,6 +60,7 @@ class PrestationRepository {
 
         $wpdb->insert($tableName, array(
             'title' => $prestation->Title,
+            'imageUrl' => $prestation->ImageUrl,
             'description' => $prestation->Description,
             'price' => $prestation->Price,
             'published' => $prestation->Published ? 1 : 0,
@@ -74,6 +77,7 @@ class PrestationRepository {
 
         $wpdb->update($tableName, array(
             'title' => $prestation->Title,
+            'imageUrl' => $prestation->ImageUrl,
             'description' => $prestation->Description,
             'price' => $prestation->Price,
             'published' => $prestation->Published ? 1 : 0,
@@ -97,6 +101,7 @@ class PrestationRepository {
             $prestation = new PrestationEntity();
             $prestation->Id = $row->id;
             $prestation->Title = $row->title;
+            $prestation->ImageUrl = $row->imageUrl;
             $prestation->Description = $row->description;
             $prestation->Price = $row->price;
             $prestation->Published = $row->published;

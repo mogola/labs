@@ -77,6 +77,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="line">
+            <div class="form-line">
+                <div class="label">Image</div>
+                <div class="input image">
+                    <img style="max-width:200px;" src = "<?php echo isset($_POST['imageUrl']) ? $_POST['imageUrl'] : '' ?>" >
+			
+                    <input type="hidden" id="upload_image_astro" name="imageUrl" value="<?php echo isset($_POST['imageUrl']) ? $_POST['imageUrl'] : '' ?>" size="40" />
+                    <br />
+                    <input type="button" class="button-secondary-astro" id="upload_image_button_astro" value="Ajouter une image" />
+                </div>
+            </div>
+        </div>
 
         <div class="line">
             <div class="form-line">
@@ -87,14 +100,15 @@
                     <?php 
                     $settings = array( 
                         'editor_height' => 200,
-                        'textarea_rows' => 20
+                        'textarea_rows' => 20,
+                        'media_buttons' => false
                     );
                     wp_editor(isset($_POST['description']) ? $_POST['desription'] : '', 'description', $settings); 
                     ?>
                 </div>
             </div>
         </div>
-        
+
         <div>
             <input type="submit" name="createpestation" id="createpestationsub" class="button button-primary" value="Ajouter la prestation">
         </div>

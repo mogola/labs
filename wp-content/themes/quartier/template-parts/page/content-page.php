@@ -182,7 +182,6 @@
         </section> 
 	</div>
 </div>
-
 <!-- <?php
     // if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
     //     get_template_part( 'template-parts/components/content', 'pageprestation' );

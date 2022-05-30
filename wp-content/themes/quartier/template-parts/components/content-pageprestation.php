@@ -13,19 +13,19 @@
         ?>
         <div class="item-presta">
             <div class="ct_pd ct_pdp_img">
-            <?php echo html_entity_decode(str_replace('\"', '"', $prestation->Description )) ?>
+                <img src="<?php echo $prestation->ImageUrl ?>" />
             </div>
             <div class="ct_pd ct_pdp_txt">
                 <h3 class="ttl_ct_pd"><?php echo $prestation->Title ?></h3>
                 <h4 class="ttl_price_pd"><?php echo $prestation->Price ?> &euro;</h4>
-                <?php the_excerpt(); ?>
+                <?php echo html_entity_decode(str_replace('\"', '"', $prestation->Description )) ?>
                 <div class="paypal_container">
                     <?php echo do_shortcode("[wpecpp name='".$prestation->Title." price='". $prestation->Price. "']"); ?>
                 </div>
                 <div class="container-ttl">
                     <a class="ttl-cta-payment">Réservez</a> 
                 </div>
-            </div>
+            </div>      
         </div>
         <?php
             }
