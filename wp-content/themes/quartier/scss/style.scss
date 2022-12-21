@@ -5179,3 +5179,12 @@ html{
     display: none;
   }
 }
+
+#gmp-map {
+  width: calc(100vh/2);
+  min-width: 50%;
+
+  @include mbLarge {
+    width: 100%;
+  }
+}

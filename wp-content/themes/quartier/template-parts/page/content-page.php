@@ -43,15 +43,7 @@ has_post_thumbnail()
     if($getPostMetaBodyClass['bodyclass'][0] == "contactPage") {
 ?>
     <div class="contact-view">
-    <div class="map-canvas"
-        data-zoom="12"
-        data-lat="48.8876729"
-        data-lng="2.488239300000032"			  
-        data-type="roadmap"
-        data-hue="#ffc400"
-        data-title="title default"
-        data-content="address">
-    </div>
+    <div id="gmp-map" class="map-canvas"></div>
 <?php 
     } 
 ?>
@@ -81,38 +73,10 @@ has_post_thumbnail()
                     if($getPostMetaBodyClass['bodyclass'][0] == "engagement") {
                 ?>  
                 <div class="form_devis">
-                
-                    <h2 class="title_devis"> Réaliser votre devis</h2>
 
                    <div class="form"> <?php the_content(); ?> </div>
-                   
                 </div>
-                <?php } ?>
-                <div class="content-ms ">
-                    <?php
-                        $args = array(
-                            'posts_per_page' => 4,
-                            'category_name' => $categorypage
-                        );
-                        $queryPush = new WP_Query($args);
-                        if ( $queryPush->have_posts() && $getPostMetaBodyClass['bodyclass'][0] == "engagement" ) :
-
-                            /* Start the Loop */
-                            while ( $queryPush->have_posts() ) : $queryPush->the_post();
-
-                                /*
-                                    * Include the Post-Format-specific template for the content.
-                                    * If you want to override this in a child theme, then include a file
-                                    * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                                    */
-                                get_template_part( 'template-parts/post/content', 'page' );
-
-                            endwhile;
-                            else : 
-                                // get_template_part( 'template-parts/post/content', 'none' );
-                            endif;
-                    ?>
-                </div>
+                <?php } else { ?>
                 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<div class="entry-content <?php addClassFaq('accordion-box'); echo $classContentPage; ?>">
@@ -126,6 +90,7 @@ has_post_thumbnail()
 						?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-## -->
+                <?php } ?>
 		</section>
         <?php if($getPostMetaBodyClass['bodyclass'][0] == "contactPage") { ?>
             </div>
@@ -170,3 +135,23 @@ has_post_thumbnail()
     </section> 
 	</div>
 </div>
+
+<?php if($getPostMetaBodyClass['bodyclass'][0] == "contactPage") { ?>
+
+<script type="text/javascript">
+var map; 
+
+function initMap() {
+
+  map = new google.maps.Map(document.getElementById("gmp-map"), {
+    center: { "lat":48.984975778296416,"lng":2.355161422090135},
+    zoom: 12,
+  });
+}
+
+window.initMap = initMap;
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmdNjhRp_Kx725hj53CVtgx2lTCNxJhc0&callback=initMap&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v4_cA" async defer></script>
+
+<?php } ?>

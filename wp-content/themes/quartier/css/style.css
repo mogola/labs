@@ -199,7 +199,7 @@ html .defaultimg::before {
 
 html .title-h-mya {
   font-weight: normal;
-  font-size: 40px;
+  font-size: 30px;
   color: #fff;
   padding-bottom: 32px;
   font-family: "Futura-medium";
@@ -215,8 +215,7 @@ html .title-h-mya {
 }
 
 html .desc-mya {
-  line-height: 36px;
-  font-size: 19px;
+  font-size: 15px;
   padding-bottom: 32px;
   font-family: "Futura-medium";
   position: relative;
@@ -224,11 +223,12 @@ html .desc-mya {
   margin: auto;
   font-weight: bold;
   letter-spacing: 2px;
+  line-height: 25px;
 }
 
 @media (max-width: 1149px) {
   html .desc-mya {
-    font-size: 19px;
+    font-size: 15px;
   }
 }
 
@@ -1853,6 +1853,29 @@ body:not(.reference) .page-services .wp-block-columns .wp-block-column + .wp-blo
   padding-top: 30px;
   font-size: 24px;
   font-weight: bold;
+}
+
+.form_devis .form > h2 {
+  color: #000;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.form_devis .form > p, .form_devis .form > ul li {
+  color: #000;
+  font-size: 22px;
+  text-transform: initial !important;
+}
+
+.form_devis .form > p a, .form_devis .form > ul li a {
+  font-weight: bold !important;
+  color: #000 !important;
+}
+
+@media (max-width: 1149px) {
+  .form_devis .form > p, .form_devis .form > ul li {
+    font-size: 18px;
+  }
 }
 
 .content-ms {
@@ -7452,6 +7475,17 @@ html .welcome-section {
 
 .reference .sponsors-section {
   display: none;
+}
+
+#gmp-map {
+  width: calc(100vh/2);
+  min-width: 50%;
+}
+
+@media (max-width: 1149px) {
+  #gmp-map {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=maps/style.css.map */

@@ -159,7 +159,7 @@ html {
     }
     .title-h-mya {
         font-weight: normal;
-        font-size: 40px;
+        font-size: 30px;
         color: #fff;
         padding-bottom: 32px;
         font-family: $futuraMedium;
@@ -172,8 +172,7 @@ html {
         }
     }
     .desc-mya {
-        line-height: 36px;
-        font-size: 19px;
+        font-size: 15px;
         padding-bottom: 32px;
         font-family: $futuraMedium;
         position: relative;
@@ -181,9 +180,10 @@ html {
         margin: auto;
         font-weight: bold;
         letter-spacing: 2px;
+        line-height: 25px;
 
         @include mbLarge {
-            font-size: 19px;
+            font-size: 15px;
         }
         &:before {
             content: "";

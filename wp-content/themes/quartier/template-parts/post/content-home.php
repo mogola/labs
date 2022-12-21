@@ -10,6 +10,7 @@
  * @version 1.0
  */
 
+$UrlToPage = get_post_meta(get_the_ID(), 'urlToPage', false)[0]
 ?>
 <div class="container-mya">
     <div class="link-block-mya" id="post-<?php the_ID(); ?>">
@@ -19,9 +20,9 @@
             </figure>
         </div>
         <div class="default inner text-mya">
-            <h4 class="title title-h-mya"><?php echo mb_strimwidth(get_the_title(), 0, 60, "..."); ?></h4>
+            <h4 class="title title-h-mya"><?php echo mb_strimwidth(get_the_title(), 0, 200, "..."); ?></h4>
             <p class="desc desc-mya"><?php echo mb_strimwidth(get_the_excerpt(), 0, 200, "...") ?></p>
-            <a class="theme-btn btn-style-two btn-xs mr-10" href="<?php the_permalink(); ?>">En savoir plus</a>
+            <a class="theme-btn btn-style-two btn-xs mr-10" href="<?php echo $UrlToPage ?>">En savoir plus</a>
         </div>
     </div>
 </div>

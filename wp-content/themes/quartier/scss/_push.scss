@@ -12,6 +12,28 @@
         font-size:24px;
         font-weight: bold;
     }
+
+    .form {
+        > h2 {
+            color: $black;
+            font-size: 21px;
+            font-weight: bold;
+        }
+         > p, > ul li {
+             color: $black;
+             font-size: 22px;
+             text-transform: initial !important;
+
+             a {
+                 font-weight: bold !important;
+                 color: $black !important;
+             }
+
+             @include mbLarge {
+                 font-size: 18px;
+             }
+         }
+    }
 }
 .content-ms { 
     display: flex;
