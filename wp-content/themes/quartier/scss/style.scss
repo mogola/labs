@@ -1278,6 +1278,7 @@ $colormenu : #313131;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 4;
     @include mbLarge {
       transform: translate(-50%, -50%);
       left: 50%;
@@ -2900,7 +2901,7 @@ $colormenu : #313131;
     @include translateCenterCustom(scale(1.2) rotate(2deg));
   }
   .news-date {
-    background: #eb5310 none repeat scroll 0 0;
+    background: $primarymya none repeat scroll 0 0;
     top: 18px;
     color: #ffffff;
     font-size: 32px;
@@ -2928,7 +2929,7 @@ $colormenu : #313131;
     }
   }
   .image-box .news-date, .news-date {
-    background: #eb5310 none repeat scroll 0 0;
+    background: $primarymya none repeat scroll 0 0;
     bottom: 25px;
     color: #ffffff;
     font-size: 32px;

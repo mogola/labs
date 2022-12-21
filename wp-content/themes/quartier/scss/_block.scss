@@ -1319,6 +1319,10 @@ html {
         .default-section {
             padding: 40px;
             background: $white;
+
+            &.presta-content {
+                padding: 0;
+            }
         }
         .entry-content {
 
@@ -1332,6 +1336,8 @@ html {
             clear: both;
             max-width: $widthDesktopOptimize;
             margin: 0 auto 30px;
+            padding: 0 75px;
+
             @include mbLarge {
                 padding-bottom: 40px !important;
             }
@@ -1511,7 +1517,7 @@ html {
         line-height: 64px;
         padding: 0 20px;
         border-radius: 20px 0 0 20px;
-
+        z-index: 4;
         @include mbLarge {
             top: initial;
             bottom: 60px;
