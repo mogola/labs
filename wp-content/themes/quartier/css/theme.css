@@ -577,6 +577,7 @@ html .main-menu .whiteFixed li a {
 .contact-view {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 80px;
 }
 
 @media (max-width: 1149px) {
@@ -595,7 +596,7 @@ html .main-menu .whiteFixed li a {
 @media (max-width: 1149px) {
   .contact-view .map-canvas {
     width: 100%;
-    height: 450px !important;
+    height: 400px !important;
     order: 2;
   }
 }
@@ -604,9 +605,10 @@ html .main-menu .whiteFixed li a {
   width: 50%;
   padding-top: 0;
   position: relative;
-  left: -130px;
+  left: 0;
+  margin: 50px auto;
   background: #fff;
-  top: 57px;
+  top: 0;
   border-top: 10px solid #e5aee1;
 }
 
@@ -621,6 +623,7 @@ html .main-menu .whiteFixed li a {
 
 .contact-view .default-section .defaultContent {
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 .contact-view .default-section .defaultContent .row {
