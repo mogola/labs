@@ -1993,6 +1993,10 @@ html .page .default blockquote {
   margin-right: 40px;
 }
 
+.wrapper-services .services .cta-benefit span {
+  font-size: 16px;
+}
+
 .wrapper-services .services .cta-benefit span + span {
   padding-left: 10px;
   display: inline-block;
@@ -2714,13 +2718,19 @@ html .page .default blockquote {
   }
 }
 
+@media (max-width: 1149px) {
+  .ct_pd.ct_pdp_img {
+    padding: 0;
+  }
+}
+
 .ct_pd.ct_pdp_img img {
   width: 100%;
 }
 
 @media (max-width: 1149px) {
   .ct_pd.ct_pdp_txt {
-    padding-top: 30px;
+    padding: 30px 0 0;
   }
 }
 
@@ -3598,31 +3608,26 @@ html .btn-style-two:hover {
   position: fixed;
   bottom: 15px;
   right: 15px;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   color: #ffffff;
   background: #e5aee1;
   font-size: 13px;
-  line-height: 38px;
+  line-height: 58px;
   text-align: center;
   z-index: 100;
   cursor: pointer;
   border-radius: 50%;
-  -webkit-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  transition: all 500ms ease;
   display: none;
+}
+
+.scroll-to-top span {
+  font-size: 20px;
 }
 
 .scroll-to-top:hover {
   color: #e5aee1;
   background: #ffffff;
-  -webkit-box-shadow: 0px 0px 5px 0px #e5aee1;
-  -ms-box-shadow: 0px 0px 5px 0px #e5aee1;
-  -o-box-shadow: 0px 0px 5px 0px #e5aee1;
-  -moz-box-shadow: 0px 0px 5px 0px #e5aee1;
-  box-shadow: 0px 0px 5px 0px #e5aee1;
 }
 
 /*** 
@@ -5542,7 +5547,7 @@ html .btn-style-two:hover {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: black !important;
+  background-color: #212233 !important;
   background: url(../images/background/zodiaque_transparent.png);
   min-height: 485px;
 }

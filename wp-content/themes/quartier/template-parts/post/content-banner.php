@@ -6,7 +6,7 @@
         </div>
         <div class="ct ct-right">
            <span class="ct-title"><?php the_excerpt(); ?></span>
-            <a class="cta-benefit">Profitez-en !</a>
+            <a class="cta-benefit" href="<?php echo get_option('id_config_animate')['skyCard'] ?>">Profitez-en !</a>
         </div>
     </div>
 </div>

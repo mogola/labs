@@ -34,13 +34,17 @@
         width: 100%;
     }
    &.ct_pdp_img {
+    
+    @include mbLarge {
+        padding: 0;
+    }
     img {
         width: 100%;
     }
    }
    &.ct_pdp_txt {
        @include mbLarge {
-           padding-top: 30px;
+           padding: 30px 0 0;
        }
     p {
         color: $txtScd;

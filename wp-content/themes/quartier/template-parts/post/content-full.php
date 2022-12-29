@@ -18,7 +18,7 @@
         <div class="txt-full">
             <h1><?php the_title() ?></h1>
             <h2><?php the_excerpt(); ?></h2>
-            <a class="ct-landing" href="/"> Découvrez nos services</a>
+            <a class="ct-landing" href="<?php echo get_option('id_config_animate')['urlOption'] ?>"> Découvrez nos services</a>
         </div>
         
         <a class="scrollDown flaticon-arrows-10"></a>

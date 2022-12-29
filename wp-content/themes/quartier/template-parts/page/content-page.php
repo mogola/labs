@@ -90,6 +90,7 @@
         <div class="form_devis">
             <?php
                 if(array_key_exists('prestations', $getPostMetaBodyClass) && strtolower($getPostMetaBodyClass['prestations'][0]) == 'oui') {
+                    echo '<div class="desc-presta">'. get_the_excerpt() .'</div>';
                     get_template_part( 'template-parts/components/content', 'pageprestation' );
                 } 
                 else 

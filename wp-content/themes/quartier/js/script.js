@@ -14,11 +14,11 @@
 			var windowpos = $(window).scrollTop();
 			if (windowpos >= 80) {
 				$('.header-style-two').addClass('fixed-header');
-				$('.scroll-to-top').fadeIn(100);
+				$('.scroll-to-top').show();
 				$('#qlwapp').removeClass('active');
 			} else {
 				$('.header-style-two').removeClass('fixed-header');
-				$('.scroll-to-top').fadeOut(100);
+				$('.scroll-to-top').hide();
 				$('#qlwapp').addClass('active');
 			}
 		}
@@ -39,7 +39,6 @@
 		}
 	}
 	
-	scrollTopStyletwo();
 	paypalSubmitTrigger();
 	
 	//Submenu Dropdown Toggle
@@ -539,7 +538,6 @@
 	
 	$(window).on('scroll', function() {
 		headerStyle();
-		scrollTopStyletwo();
 		factCounter();
 		scrollBtnContact();
 	});
