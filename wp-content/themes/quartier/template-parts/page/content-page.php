@@ -43,15 +43,6 @@
 <!-- begin specific contact view -->
 <?php if($getPostMetaBodyClass['bodyclass'][0] == "contactPage") { ?>
 <div class="contact-view">
-    <div class="map-canvas"
-        data-zoom="12"
-        data-lat="48.8876729"
-        data-lng="2.488239300000032"			  
-        data-type="roadmap"
-        data-hue="#ffc400"
-        data-title="title default"
-        data-content="address">
-    </div>
 <?php } ?>
 <!-- specific contact view -->
 <?php if(array_key_exists('prestations', $getPostMetaBodyClass) 

@@ -604,6 +604,7 @@ html {
 .contact-view {
 	display: flex;
     flex-wrap: wrap;
+	margin-bottom: 80px;
 
 	@include mbLarge {
 		flex-wrap: wrap;
@@ -616,7 +617,7 @@ html {
 
 		@include mbLarge {
 			width: 100%;
-			height: 450px !important;
+			height: 400px !important;
 			order: 2;
 		}
 	}
@@ -625,9 +626,10 @@ html {
 		width: 50%;
 		padding-top: 0;
 		position: relative;
-		left: -130px;
+		left: 0;
+		margin: 50px auto;
 		background: #fff;
-		top: 57px;
+		top: 0;
 		border-top: 10px solid $primarymya;
 
 		@include mbLarge {
@@ -639,7 +641,7 @@ html {
 
 		.defaultContent {
 			padding-top: 0;
-
+			padding-bottom: 0;
 			.row {
 				margin: 0;
 				> div {
