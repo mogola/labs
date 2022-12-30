@@ -39,7 +39,7 @@
 		}
 	}
 	
-	paypalSubmitTrigger();
+	// paypalSubmitTrigger();
 	
 	//Submenu Dropdown Toggle
 	if($('.main-menu .navigation > li').find('ul').length){

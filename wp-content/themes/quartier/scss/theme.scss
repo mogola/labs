@@ -710,6 +710,15 @@ html {
 	display: none;
 }
 
+.container-presta {
+	padding: 80px 0 0 0;
+
+	@include mbLarge {
+		padding:0;
+	}
+
+}
+
 .desc-presta {
 	color: $primarymya2;
 	font-weight: normal;

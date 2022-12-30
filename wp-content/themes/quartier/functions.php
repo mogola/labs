@@ -1682,5 +1682,5 @@ add_post_type_support( 'page', 'excerpt' );
 *
 */
 function itemOption() {
-	return array('urlOption', 'urlOption2', 'skyCard');
+	return array('urlOption', 'urlOption2', 'skyCard', 'redirect_Contact');
 }

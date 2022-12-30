@@ -1070,9 +1070,11 @@ html {
                         display: flex;
                         flex-wrap: wrap;
                         padding-left: 0;
+                        min-width: 550px;
 
                         @include mbLarge {
                             width: 100%;
+                            min-width: 100%;
                         }
                     }
 
@@ -1238,7 +1240,7 @@ html {
     .page-services {
         .wp-block-columns {
             max-width: $widthDesktopOptimize;
-            margin: 190px auto;
+            margin: 20px auto 0 ;
             background:$primarymya2;
             padding: 72px;
 
