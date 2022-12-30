@@ -18,9 +18,21 @@
 get_header(); ?>
 
 	<?php
-	while ( have_posts() ) : the_post();
 
+	$metaType = get_post_meta($post->ID)['prestations'];
+	$isPrestation = false;
+
+	if($metaType[0] === 'oui'){
+       $isPrestation = true;
+	}
+
+	while ( have_posts() ) : the_post();
+	if($isPrestation === true){
+		get_template_part( 'template-parts/page/content', 'prestations' );
+	}else {
 		get_template_part( 'template-parts/page/content', 'page' );
+	}
+		
 
 	endwhile; // End of the loop.
 	?>

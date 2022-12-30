@@ -25,7 +25,7 @@
                     <?php echo do_shortcode("[wpecpp name='".$prestation->Title." price='". $prestation->Price. "']"); ?>
                 </div>
                 <div class="container-ttl">
-                    <a class="ttl-cta-payment">Réservez</a> 
+                    <a class="ttl-cta-payment" href="<?php echo option_get_config_value('redirect_Contact'); ?>">Réservez</a> 
                 </div>
             </div>      
         </div>

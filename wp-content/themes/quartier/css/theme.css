@@ -691,6 +691,16 @@ html .main-menu .whiteFixed li a {
   display: none;
 }
 
+.container-presta {
+  padding: 80px 0 0 0;
+}
+
+@media (max-width: 1149px) {
+  .container-presta {
+    padding: 0;
+  }
+}
+
 .desc-presta {
   color: #303353;
   font-weight: normal;

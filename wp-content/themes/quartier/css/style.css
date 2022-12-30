@@ -1184,11 +1184,13 @@ html .footer-upper .auto-container .row .links-widget ul {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
+  min-width: 550px;
 }
 
 @media (max-width: 1149px) {
   html .footer-upper .auto-container .row .links-widget ul {
     width: 100%;
+    min-width: 100%;
   }
 }
 
@@ -1360,7 +1362,7 @@ html .page-services .wp-block-columns .wp-block-column + .wp-block-column:after 
 
 html .page-services .wp-block-columns {
   max-width: 1310px;
-  margin: 190px auto;
+  margin: 20px auto 0;
   background: #303353;
   padding: 72px;
 }
