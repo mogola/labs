@@ -581,11 +581,11 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	        // This page will be under "Settings"
 	        add_menu_page( 
 				'My configurations settings',
-				'slider configurations',
+				'options theming',
 				'manage_options',
 				'page_config',
 				array($this,'configurate_field_animate'),
-				get_stylesheet_directory_uri('stylesheet_directory')."/images/icons/map-marker.png"
+				get_stylesheet_directory_uri('stylesheet_directory')."/images/icons/submenu-icon.png"
 			);
 
 	    }
@@ -602,7 +602,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	            <form method="post" action="options.php" enctype="multipart/form-data">
 		            <?php
 		                // This prints out all hidden setting fields
-						 settings_fields('id_config_animate');
+						settings_fields('id_config_animate');
 						do_settings_sections('page_config');
 						submit_button(); 
 		            ?>
@@ -613,6 +613,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 		/**
 	     * Register and add settings
 	     */
+
 	    public function config_admin_init()
 	    {        
 	        	// id config_animate must be called in settings_fields('id_config_animate') above display;
@@ -732,8 +733,23 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			array($this,'title_page_callback'), 
 			'page_config', 
 			'id_setting'
-		);  
-		      
+		);
+
+		// var_dump($itemOption);
+		if (is_array(itemOption()) || is_object(itemOption())) {
+
+			foreach (itemOption() as $function){
+				add_settings_field(
+					$function, 
+					$function, 
+					array($this,'urlServicesOption_callback'), 
+					'page_config', 
+					'id_setting',
+					array('value' => $function)
+				);  
+			}
+		}
+		   
 	   }
 	   /**
      * Sanitize each setting field as needed
@@ -743,6 +759,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	    public function plugin_options_validate($input)
 	    {
 	        $new_input = array();
+
 	        if( isset( $input['speed'] ) )
 	            $new_input['speed'] = sanitize_text_field( $input['speed'] );
 
@@ -827,10 +844,18 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	            $new_input['faq_title'] = sanitize_text_field( $input['faq_title'] );
 	            $new_input['faq_desc'] = sanitize_text_field( $input['faq_desc'] );
 
-	          if( isset( $input['boolean_rd']) || isset( $input['boolean_rd_sm']))
-	            $new_input['boolean_rd'] = sanitize_text_field( $input['boolean_rd'] );
-	            $new_input['boolean_rd_sm'] = sanitize_text_field( $input['boolean_rd_sm'] );
+	          if(isset($input['boolean_rd']) || isset($input['boolean_rd_sm'])) {
+					$new_input['boolean_rd'] = sanitize_text_field($input['boolean_rd'] );
+					$new_input['boolean_rd_sm'] = sanitize_text_field($input['boolean_rd_sm'] );
+				}
 
+				foreach (itemOption() as $value) {
+					if (isset($input[$value])) {
+						$new_input[$value] = sanitize_text_field($input[$value]);
+					}
+				}
+				
+			
 	        return $new_input;
 	    }
 
@@ -1056,6 +1081,15 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 		 public function title_page_callback(){ 
 			printf('<input type="text" id="title_page" name="id_config_animate[title_page]" value="%s" />',
 				isset( $this->options['title_page'] ) ? esc_attr( $this->options['title_page']) : ''
+			);
+		} 
+
+		public function urlServicesOption_callback($arg){
+			// var_dump($arg['value']);
+			$styleDefault = 'style="height:45px; line-height:45px; min-width: 350px; display: block;"';
+
+			printf('<label '.$styleDefault.'>'.$arg["value"].'</label><input '.$styleDefault.' type="text" id="'. $arg["value"] .'" name="id_config_animate['. $arg["value"] .']" value="%s" />',
+				isset( $this->options[$arg["value"]] ) ? esc_attr( $this->options[$arg["value"]]) : ''
 			);
 		}
 	}
@@ -1643,3 +1677,10 @@ add_filter( 'body_class', function( $classes ) {
 } );
 
 add_post_type_support( 'page', 'excerpt' );
+
+/* array of url list generate on admin
+*
+*/
+function itemOption() {
+	return array('urlOption', 'urlOption2', 'skyCard');
+}

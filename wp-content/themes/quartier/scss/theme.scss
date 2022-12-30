@@ -709,3 +709,23 @@ html {
 .paypal_container {
 	display: none;
 }
+
+.desc-presta {
+	color: $primarymya2;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 40px;
+
+	@include mbLarge {
+		padding: 0 40px;
+		
+	}
+
+	&-min {
+		font-size: 19px;
+
+		@include mbLarge {
+			padding: 0;
+		}
+	}
+}

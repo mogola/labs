@@ -691,4 +691,27 @@ html .main-menu .whiteFixed li a {
   display: none;
 }
 
+.desc-presta {
+  color: #303353;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 40px;
+}
+
+@media (max-width: 1149px) {
+  .desc-presta {
+    padding: 0 40px;
+  }
+}
+
+.desc-presta-min {
+  font-size: 19px;
+}
+
+@media (max-width: 1149px) {
+  .desc-presta-min {
+    padding: 0;
+  }
+}
+
 /*# sourceMappingURL=maps/theme.css.map */

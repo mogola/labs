@@ -8,5 +8,5 @@
             <?php the_excerpt(); ?>
         </div>
     </div>
-    <a class="cta-benefit"><span>Plus d'informations</span> <span class="flaticon-arrows-8"></span></a>
+    <a class="cta-benefit" href="<?php the_permalink(); ?>"><span>Voir plus</span> <span class="flaticon-arrows-8"></span></a>
 </div>
