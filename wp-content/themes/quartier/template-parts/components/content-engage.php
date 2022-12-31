@@ -33,7 +33,7 @@ if (array_key_exists('engagement3', $postMetas)) {
             <div class="ml-10 ml-xs-0 mb-xs-20 title-mya">
                 <span class="normal-font theme_color fs-24"></span>
                 <h2 class="fw-b fs-30 lh-30">
-                    <?php customConfig('title_reinsurance');?></h2>
+                    <?php customConfig('title_engagement');?></h2>
             </div>
         </div>
         <div class="col-xs-12 col-sm-10">

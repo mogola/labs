@@ -700,9 +700,9 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'id_setting'
 		);
 		add_settings_field(
-			'Reinsurance', 
-			'Reinsurance', 
-			array($this,'reinsurance_callback'), 
+			'Engagements', 
+			'Engagements', 
+			array($this,'engagement_callback'), 
 			'page_config', 
 			'id_setting'
 		);
@@ -819,17 +819,8 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			if( isset( $input['cta_devis'] ) )
 	            $new_input['cta_devis'] = sanitize_text_field( $input['cta_devis'] );
 			
-			if( isset( $input['title_reinsurance'] ) )
-	            $new_input['title_reinsurance'] = sanitize_text_field( $input['title_reinsurance'] );
-			
-			if( isset( $input['content_one_reinsurance'] ) )
-	            $new_input['content_one_reinsurance'] = sanitize_text_field( $input['content_one_reinsurance'] );
-			
-			if( isset( $input['content_three_reinsurance'] ) )
-	            $new_input['content_three_reinsurance'] = sanitize_text_field( $input['content_three_reinsurance'] );
-			
-			if( isset( $input['content_two_reinsurance'] ) )
-	            $new_input['content_two_reinsurance'] = sanitize_text_field( $input['content_two_reinsurance'] );
+			if( isset( $input['title_engagement'] ) )
+	            $new_input['title_engagement'] = sanitize_text_field( $input['title_engagement'] );
 			
 			if( isset( $input['upload_imageFooter'] ) )
 	            $new_input['upload_imageFooter'] = sanitize_text_field( $input['upload_imageFooter'] );
@@ -1017,19 +1008,10 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			);
 		}
 
-		public function reinsurance_callback(){ 
+		public function engagement_callback(){ 
 
-			printf('<label>Title</label><input type="text" id="title_reinsurance" name="id_config_animate[title_reinsurance]" value="%s" />',
-				isset( $this->options['title_reinsurance'] ) ? esc_attr( $this->options['title_reinsurance']) : ''
-			);
-			printf('<label>content one</label><input type="text" id="content_one_reinsurance" name="id_config_animate[content_one_reinsurance]" value="%s" />',
-				isset( $this->options['content_one_reinsurance'] ) ? esc_attr( $this->options['content_one_reinsurance']) : ''
-			);
-			printf('<label>content two</label><input type="text" id="content_two_reinsurance" name="id_config_animate[content_two_reinsurance]" value="%s" />',
-				isset( $this->options['content_two_reinsurance'] ) ? esc_attr( $this->options['content_two_reinsurance']) : ''
-			);
-			printf('<label>content three</label><input type="text" id="content_three_reinsurance" name="id_config_animate[content_three_reinsurance]" value="%s" />',
-				isset( $this->options['content_three_reinsurance'] ) ? esc_attr( $this->options['content_three_reinsurance']) : ''
+			printf('<label>Title</label><input type="text" id="title_engagement" name="id_config_animate[title_engagement]" value="%s" />',
+				isset( $this->options['title_engagement'] ) ? esc_attr( $this->options['title_engagement']) : ''
 			);
 		}
 
