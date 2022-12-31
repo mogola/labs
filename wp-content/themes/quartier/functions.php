@@ -721,8 +721,8 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'id_setting'
 		);
 		add_settings_field(
-			'Faq', 
-			'Faq', 
+			'Boolean Habillage', 
+			'Boolean Habillage', 
 			array($this,'boolean_habillage'), 
 			'page_config', 
 			'id_setting'
@@ -842,12 +842,11 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 	         if( isset( $input['faq_title']) || isset( $input['faq_desc']))
 	            $new_input['faq_title'] = sanitize_text_field( $input['faq_title'] );
-	            $new_input['faq_desc'] = sanitize_text_field( $input['faq_desc'] );
+	            //$new_input['faq_desc'] = sanitize_text_field( $input['faq_desc'] );
 
-	          if(isset($input['boolean_rd']) || isset($input['boolean_rd_sm'])) {
+	          if(isset($input['boolean_rd']) || isset($input['boolean_rd_sm']))
 					$new_input['boolean_rd'] = sanitize_text_field($input['boolean_rd'] );
 					$new_input['boolean_rd_sm'] = sanitize_text_field($input['boolean_rd_sm'] );
-				}
 
 				foreach (itemOption() as $value) {
 					if (isset($input[$value])) {
