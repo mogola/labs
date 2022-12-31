@@ -10,6 +10,22 @@ function customConfig($args) {
 
     echo $textConfig;
 }
+
+$postMetas = get_post_meta($post->ID);
+$engagements = array();
+
+if (array_key_exists('engagement1', $postMetas)) {
+    array_push($engagements, $postMetas['engagement1'][0]);
+}
+
+if (array_key_exists('engagement2', $postMetas)) {
+    array_push($engagements, $postMetas['engagement2'][0]);
+}
+
+if (array_key_exists('engagement3', $postMetas)) {
+    array_push($engagements, $postMetas['engagement3'][0]);
+}
+
 ?>
 <div class="block-engage">
     <div class="row mt-40 mt-xs-0">
@@ -22,30 +38,20 @@ function customConfig($args) {
         </div>
         <div class="col-xs-12 col-sm-10">
             <div class="two-column-fluid style-two ml-20 ml-xs-0">
-                <div class="icon-box">
-                    <div class="icon"><span class="flaticon-shapes-1"></span></div>
-                    <div class="lower-box">
-                        <h4><span data-speed="1500" data-stop="7845910" class="count-text"><?php customConfig('content_one_reinsurance');?></h2></span></h4>
-                        <span class="title">Engagement 1</span>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <!-- <div class="icon"><span class="flaticon-tool-4"></span></div> -->
-                    <div class="icon"><span class="flaticon-shapes-1"></span></div>
-                    <div class="lower-box">
-                        <h4><span data-speed="1500" data-stop="13360" class="count-text"><?php customConfig('content_two_reinsurance');?></span></h4>
-                        <span class="title">Engagement 2</span>
-                    </div>
-                </div>
-                
-                <div class="icon-box">
-                    <div class="icon"><span class="flaticon-shapes-1"></span></div>
-                    <div class="lower-box">
-                        <h4><span data-speed="1500" data-stop="78459" class="count-text"><?php customConfig('content_three_reinsurance');?></span></h4>
-                        <span class="title">Engagement 3</span>
-                    </div>
-                </div>
+
+                <?php
+                    for ($i = 0; $i < count($engagements); $i++) {
+                ?>
+                        <div class="icon-box">
+                            <div class="icon"><span class="flaticon-shapes-1"></span></div>
+                            <div class="lower-box">
+                                <h4><span data-speed="1500" data-stop="7845910" class="count-text"><?php echo $engagements[$i];?></h2></span></h4>
+                                <span class="title">Engagement <?php echo ($i+1); ?></span>
+                            </div>
+                        </div>
+                <?php
+                    } 
+                ?>
             </div>
         </div>
     </div>
