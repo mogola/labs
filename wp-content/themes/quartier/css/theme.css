@@ -423,7 +423,7 @@ footer .wpcf7 p {
     background: transparent !important;
   }
   html .main-menu .collapse .navigation li.current-menu-item a, html .main-menu .collapse .navigation li.current a, html .main-menu .collapsing .navigation li.current-menu-item a, html .main-menu .collapsing .navigation li.current a {
-    color: #e5aee1 !important;
+    color: #fff !important;
   }
 }
 
@@ -692,7 +692,7 @@ html .main-menu .whiteFixed li a {
 }
 
 .container-presta {
-  padding: 80px 0 0 0;
+  padding: 40px 0 0 0;
 }
 
 @media (max-width: 1149px) {

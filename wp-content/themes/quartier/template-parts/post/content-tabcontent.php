@@ -18,7 +18,9 @@
         <div class="info-block--left">
             <h2 class="tab-title"><?php the_title(); ?></h2>
             <div class="tab-content">
-                <?php echo get_the_content(); ?>
+                <p>
+                    <?php echo get_the_excerpt(); ?>
+                </p>
             </div>
             <p>
                 <a class="tab-link" href="<?php the_permalink(); ?>">
