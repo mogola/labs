@@ -83,7 +83,7 @@
     	<div class="footer-bottom">
             <div class="auto-container clearfix">
                 <!--Copyright-->
-                <div class="copyright text-center">Copyright 2021 &copy; develop By <a href="https://onfirstdigital.com">OnfirstDigital</a></div>
+                <div class="copyright text-center">Copyright 2022 &copy; develop By <a href="https://dezayn.io">Dezayn</a></div>
             </div>
         </div>
         

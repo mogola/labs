@@ -354,6 +354,7 @@ html .desc-mya {
 @media (max-width: 1149px) {
   html .desc-mya {
     font-size: 19px;
+    max-width: 80%;
   }
 }
 
@@ -1476,6 +1477,11 @@ html .engagement .block-engage {
   }
 }
 
+html .engagement .block-engage .row.mt-40 {
+  margin-top: 0 !important;
+  padding: 25px 0 0;
+}
+
 @media (max-width: 1149px) {
   html .engagement .block-engage .row > div {
     width: 100% !important;
@@ -1661,7 +1667,7 @@ html .btn-contact-link {
 @media (max-width: 1149px) {
   html .btn-contact-link {
     top: initial;
-    bottom: 60px;
+    bottom: 6px;
   }
 }
 
@@ -2036,7 +2042,7 @@ html .page .default blockquote {
   background: #fdfdfd;
 }
 
-.wrapper-services .services:nth-child(6) {
+.wrapper-services .services:nth-child(6), .wrapper-services .services:last-child {
   background: #303353;
 }
 
@@ -4323,7 +4329,7 @@ html .btn-style-two:hover {
 }
 
 .header-style-two .main-menu .navigation > li > a {
-  color: #000;
+  color: #fff;
   font-size: 12px;
 }
 

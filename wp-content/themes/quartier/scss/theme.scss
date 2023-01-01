@@ -430,7 +430,7 @@ html{
 
 						&.current-menu-item, &.current{
 							a {
-								color: $primarymya !important;
+								color: $white !important;
 								
 								@include mbLarge {
 									background: $white !important;
@@ -711,7 +711,7 @@ html {
 }
 
 .container-presta {
-	padding: 80px 0 0 0;
+	padding: 40px 0 0 0;
 
 	@include mbLarge {
 		padding:0;

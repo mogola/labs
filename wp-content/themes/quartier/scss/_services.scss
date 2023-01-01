@@ -88,22 +88,7 @@
         &:nth-child(even) {
             background: #fdfdfd;
         }
-        // &:nth-child(1){
-        //     background: #e6b300;
-        // }
-        // &:nth-child(2){
-        //     background: #FFCE1F;
-        // }
-        // &:nth-child(3){
-        //     background: #e6b300;
-        // }
-        // &:nth-child(4){
-        //     background: #E0B000;
-        // }
-        // &:nth-child(5){
-        //     background: #A38000;
-        // }
-        &:nth-child(6){
+        &:nth-child(6), &:last-child{
             background: $colorDevis;
         }
     }
