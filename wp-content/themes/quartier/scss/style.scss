@@ -1950,6 +1950,7 @@ $colormenu : #313131;
   .inner-box {
     position: relative;
     background: #ffffff;
+    max-width: 80%;
   }
   .image-box {
     position: relative;
@@ -2918,7 +2919,7 @@ $colormenu : #313131;
     .single &{
       @include mb{
         @include transCustom(scale(0.5));
-        right: -42px !important;
+        right: 0 !important;
         top: -42px;
       }
     }
@@ -2955,11 +2956,15 @@ $colormenu : #313131;
   .content-box {
     position: relative;
     padding: 20px;
-    max-width:80%;
+    max-width:100%;
     margin:0 auto;
-    top:-130px;
+    margin-top:-130px;
     background:#fff;
     box-sizing:border-box;
+
+    @include mbLarge {
+      margin-top: -30px;
+    }
     .category &{
       top:initial;
       max-width:100%;
