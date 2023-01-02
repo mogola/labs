@@ -14,11 +14,11 @@
 			var windowpos = $(window).scrollTop();
 			if (windowpos >= 80) {
 				$('.header-style-two').addClass('fixed-header');
-				$('.scroll-to-top').fadeIn(100);
+				$('.scroll-to-top').show();
 				$('#qlwapp').removeClass('active');
 			} else {
 				$('.header-style-two').removeClass('fixed-header');
-				$('.scroll-to-top').fadeOut(100);
+				$('.scroll-to-top').hide();
 				$('#qlwapp').addClass('active');
 			}
 		}
@@ -39,8 +39,7 @@
 		}
 	}
 	
-	scrollTopStyletwo();
-	
+	// paypalSubmitTrigger();
 	
 	//Submenu Dropdown Toggle
 	if($('.main-menu .navigation > li').find('ul').length){
@@ -539,7 +538,6 @@
 	
 	$(window).on('scroll', function() {
 		headerStyle();
-		scrollTopStyletwo();
 		factCounter();
 		scrollBtnContact();
 	});
@@ -576,11 +574,17 @@
 
 	dropdownMD();
 	// set name of main menu
-	isSubMenuExist('#quartier');
+	isSubMenuExist('.navigation');
 	// redirect contact
 	isRedirectContact();
 	// scroll to page 
 	scrollToFormContact();
+	// scrollDown 
+	scrollDownStep();
+
+	// hzande controle of tab
+	handleTabContent();
+
 })(window.jQuery);
 
 function scrollBtnContact() {
@@ -630,7 +634,7 @@ function scrollToFormContact() {
 	var classContact = '.contact-form';
 	var urlContactForm;
 	try {
-		if($(classContact).length) {
+		if($(classContact).length && window.location.href.indexOf('?') !== -1) {
 			urlContactForm = window.location.href.split('?')[1];
 			urlContactForm = urlContactForm.split('=')[1];
 		}
@@ -651,4 +655,42 @@ function scrollToFormContact() {
 	else {
 		return false; 
 	}
+}
+
+function scrollDownStep() {
+	var arrowScrollDown = '.scrollDown';
+	var IML = '.imagefull-mya-landing';
+	
+	$(document).on('click', arrowScrollDown, function(e){
+		e.preventDefault();
+		var topLanding =  $(this).closest(IML);
+		window.scrollTo({
+			top: topLanding.height(),
+			behavior: 'smooth'
+		});
+	});
+}
+
+function handleTabContent() {
+	var tabHead = $('.info-tab-head--list').find('a');
+
+	$('.info-tab-head--list').find('li').first().addClass('active');
+
+	tabHead.on('click', function(e){
+		e.preventDefault();
+		var $this = $(this);
+		$this.closest('li').addClass('active').siblings('li').removeClass('active');
+		var $valueDataServices = $this.data('service');
+
+		$('.info-block[data-content="'+ $valueDataServices + '"').css('display', 'flex')
+		.siblings('.info-block').hide();
+
+	});
+}
+
+function paypalSubmitTrigger(){
+	$(document).on('click', '.ttl-cta-payment', function(e){
+		e.preventDefault();
+		$('.paypal_container').find('form').submit();
+	});
 }

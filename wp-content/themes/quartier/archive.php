@@ -44,23 +44,6 @@ get_header(); ?>
 		endif; ?>
 </div><!-- .wrap -->
 </div>
-</section>
-<!--Main Features-->
-    <section class="main-features parallax-section theme-overlay overlay-deep-white" style="background-image:url(images/parallax/image-1.jpg);">
-        <div class="auto-container">
-            <div class="title-box text-center mb-0">
-                <h1 class="fs-36 mb-15">Quartiers libres en avant !</h1>
-                <h2>Contribuer avec nous par aide et donation</h2>
-                <div class="text">
-                	un petit geste pour faire grandir l'espoir
-                </div>
-                <div class="">
-                    <a class="theme-btn btn-style-four" href="#">Participons ensemble</a>
-                    <a class="theme-btn btn-style-two" href="#">Faites un don</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+</section>    
 
-<?php get_footer();
+<?php get_footer(); ?>

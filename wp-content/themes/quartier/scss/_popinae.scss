@@ -1,0 +1,184 @@
+.popin-ae {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 300000000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.t {
+    &-reinsurance {
+        display:flex;
+        width: 900px;
+        min-height: 350px;
+        background: #fff;
+        padding: 40px;
+        flex-wrap: wrap;
+
+        @include mbLarge {
+            width: 100%
+        }
+    }
+}
+
+.o {
+    &-reinsurance {
+        &--head {
+            padding-bottom: 40px;
+        }
+
+        &--wrapper {
+            width: 100%;
+            .m-reinsurance--title {
+                padding-bottom: 16px;
+            }
+        }
+
+        &--list {
+            width: 100%;
+        }
+
+        &--button {
+            text-align: left;
+            padding-top: 32px;
+        }
+    }
+}
+
+.m {
+    &-reinsurance {
+        &--item {
+            display: flex;
+            align-items: start;
+            padding-top: 24px;
+
+            @include mbLarge {
+                flex-wrap: wrap;
+            }
+            &:first-child {
+                padding-top:0;
+            }
+            + .m-reinsurance--item {
+               margin-top: 24px; 
+               border-top: 1px solid #ccc;
+            }
+            &--block {
+                &-left {
+                    min-width: 312px;
+
+                    @include mbLarge {
+                        padding-bottom: 8px;
+                    }
+
+                    * {
+                        color: #001022;
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        line-height: 20px;
+                        font-weight: bold;
+
+                        @include mbLarge {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                &-right {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    span {
+                        display: inline-block;
+                        width: 100%;
+                        color: #001022;
+                        font-family: Raleway;
+                        font-size: 12px;
+                        font-weight: 500;
+                        letter-spacing: 0;
+                        line-height: 16px;
+                        &:nth-child(1){
+                            padding-bottom: 4px;
+                        }
+                        &:nth-child(2){
+                            color: #001022;
+                            font-family: Raleway;
+                            font-size: 12px;
+                            font-weight: bold;
+                            letter-spacing: 0;
+                            line-height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        &--title {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: normal;
+            text-align: left;
+            &__bold {
+                font-weight: bold;
+                padding-bottom: 8px;
+            }
+
+            &__text {
+                
+            }
+        }
+
+        &--text {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: normal;
+            text-align: left;
+            display: block;
+
+            &:nth-of-type(1) {
+                + span {
+                    padding-top: 16px;
+                }
+            }
+            &__normal {
+
+            }
+            a {
+                text-decoration: underline;
+                color: #001022;
+            }
+        }
+
+        &--button {
+            display: inline-block;
+            color: #001022;
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 40px;
+            text-align: center;
+            padding: 0 16px;
+            background: #EFEFEF;
+            height: 40px;
+            text-transform: uppercase;
+
+            &:hover {
+                color: #001022;
+            }
+          }
+    }
+}
+
+.a {
+    &-reinsurance {
+        &--text {
+            &__bold {
+
+            }
+        }
+    }
+}

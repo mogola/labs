@@ -16,6 +16,7 @@
  <!--Main Footer-->
  <?php
   $thumbFooter = wp_upload_dir()['baseurl'].'/default.jpg';
+  $baseline = '';
 ?>
     <footer class="main-footer" <?php echo 'style="background-image:url('. $thumbFooter .')"'?>>
     	
@@ -35,7 +36,7 @@
                     <div class="col-lg-3 col-sm-6 col-xs-12 column mb-xs-50">
                         <div class="footer-widget about-widget">
                             <div class="text">
-                                <p><?php echo $baseline ?></p>
+                                <p><?php echo $baseline;?></p>
                             </div>
                             <ul class="contact-info">
                             	<li><span class="icon fa fa-map-marker"></span> <?php echo option_get_config_value('address') ?></li>
@@ -54,13 +55,14 @@
                     <div class="col-lg-2 col-sm-6 col-xs-12 column">
                         <h2><?php echo option_get_config_value('link_quick') ?></h2>
                         <div class="footer-widget links-widget">
-                           <?php
-                           $args = array(
-                           	'title_li' => ''
-                           	);
-								wp_list_pages($args); 
-							?>
-
+                            <ul>
+                            <?php
+                            $args = array(
+                                'title_li' => ''
+                                );
+                                    wp_list_pages($args); 
+                                ?>
+                            </ul>
                         </div>
                     </div>
                     
@@ -81,7 +83,7 @@
     	<div class="footer-bottom">
             <div class="auto-container clearfix">
                 <!--Copyright-->
-                <div class="copyright text-center">Copyright 2021 &copy; develop By <a href="https://onfirstdigital.com">OnfirstDigital</a></div>
+                <div class="copyright text-center">Copyright 2022 &copy; develop By <a href="https://dezayn.io">Dezayn</a></div>
             </div>
         </div>
         

@@ -581,11 +581,11 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	        // This page will be under "Settings"
 	        add_menu_page( 
 				'My configurations settings',
-				'slider configurations',
+				'options theming',
 				'manage_options',
 				'page_config',
 				array($this,'configurate_field_animate'),
-				get_stylesheet_directory_uri('stylesheet_directory')."/images/icons/map-marker.png"
+				get_stylesheet_directory_uri('stylesheet_directory')."/images/icons/submenu-icon.png"
 			);
 
 	    }
@@ -602,7 +602,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	            <form method="post" action="options.php" enctype="multipart/form-data">
 		            <?php
 		                // This prints out all hidden setting fields
-						 settings_fields('id_config_animate');
+						settings_fields('id_config_animate');
 						do_settings_sections('page_config');
 						submit_button(); 
 		            ?>
@@ -613,6 +613,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 		/**
 	     * Register and add settings
 	     */
+
 	    public function config_admin_init()
 	    {        
 	        	// id config_animate must be called in settings_fields('id_config_animate') above display;
@@ -671,6 +672,13 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'id_setting'
 		);
 		add_settings_field(
+			'imageDevis', 
+			'ImageDevis', 
+			array($this,'devisImage_callback'), 
+			'page_config', 
+			'id_setting'
+		);
+		add_settings_field(
 			'Gallery', 
 			'Gallery', 
 			array($this,'gallery_callback'), 
@@ -681,6 +689,20 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'Testimonial', 
 			'Testimonial', 
 			array($this,'testimonial_callback'), 
+			'page_config', 
+			'id_setting'
+		);
+		add_settings_field(
+			'Devis', 
+			'Devis', 
+			array($this,'devis_callback'), 
+			'page_config', 
+			'id_setting'
+		);
+		add_settings_field(
+			'Engagements', 
+			'Engagements', 
+			array($this,'engagement_callback'), 
 			'page_config', 
 			'id_setting'
 		);
@@ -699,12 +721,35 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 			'id_setting'
 		);
 		add_settings_field(
-			'Faq', 
-			'Faq', 
+			'Boolean Habillage', 
+			'Boolean Habillage', 
 			array($this,'boolean_habillage'), 
 			'page_config', 
 			'id_setting'
-		);        
+		);
+		add_settings_field(
+			'title content page', 
+			'title content page', 
+			array($this,'title_page_callback'), 
+			'page_config', 
+			'id_setting'
+		);
+
+		// var_dump($itemOption);
+		if (is_array(itemOption()) || is_object(itemOption())) {
+
+			foreach (itemOption() as $function){
+				add_settings_field(
+					$function, 
+					$function, 
+					array($this,'urlServicesOption_callback'), 
+					'page_config', 
+					'id_setting',
+					array('value' => $function)
+				);  
+			}
+		}
+		   
 	   }
 	   /**
      * Sanitize each setting field as needed
@@ -714,6 +759,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	    public function plugin_options_validate($input)
 	    {
 	        $new_input = array();
+
 	        if( isset( $input['speed'] ) )
 	            $new_input['speed'] = sanitize_text_field( $input['speed'] );
 
@@ -742,9 +788,9 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 	        if( isset( $input['upload_image'] ) )
 	            $new_input['upload_image'] = sanitize_text_field( $input['upload_image'] );
-
-			if( isset( $input['upload_imageFooter'] ) )
-	            $new_input['upload_imageFooter'] = sanitize_text_field( $input['upload_imageFooter'] );
+			
+			if( isset( $input['upload_imageDevis'] ) )
+	            $new_input['upload_imageDevis'] = sanitize_text_field( $input['upload_imageDevis'] );
 
 			if( isset( $input['title_gallery'] ) )
 	            $new_input['title_gallery'] = sanitize_text_field( $input['title_gallery'] );
@@ -754,10 +800,31 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 	        if( isset( $input['title_testimonial'] ) )
 	            $new_input['title_testimonial'] = sanitize_text_field( $input['title_testimonial'] );
+			
+			if( isset( $input['title_page'] ) )
+	            $new_input['title_page'] = sanitize_text_field( $input['title_page'] );
 
 	        if( isset( $input['resume_testimonial'] ) )
 	            $new_input['resume_testimonial'] = sanitize_text_field( $input['resume_testimonial'] );
 
+			if( isset( $input['title_devis'] ) )
+	            $new_input['title_devis'] = sanitize_text_field( $input['title_devis'] );
+
+	        if( isset( $input['resume_devis'] ) )
+	            $new_input['resume_devis'] = sanitize_text_field( $input['resume_devis'] );
+			
+			if( isset( $input['cta_devis'] ) )
+	            $new_input['cta_devis'] = sanitize_text_field( $input['cta_devis'] );
+
+			if( isset( $input['cta_devis'] ) )
+	            $new_input['cta_devis'] = sanitize_text_field( $input['cta_devis'] );
+			
+			if( isset( $input['title_engagement'] ) )
+	            $new_input['title_engagement'] = sanitize_text_field( $input['title_engagement'] );
+			
+			if( isset( $input['upload_imageFooter'] ) )
+	            $new_input['upload_imageFooter'] = sanitize_text_field( $input['upload_imageFooter'] );
+				
 			if( isset( $input['title_generic'] ) )
 	            $new_input['title_generic'] = sanitize_text_field( $input['title_generic'] );
 
@@ -766,12 +833,19 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 	         if( isset( $input['faq_title']) || isset( $input['faq_desc']))
 	            $new_input['faq_title'] = sanitize_text_field( $input['faq_title'] );
-	            $new_input['faq_desc'] = sanitize_text_field( $input['faq_desc'] );
+	            //$new_input['faq_desc'] = sanitize_text_field( $input['faq_desc'] );
 
-	          if( isset( $input['boolean_rd']) || isset( $input['boolean_rd_sm']))
-	            $new_input['boolean_rd'] = sanitize_text_field( $input['boolean_rd'] );
-	            $new_input['boolean_rd_sm'] = sanitize_text_field( $input['boolean_rd_sm'] );
+	          if(isset($input['boolean_rd']) || isset($input['boolean_rd_sm']))
+					$new_input['boolean_rd'] = sanitize_text_field($input['boolean_rd'] );
+					$new_input['boolean_rd_sm'] = sanitize_text_field($input['boolean_rd_sm'] );
 
+				foreach (itemOption() as $value) {
+					if (isset($input[$value])) {
+						$new_input[$value] = sanitize_text_field($input[$value]);
+					}
+				}
+				
+			
 	        return $new_input;
 	    }
 
@@ -882,28 +956,64 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 				<input type="button" class="button-secondary" id="upload_image_button" value="Ajouter une image" />',
 				isset( $this->options['upload_imageFooter'] ) ? esc_attr( $this->options['upload_imageFooter']) : ''
 			);
-	}
+		}
+
+
+		public function devisImage_callback(){ 
+			printf('<img style="max-width:200px;" src = "'.$this->options['upload_imageDevis'].'" >
+					<br />
+				<label style="display:block;">Url de l\'image</label>
+				<input id="upload_image" name="id_config_animate[upload_imageDevis]" value="%s" size="40" />
+				<br />
+				<input type="button" class="button-secondary" id="upload_image_button" value="Ajouter une image" />',
+				isset( $this->options['upload_imageDevis'] ) ? esc_attr( $this->options['upload_imageDevis']) : ''
+			);
+		}
 
 		
 
 	    public function gallery_callback(){ 
 
-		    	printf('<input type="text" id="title_gallery" name="id_config_animate[title_gallery]" value="%s" />',
-					isset( $this->options['title_gallery'] ) ? esc_attr( $this->options['title_gallery']) : ''
-		    	);
-		    	printf('<input type="text" id="resume_gallery" name="id_config_animate[resume_gallery]" value="%s" />',
-					isset( $this->options['resume_gallery'] ) ? esc_attr( $this->options['resume_gallery']) : ''
-		    	);
+			printf('<input type="text" id="title_gallery" name="id_config_animate[title_gallery]" value="%s" />',
+				isset( $this->options['title_gallery'] ) ? esc_attr( $this->options['title_gallery']) : ''
+			);
+			printf('<input type="text" id="resume_gallery" name="id_config_animate[resume_gallery]" value="%s" />',
+				isset( $this->options['resume_gallery'] ) ? esc_attr( $this->options['resume_gallery']) : ''
+			);
 	    }
+
 	    public function testimonial_callback(){ 
 
-		    	printf('<input type="text" id="title_testimonial" name="id_config_animate[title_testimonial]" value="%s" />',
-					isset( $this->options['title_testimonial'] ) ? esc_attr( $this->options['title_testimonial']) : ''
-		    	);
-		    	printf('<input type="text" id="resume_testimonial" name="id_config_animate[resume_testimonial]" value="%s" />',
-					isset( $this->options['resume_testimonial'] ) ? esc_attr( $this->options['resume_testimonial']) : ''
-		    	);
+			printf('<input type="text" id="title_testimonial" name="id_config_animate[title_testimonial]" value="%s" />',
+				isset( $this->options['title_testimonial'] ) ? esc_attr( $this->options['title_testimonial']) : ''
+			);
+			printf('<input type="text" id="resume_testimonial" name="id_config_animate[resume_testimonial]" value="%s" />',
+				isset( $this->options['resume_testimonial'] ) ? esc_attr( $this->options['resume_testimonial']) : ''
+			);
 	    }
+
+		public function devis_callback(){ 
+
+			printf('<label>Title</label><input type="text" id="title_devis" name="id_config_animate[title_devis]" value="%s" />',
+				isset( $this->options['title_devis'] ) ? esc_attr( $this->options['title_devis']) : ''
+			);
+			printf('<label>Resume</label><input type="text" id="resume_devis" name="id_config_animate[resume_devis]" value="%s" />',
+				isset( $this->options['resume_devis'] ) ? esc_attr( $this->options['resume_devis']) : ''
+			);
+			printf('<label>TextButton</label><input type="text" id="cta_devis" name="id_config_animate[cta_devis]" value="%s" />',
+				isset( $this->options['cta_devis'] ) ? esc_attr( $this->options['cta_devis']) : ''
+			);
+			printf('<label>url de redirection</label><input type="text" id="url_devis" name="id_config_animate[url_devis]" value="%s" />',
+				isset( $this->options['url_devis'] ) ? esc_attr( $this->options['url_devis']) : ''
+			);
+		}
+
+		public function engagement_callback(){ 
+
+			printf('<label>Title</label><input type="text" id="title_engagement" name="id_config_animate[title_engagement]" value="%s" />',
+				isset( $this->options['title_engagement'] ) ? esc_attr( $this->options['title_engagement']) : ''
+			);
+		}
 
 		public function content_callback(){ 
 
@@ -948,6 +1058,21 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 	            isset( $this->options['boolean_rd_sm'] ) ? esc_attr( $this->options['boolean_rd_sm']) : ''
 	        );
 	     }
+
+		 public function title_page_callback(){ 
+			printf('<input type="text" id="title_page" name="id_config_animate[title_page]" value="%s" />',
+				isset( $this->options['title_page'] ) ? esc_attr( $this->options['title_page']) : ''
+			);
+		} 
+
+		public function urlServicesOption_callback($arg){
+			// var_dump($arg['value']);
+			$styleDefault = 'style="height:45px; line-height:45px; min-width: 350px; display: block;"';
+
+			printf('<label '.$styleDefault.'>'.$arg["value"].'</label><input '.$styleDefault.' type="text" id="'. $arg["value"] .'" name="id_config_animate['. $arg["value"] .']" value="%s" />',
+				isset( $this->options[$arg["value"]] ) ? esc_attr( $this->options[$arg["value"]]) : ''
+			);
+		}
 	}
     
     $my_settings_page = new MySettingsPage();
@@ -993,18 +1118,18 @@ $i = 0; foreach ( $_FILES as $image ) {
 }
 
 add_action('wp_insert_post', 'wpc_champs_personnalises_defaut');
- function wpc_champs_personnalises_defaut($post_id)
-	{
-	
-	if ( $_GET['post_type'] != 'page' ) {
-		add_post_meta($post_id, 'hour_begin', '00:00', true);
-		add_post_meta($post_id, 'hour_end', '00:00', true);
-		add_post_meta($post_id, 'addresse', '93250 villemomble', true);
-		add_post_meta($post_id, 'bodyclass', 'test', true);
-	}
+
+function wpc_champs_personnalises_defaut($post_id)
+{
+	//add_post_meta($post_id, 'hour_begin', '00:00', true);
+	//add_post_meta($post_id, 'hour_end', '00:00', true);
+	//add_post_meta($post_id, 'addresse', '93250 villemomble', true);
+	//add_post_meta($post_id, 'bodyclass', 'test', true);
+	//add_post_meta($post_id, 'categorypage', '', true);
+	add_post_meta($post_id, 'prestations', 'Non', true);
 
 	return true;
- }
+}
 
  //var_dump(get_the_category(the_ID())); 
 function getCat($PID)
@@ -1097,17 +1222,15 @@ function listaddress($atts, $content = null){
 	return '<div class="col-lg-'.esc_attr($a['col']).' col-md-6 col-xs-12">
 		<'.esc_attr($a['type']).'>
 			<article class="inner-box">
-				<h3 class="margin-bott-20">'.esc_attr($a['title']).'</h3>
-				<p>'.$content.'</p>
 				<ul class="info-box">
 					<li class="list-adr">
 						<span class="icon flaticon-location"></span>
-						<span><strong>Address</strong></span>
+						<span><strong>Notre Addresse</strong></span>
 						<span class="labelling">'.esc_attr($a['myaddress']).'</span> 
 					</li>
 					<li class="list-adr">
 						<span class="icon flaticon-technology-5"></span>
-						<span><strong>Phone</strong></span>
+						<span><strong>Numéro de téléphone</strong></span>
 						<span class="labelling">'.esc_attr($a['phone']).'</span> 
 					</li>
 					<li class="list-adr">
@@ -1182,7 +1305,7 @@ function column_single($atts, $content = null){
 	$New = array( '','' );
 	$content = str_replace( $Old, $New, $content );
 
-	return '<div class="col-lg-'.esc_attr($a['col']).' '. esc_attr($a['class']). ' col-md-6 col-xs-12">
+	return '<div class="col-lg-'.esc_attr($a['col']).' '. esc_attr($a['class']). ' col-md-'.esc_attr($a['col']).' col-xs-12">
 	<h2 class="title-colsingle">'.esc_attr($a['title']).'</h2>
 		<'.esc_attr($a['type']).'>'.do_shortcode($content).'</'.esc_attr($a['type']).'>
 		</div>';
@@ -1195,7 +1318,8 @@ function maps_google($atts, $content = null){
 	$a = shortcode_atts(array(
 			'type' => 'div',
 			'class' => '', 
-			'address' => $address
+			'address' => $address,
+			'title' => 'Google default'
 		), $atts);
 	return '
 	<div class="column map-column col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1207,7 +1331,7 @@ function maps_google($atts, $content = null){
                     data-lng="2.488239300000032"			  
                     data-type="roadmap"
                     data-hue="#ffc400"
-                    data-title="Quartiers libres"
+                    data-title="'.$a['title'].'"
                     data-content="'.$a['address'].'"							
                     style="height: 380px;">
                 </div>
@@ -1533,4 +1657,11 @@ add_filter( 'body_class', function( $classes ) {
     return array_merge( $classes, array( $pageClassCustom ) );
 } );
 
+add_post_type_support( 'page', 'excerpt' );
 
+/* array of url list generate on admin
+*
+*/
+function itemOption() {
+	return array('urlOption', 'urlOption2', 'skyCard', 'redirect_Contact');
+}

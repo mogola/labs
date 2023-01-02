@@ -1,0 +1,158 @@
+.tarifs-ae {
+    padding: 146px 0 270px;
+    background: $primarymya2 url(../images/background/zodiaque_transparent.png) center center no-repeat;
+
+    @include mbLarge {
+        padding: 60px 0 40px;
+    }
+    .head-tarif {
+        text-align: center;
+        color: #fff;
+        padding-bottom: 60px;
+
+        .ttl-ae-1 {
+            text-transform: uppercase;
+            padding: 0 0 20px;
+
+            @include mbLarge {
+                font-weight: bold;
+            }
+        }
+        .ttl-ae-2 {
+            padding: 0 0 20px;
+            font-weight: bold;
+        }
+        .desc-ae {
+            max-width: 900px;
+            margin: 0 auto;
+
+            @include mbLarge {
+                padding: 0 30px;
+            }
+        }
+    }
+}
+
+.list-formule-ae {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    padding-top: 50px;
+    @include mbLarge {
+        flex-wrap: wrap;
+        padding: 30px;
+    }
+    .baseline-ae {
+        padding-bottom: 20px;
+        display: inline-block;
+        font-weight: bold;
+    }
+}
+.form-ae {
+    &--block {
+        position: relative;
+        width: 30%;
+        background: #fff;
+        border-radius: 15px;
+        border : 2px solid $currentTarif;
+
+        + .form-ae--block { 
+            @include mbLarge {
+                margin-top: 30px;
+            }
+        }
+
+        @include mbLarge {
+            width: 100%;
+        }
+        &:nth-child(2){
+            transform: scale(1.2);
+            position: relative;
+            top: -11px;
+            border : 6px solid $currentTarif;
+            z-index: 3;
+            
+            @include mbLarge {
+                transform: initial;
+                box-shadow: none;
+                top: initial;
+            }
+
+            li {
+                font-size: 12px;
+                @include mbLarge {
+                    font-size: 14px;
+                }
+            }
+
+            .form-ae--list {
+            }
+        }
+    }
+
+    
+    &--head {
+        padding: 25px;
+        text-align: center;
+        border-bottom: 1px solid #b1b1b1;
+    }
+    &--list {
+        padding: 25px 56px;
+        display:flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+
+        @include mbLarge {
+            padding: 25px;
+        }
+
+        ul{
+            li {
+                + li {
+                    padding-top: 25px;
+                }
+            }
+        }
+        .fa-check {
+            display: inline-block;
+            padding-right: 15px;
+            font-family: 'FontAwesome';
+        }
+    }
+    &--price {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .price {
+            font-weight: bold;
+            font-size: 42px;
+        }
+        .per-ae {
+            position: relative;
+            font-weight: bold;
+            color: #b1b1b1;
+            padding-left:10px;
+            font-size: 18px;
+        }
+    }
+
+    &--button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 25px;
+        &__cta {
+            background-color: $scd;
+            color: $white;
+            display: inline-block;
+            border-radius: 5px;
+            font-weight: bold;
+            padding:  15px 20px;
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+   
+}

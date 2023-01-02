@@ -1,6 +1,15 @@
+<?php 
+$whiteItemBlock;
+
+if(option_get_config_value('boolean_rd') === 'true') {
+    $whiteItemBlock =  'whiteFixed';
+} else {
+    $whiteItemBlock = '';
+}
+?>
 <!-- Main Header -->
 <header class="header-style-two">
-    <div class="wrap-head-flex">
+    <div class="wrap-head-flex <?php echo $whiteItemBlock; ?> ">
         <!-- Header Top -->
         <div class="header-top">
             <div class="auto-container clearfix">
@@ -21,8 +30,9 @@
                 <div class="outer-box clearfix">
                 
                     <!--Btn Box-->
-                    <div class="btn-box btn-contact-link">
-                        <a href="/nous-contacter" class="theme-btn donate-btn"><?php echo option_get_config_value('title_contact') ?></a>
+                    <div class="btn-contact-link">
+                        <a href="<?php echo home_url( '/nous-contacter' ) ?>" class="theme-btn donate-btn">
+                        <?php echo option_get_config_value('title_contact') ?></a>
                     </div>
                     
                     <!-- Main Menu -->

@@ -20,7 +20,7 @@
             <div class="content-box">
                 <h3><a href="<?php the_permalink(); ?>"><?php echo mb_strimwidth(get_the_title(), 0, 30, "..."); ?></a></h3>
                 <div class="post-info clearfix">
-                    <div class="post-author"><?php echo get_the_author(); ?></div>
+                    <div class="post-author"><?php echo get_the_author_meta('last_name'); ?> <?php echo get_the_author_meta('first_name'); ?></div>
                     <div class="post-options clearfix">
                         <a href="<?php the_permalink(); ?>" class="comments-count"><span class="icon flaticon-communication-2"></span> <?php echo $post->comment_count; ?></a>
                     </div>

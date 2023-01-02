@@ -49,7 +49,7 @@
 					}
 				?>
 				<div class="post-info clearfix">
-					<?php echo '<div class="post-author">Posted by '.get_the_author().'</div>'; ?>
+					<?php echo '<div class="post-author">Posted by '.get_the_author_meta('last_name').' '.get_the_author_meta('first_name').'</div>'; ?>
                 </div>
 			</header><!-- .entry-header -->
 			<?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>

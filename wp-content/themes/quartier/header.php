@@ -22,7 +22,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> data-attr-hab="<?php echo option_get_config_value('boolean_rd'); ?>" data-attr-hab-info="<?php echo option_get_config_value('boolean_rd_sm'); ?>">
+<body <?php body_class(); ?>>
 	<!-- Preloader -->
     <div class="preloader"></div>
 <?php include 'include/header.php' ?>

@@ -1,0 +1,92 @@
+.pdp_service {
+    display: flex;
+    padding: 0 0 30px;
+
+    &--prestation {
+        flex-wrap: wrap;
+        
+        .item-presta {
+            width: 100%;
+            display: flex;
+            padding: 60px 30px;
+
+            @include mbLarge {
+                padding: 30px;
+                flex-direction: column; 
+                flex-wrap: nowrap;
+            }
+            &:nth-child(even) {
+                background-color: #f5f5f5;
+            }
+        }
+    }
+
+    @include mbLarge {
+        flex-wrap: wrap;
+    }
+}
+
+.ct_pd {
+    width: 50%;
+    padding: 0 40px;
+
+    @include mbLarge {
+        width: 100%;
+    }
+   &.ct_pdp_img {
+    
+    @include mbLarge {
+        padding: 0;
+    }
+    img {
+        width: 100%;
+    }
+   }
+   &.ct_pdp_txt {
+       @include mbLarge {
+           padding: 30px 0 0;
+       }
+    p {
+        color: $txtScd;
+        font-size: 16px;
+    }
+   }
+
+   .ttl_ct_pd {
+       padding-bottom: 24px;
+       color: $primarymya2;
+       font-size: 30px !important;
+   }
+
+   .ttl_price_pd {
+       font-weight: bold; 
+        color: $ctaSubmit;
+        padding: 0 0 24px 0;
+        margin: 0;
+        font-size: 30px;
+   }
+
+   .ttl-cta-payment {
+       display: inline-block; 
+       min-width: 350px; 
+       padding: 15px 0;
+       background-color: $ctaSubmit;
+       color: $white;
+       border-radius: 5px;
+       text-align: center;
+       font-weight: bold;
+       text-transform: uppercase;
+       font-size: 22px;
+       letter-spacing: 1px;
+       margin-top: 30px;
+       &:hover {
+           background: $hoverCtaSubmit;
+       }
+   }
+
+   .container-ttl {
+       @include mbLarge {
+           text-align: center;
+       }
+   }
+}

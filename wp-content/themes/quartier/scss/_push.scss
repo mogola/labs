@@ -1,0 +1,80 @@
+.page-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form_devis {
+    order: 2;
+
+    .title_devis {
+        padding-top: 30px;
+        padding-bottom: 0;
+        font-size:24px;
+        font-weight: bold;
+        color: $primarymya2;
+    }
+}
+.content-ms { 
+    display: flex;
+    align-items: stretch;
+    order: 1;
+
+    @include mbLarge {
+        flex-wrap: wrap;
+    }
+
+    &.containt-main-ms{
+
+    }
+	.flex-ms-content { 
+        text-align: center;
+        padding: 20px;
+        min-width: 25%;
+        align-items: end;
+        display: flex;
+        flex-wrap: wrap;
+
+        &:nth-child(even) {
+           border: 34px solid $primarymya2;
+        }
+        &:nth-child(odd) {
+            border: 34px solid $pushEven;
+        }
+		.content-info-ms { 
+            width: 100%;
+
+           .title-info-ms {
+                font-size: 18px;
+                padding-top: 14px;
+                font-weight: normal;
+                padding-bottom: 15px;
+                color: $txtScd;
+           }
+
+			.cta-ms-push { 
+				.cta-link-ms { 
+                    background: $bgBanner;
+                    display: inline-block;
+                    height: 40px;
+                    display: flex; 
+                    align-items: center;
+                    justify-content: center; 
+                    color: #fff;
+                    border-radius: 8px;
+                    max-width: 300px;
+                    font-size: 20px;
+                    margin: 0 auto;
+                    text-transform: initial;
+                    font-size: 14px;
+                    font-weight: normal;
+                    letter-spacing: 1px;
+                    font-family: 'Raleway';                
+				}
+			}
+		}
+	}
+}
+
+.cta-link-ms { 
+}
