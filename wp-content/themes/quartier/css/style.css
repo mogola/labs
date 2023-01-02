@@ -4826,6 +4826,7 @@ html .btn-style-two:hover {
 .default-featured-column .inner-box {
   position: relative;
   background: #ffffff;
+  max-width: 80%;
 }
 
 .default-featured-column .image-box {
@@ -5902,7 +5903,7 @@ html .btn-style-two:hover {
   .single .blog-news-column .news-date {
     transform: scale(0.5);
     -webkit-transform: scale(0.5);
-    right: -42px !important;
+    right: 0 !important;
     top: -42px;
   }
 }
@@ -5943,11 +5944,17 @@ html .btn-style-two:hover {
 .blog-news-column .content-box {
   position: relative;
   padding: 20px;
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
-  top: -130px;
+  margin-top: -130px;
   background: #fff;
   box-sizing: border-box;
+}
+
+@media (max-width: 1149px) {
+  .blog-news-column .content-box {
+    margin-top: -30px;
+  }
 }
 
 .category .blog-news-column .content-box {

@@ -423,7 +423,7 @@ footer .wpcf7 p {
     background: transparent !important;
   }
   html .main-menu .collapse .navigation li.current-menu-item a, html .main-menu .collapse .navigation li.current a, html .main-menu .collapsing .navigation li.current-menu-item a, html .main-menu .collapsing .navigation li.current a {
-    color: #fff !important;
+    color: #e5aee1 !important;
   }
 }
 
