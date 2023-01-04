@@ -1063,7 +1063,7 @@ $colormenu : #313131;
         -webkit-transition: all 500ms ease;
         -ms-transition: all 500ms ease;
         -o-transition: all 500ms ease;
-        font-family: $futuraMedium;
+        font-family: 'roboto', 'sans-serif';
         letter-spacing: 2px;
       }
       &.dropdown > a {
@@ -1276,6 +1276,7 @@ $colormenu : #313131;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    z-index:1;
     @include mbLarge {
       transform: translate(-50%, -50%);
       left: 50%;
@@ -1374,8 +1375,10 @@ $colormenu : #313131;
     position: relative;
     float: left;
     img {
-      max-width: 226px;
+      max-width: 100%;
       display: inline-block;
+      height: 40px;
+      width: auto;
     }
     @include mbLarge{
       float:none;

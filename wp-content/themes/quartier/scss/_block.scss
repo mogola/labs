@@ -184,6 +184,7 @@ html {
 
         @include mbLarge {
             font-size: 15px;
+            max-width: 85%;
         }
         &:before {
             content: "";
@@ -317,9 +318,9 @@ html {
         position: relative;
         text-align: center;
         height: 700px;
-        background-attachment:fixed;
+        background-attachment:initial;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 100%;
         
         &-landing {
             height: 100vh !important;
@@ -1066,9 +1067,20 @@ html {
                 margin: 40px auto;
                 display: block;
                 position: relative;
+                &.normal {
+                    background: transparent;
+                    position: static;
 
+                    @include mbLarge {
+                        position: initial;
+                        padding: 0;
+                        margin-top: 0;
+                    }
+                }
                 @include mbLarge {
                     position: initial;
+                    padding: 0;
+                    margin-top: 0;
                 }
                 .wp-block-column {
                     padding: 24px;
@@ -1082,6 +1094,10 @@ html {
                         height: 95%;
                         overflow-x: hidden;
 
+                        &.normal {
+                            overflow: auto;
+                            position: static;
+                        }
                         @include mbLarge {
                             position: static;
                             width: 100%;
@@ -1096,6 +1112,12 @@ html {
                             display: none;
                             width: 100%;
                             box-shadow: inset 0 20px -33px rgba(0,0,0,0.8);
+                        }
+                    }
+
+                    &.normal {
+                        &:after {
+                            display: none;
                         }
                     }
                 }
@@ -1137,7 +1159,27 @@ html {
         background:#272727;
         padding: 72px;
 
-        
+        &.normal {
+            background: transparent;
+            display: flex !important;
+            padding: 0;
+            @include mbLarge {
+                display: block !important;
+                margin:0 !important;
+            }
+            .wp-block-column {
+                &:before, &:after {
+                    display: none;
+                }
+
+                position: static !important;
+                background: transparent !important;
+
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
 
         @include mbLarge {
             margin: 30px auto;
@@ -1211,9 +1253,20 @@ html {
         @include mbLarge {
             padding-top: 0 !important;
         }
+        .form_devis {
+            max-width: $widthDesktopOptimize;
+            padding: 40px 0;
 
+            @include mbLarge {
+                padding-right: 24px;
+                padding-left: 24px;
+            }
+        }
         .default-section {
-            padding: 40px;
+            padding: 0;
+            .auto-container {
+                max-width: 100%;
+            }
         }
         .entry-content {
 
@@ -1225,13 +1278,34 @@ html {
         .block-engage {
             width: 100%;
             clear: both;
-            max-width: $widthDesktopOptimize;
-            margin: 0 auto 30px;
+            max-width: 100%;
+            margin: 0 auto;
+            background: $primarymya;
+            .row {
+                margin: 0 auto !important;
+                max-width: $widthDesktopOptimize;
+                > div {
+                    &:first-child{
+                        width: 100%;
+                        + div {
+                            margin: 0 auto;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
             
             .title-mya {
                 @include mbLarge {
                     text-align: center;
                     font-weight: bold;
+                    margin-bottom: 0 !important;
+                    span {
+                        font-size: 17px !important;
+                    }
                 }
 
                 .fs-24 {
@@ -1248,14 +1322,15 @@ html {
 
             .lh-30 {
                 padding: 0;
-                font-size: 25px ​!important;
+                font-size: 13px !important;
+                padding: 10px 0 0;
+                color: $white;
                 @include mbLarge {
                     padding-bottom: 15px;
                 }
             }
 
             .count-text {
-                max-width: 190px;
                 display: inline-block;
                 font-size: 16px;
                 line-height: 25px;
@@ -1268,7 +1343,7 @@ html {
             .two-column-fluid.style-two {
                 min-height: auto;
                 display: flex;
-                background: #fff;
+                background: transparent;
                 align-items: stretch;
                 width: 100%;
                 @include mbLarge {
@@ -1289,10 +1364,20 @@ html {
 
                     .lower-box {
                         border: 0 none;
+                        
+                        .title {
+                            color: $white;
+                            font-size: 12px;
+                            font-weight: bold;
+                            letter-spacing: 2px;
+                        }
                     }
                     .icon {
                         display: inline-block;
                         width: auto;
+                        color: $white;
+                        margin: 8px 0 0;
+                        font-size: 25px;
                     }
                 }
             }
@@ -1455,16 +1540,30 @@ html {
 body:not(.reference){
     .page-services {
         .wp-block-columns {
-            margin: 40px auto;
+            margin: 0 auto;
             display: block;
             position: relative;
 
             @include mbLarge {
                 position: initial;
+                margin-left: -24px;
+                margin-right: -24px;
+
+                &.normal {
+                    margin-top:0 !important;
+                    padding: 0 !important;
+                    
+                    .wp-block-column {
+                        padding: 24px 0;
+                        + .wp-block-column {
+                            padding-top:0 !important;
+                            margin-top:0 !important;
+                        }
+                    }
+
+                }
             }
             .wp-block-column {
-                padding: 24px;
-
                 + .wp-block-column {
                     top: 20px;
                     left: 537px;
